@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Domain\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FlexiMvvm.Bindings.PreRelease" Version="0.10.6-prerelease" />
+    <PackageReference Include="FlexiMvvm.Common.PreRelease" Version="0.10.6-prerelease" />
+    <PackageReference Include="FlexiMvvm.Essentials.PreRelease" Version="0.10.6-prerelease" />
+    <PackageReference Include="FlexiMvvm.Lifecycle.PreRelease" Version="0.10.6-prerelease" />
+    <PackageReference Include="FlexiMvvm.Validation.PreRelease" Version="0.10.6-prerelease" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
+  </ItemGroup>
+
+</Project>
