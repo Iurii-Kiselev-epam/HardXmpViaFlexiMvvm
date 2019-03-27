@@ -1,6 +1,4 @@
-﻿using FlexiMvvm.Bootstrappers;
-using FlexiMvvm.Ioc;
-using Foundation;
+﻿using Foundation;
 using UIKit;
 using VacationsTracker.Core.Bootstrappers;
 using VacationsTracker.iOS.Bootstrappers;
@@ -23,12 +21,7 @@ namespace VacationsTracker.iOS
 
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
-            var config = new BootstrapperConfig();
-            config.SetSimpleIoc(new SimpleIoc());
-            var compositeBootstrapper = new CompositeBootstrapper(
-                new CoreBootstrapper(),
-                new IosBootstrapper());
-            compositeBootstrapper.Execute(config);
+            BootstrapRunner.Run(() => new IosBootstrapper());
 
             Window = new UIWindow(UIScreen.MainScreen.Bounds)
             {

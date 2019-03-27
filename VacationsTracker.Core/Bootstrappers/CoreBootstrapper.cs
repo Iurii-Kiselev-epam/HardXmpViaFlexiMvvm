@@ -30,7 +30,7 @@ namespace VacationsTracker.Core.Bootstrappers
         private void SetupViewModelLocator(ISimpleIoc simpleIoc)
         {
             simpleIoc.Register(() => new EntryViewModel(simpleIoc.Get<INavigationService>()));
-            simpleIoc.Register(() => new LoginViewModel());
+            simpleIoc.Register(() => new LoginViewModel(simpleIoc.Get<INavigationService>()));
         }
 
         private void SetupViewModelProvider(IDependencyProvider dependencyProvider)

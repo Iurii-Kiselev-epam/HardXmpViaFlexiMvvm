@@ -1,34 +1,29 @@
 ﻿using Android.App;
-using Android.OS;
-using FlexiMvvm.Bootstrappers;
-using FlexiMvvm.Ioc;
 using FlexiMvvm.Views;
-using Plugin.CurrentActivity;
-using VacationsTracker.Android.Bootstrappers;
-using VacationsTracker.Core.Bootstrappers;
+using System.Threading.Tasks;
 using VacationsTracker.Core.Presentation.ViewModels;
 
 namespace VacationsTracker.Android.Views
 {
     [Activity(
+        Theme = "@style/SplashTheme",
         MainLauncher = true,
         NoHistory = true)]
     public class SplashScreenActivity : AppCompatActivity<EntryViewModel>
     {
-        protected override void OnCreate(Bundle savedInstanceState)
+        const int SplashDelayInMS = 3000;
+
+        protected override void OnResume()
         {
-            CrossCurrentActivity.Current.Init(this, savedInstanceState);
-
-            var config = new BootstrapperConfig();
-            config.SetSimpleIoc(new SimpleIoc());
-
-            var compositeBootstrapper = new CompositeBootstrapper(
-                new CoreBootstrapper(),
-                new AndroidBootstrapper());
-
-            compositeBootstrapper.Execute(config);
-
-            base.OnCreate(savedInstanceState);
+            base.OnResume();
+            Task.Factory.StartNew(DoStartup);
         }
+
+        public override void OnBackPressed()
+        {
+            // nothing do to prevent the back button from canceling the startup process
+        }
+
+        async void DoStartup() => await Task.Delay(SplashDelayInMS);
     }
 }
