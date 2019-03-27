@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("VacationsTracker.Android.Resource", IsApplication=true)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("VacationsTracker.Droid.Resource", IsApplication=true)]
 
-namespace VacationsTracker.Android
+namespace VacationsTracker.Droid
 {
 	
 	
@@ -26,108 +26,108 @@ namespace VacationsTracker.Android
 		
 		public static void UpdateIdValues()
 		{
-			global::Xamarin.Essentials.Resource.Attribute.font = global::VacationsTracker.Android.Resource.Attribute.font;
-			global::Xamarin.Essentials.Resource.Attribute.fontProviderAuthority = global::VacationsTracker.Android.Resource.Attribute.fontProviderAuthority;
-			global::Xamarin.Essentials.Resource.Attribute.fontProviderCerts = global::VacationsTracker.Android.Resource.Attribute.fontProviderCerts;
-			global::Xamarin.Essentials.Resource.Attribute.fontProviderFetchStrategy = global::VacationsTracker.Android.Resource.Attribute.fontProviderFetchStrategy;
-			global::Xamarin.Essentials.Resource.Attribute.fontProviderFetchTimeout = global::VacationsTracker.Android.Resource.Attribute.fontProviderFetchTimeout;
-			global::Xamarin.Essentials.Resource.Attribute.fontProviderPackage = global::VacationsTracker.Android.Resource.Attribute.fontProviderPackage;
-			global::Xamarin.Essentials.Resource.Attribute.fontProviderQuery = global::VacationsTracker.Android.Resource.Attribute.fontProviderQuery;
-			global::Xamarin.Essentials.Resource.Attribute.fontStyle = global::VacationsTracker.Android.Resource.Attribute.fontStyle;
-			global::Xamarin.Essentials.Resource.Attribute.fontWeight = global::VacationsTracker.Android.Resource.Attribute.fontWeight;
-			global::Xamarin.Essentials.Resource.Boolean.abc_action_bar_embed_tabs = global::VacationsTracker.Android.Resource.Boolean.abc_action_bar_embed_tabs;
-			global::Xamarin.Essentials.Resource.Color.notification_action_color_filter = global::VacationsTracker.Android.Resource.Color.notification_action_color_filter;
-			global::Xamarin.Essentials.Resource.Color.notification_icon_bg_color = global::VacationsTracker.Android.Resource.Color.notification_icon_bg_color;
-			global::Xamarin.Essentials.Resource.Color.ripple_material_light = global::VacationsTracker.Android.Resource.Color.ripple_material_light;
-			global::Xamarin.Essentials.Resource.Color.secondary_text_default_material_light = global::VacationsTracker.Android.Resource.Color.secondary_text_default_material_light;
-			global::Xamarin.Essentials.Resource.Dimension.compat_button_inset_horizontal_material = global::VacationsTracker.Android.Resource.Dimension.compat_button_inset_horizontal_material;
-			global::Xamarin.Essentials.Resource.Dimension.compat_button_inset_vertical_material = global::VacationsTracker.Android.Resource.Dimension.compat_button_inset_vertical_material;
-			global::Xamarin.Essentials.Resource.Dimension.compat_button_padding_horizontal_material = global::VacationsTracker.Android.Resource.Dimension.compat_button_padding_horizontal_material;
-			global::Xamarin.Essentials.Resource.Dimension.compat_button_padding_vertical_material = global::VacationsTracker.Android.Resource.Dimension.compat_button_padding_vertical_material;
-			global::Xamarin.Essentials.Resource.Dimension.compat_control_corner_material = global::VacationsTracker.Android.Resource.Dimension.compat_control_corner_material;
-			global::Xamarin.Essentials.Resource.Dimension.notification_action_icon_size = global::VacationsTracker.Android.Resource.Dimension.notification_action_icon_size;
-			global::Xamarin.Essentials.Resource.Dimension.notification_action_text_size = global::VacationsTracker.Android.Resource.Dimension.notification_action_text_size;
-			global::Xamarin.Essentials.Resource.Dimension.notification_big_circle_margin = global::VacationsTracker.Android.Resource.Dimension.notification_big_circle_margin;
-			global::Xamarin.Essentials.Resource.Dimension.notification_content_margin_start = global::VacationsTracker.Android.Resource.Dimension.notification_content_margin_start;
-			global::Xamarin.Essentials.Resource.Dimension.notification_large_icon_height = global::VacationsTracker.Android.Resource.Dimension.notification_large_icon_height;
-			global::Xamarin.Essentials.Resource.Dimension.notification_large_icon_width = global::VacationsTracker.Android.Resource.Dimension.notification_large_icon_width;
-			global::Xamarin.Essentials.Resource.Dimension.notification_main_column_padding_top = global::VacationsTracker.Android.Resource.Dimension.notification_main_column_padding_top;
-			global::Xamarin.Essentials.Resource.Dimension.notification_media_narrow_margin = global::VacationsTracker.Android.Resource.Dimension.notification_media_narrow_margin;
-			global::Xamarin.Essentials.Resource.Dimension.notification_right_icon_size = global::VacationsTracker.Android.Resource.Dimension.notification_right_icon_size;
-			global::Xamarin.Essentials.Resource.Dimension.notification_right_side_padding_top = global::VacationsTracker.Android.Resource.Dimension.notification_right_side_padding_top;
-			global::Xamarin.Essentials.Resource.Dimension.notification_small_icon_background_padding = global::VacationsTracker.Android.Resource.Dimension.notification_small_icon_background_padding;
-			global::Xamarin.Essentials.Resource.Dimension.notification_small_icon_size_as_large = global::VacationsTracker.Android.Resource.Dimension.notification_small_icon_size_as_large;
-			global::Xamarin.Essentials.Resource.Dimension.notification_subtext_size = global::VacationsTracker.Android.Resource.Dimension.notification_subtext_size;
-			global::Xamarin.Essentials.Resource.Dimension.notification_top_pad = global::VacationsTracker.Android.Resource.Dimension.notification_top_pad;
-			global::Xamarin.Essentials.Resource.Dimension.notification_top_pad_large_text = global::VacationsTracker.Android.Resource.Dimension.notification_top_pad_large_text;
-			global::Xamarin.Essentials.Resource.Drawable.notification_action_background = global::VacationsTracker.Android.Resource.Drawable.notification_action_background;
-			global::Xamarin.Essentials.Resource.Drawable.notification_bg = global::VacationsTracker.Android.Resource.Drawable.notification_bg;
-			global::Xamarin.Essentials.Resource.Drawable.notification_bg_low = global::VacationsTracker.Android.Resource.Drawable.notification_bg_low;
-			global::Xamarin.Essentials.Resource.Drawable.notification_bg_low_normal = global::VacationsTracker.Android.Resource.Drawable.notification_bg_low_normal;
-			global::Xamarin.Essentials.Resource.Drawable.notification_bg_low_pressed = global::VacationsTracker.Android.Resource.Drawable.notification_bg_low_pressed;
-			global::Xamarin.Essentials.Resource.Drawable.notification_bg_normal = global::VacationsTracker.Android.Resource.Drawable.notification_bg_normal;
-			global::Xamarin.Essentials.Resource.Drawable.notification_bg_normal_pressed = global::VacationsTracker.Android.Resource.Drawable.notification_bg_normal_pressed;
-			global::Xamarin.Essentials.Resource.Drawable.notification_icon_background = global::VacationsTracker.Android.Resource.Drawable.notification_icon_background;
-			global::Xamarin.Essentials.Resource.Drawable.notification_template_icon_bg = global::VacationsTracker.Android.Resource.Drawable.notification_template_icon_bg;
-			global::Xamarin.Essentials.Resource.Drawable.notification_template_icon_low_bg = global::VacationsTracker.Android.Resource.Drawable.notification_template_icon_low_bg;
-			global::Xamarin.Essentials.Resource.Drawable.notification_tile_bg = global::VacationsTracker.Android.Resource.Drawable.notification_tile_bg;
-			global::Xamarin.Essentials.Resource.Drawable.notify_panel_notification_icon_bg = global::VacationsTracker.Android.Resource.Drawable.notify_panel_notification_icon_bg;
-			global::Xamarin.Essentials.Resource.Id.action_container = global::VacationsTracker.Android.Resource.Id.action_container;
-			global::Xamarin.Essentials.Resource.Id.action_divider = global::VacationsTracker.Android.Resource.Id.action_divider;
-			global::Xamarin.Essentials.Resource.Id.action_image = global::VacationsTracker.Android.Resource.Id.action_image;
-			global::Xamarin.Essentials.Resource.Id.action_text = global::VacationsTracker.Android.Resource.Id.action_text;
-			global::Xamarin.Essentials.Resource.Id.actions = global::VacationsTracker.Android.Resource.Id.actions;
-			global::Xamarin.Essentials.Resource.Id.async = global::VacationsTracker.Android.Resource.Id.async;
-			global::Xamarin.Essentials.Resource.Id.blocking = global::VacationsTracker.Android.Resource.Id.blocking;
-			global::Xamarin.Essentials.Resource.Id.chronometer = global::VacationsTracker.Android.Resource.Id.chronometer;
-			global::Xamarin.Essentials.Resource.Id.forever = global::VacationsTracker.Android.Resource.Id.forever;
-			global::Xamarin.Essentials.Resource.Id.icon = global::VacationsTracker.Android.Resource.Id.icon;
-			global::Xamarin.Essentials.Resource.Id.icon_group = global::VacationsTracker.Android.Resource.Id.icon_group;
-			global::Xamarin.Essentials.Resource.Id.info = global::VacationsTracker.Android.Resource.Id.info;
-			global::Xamarin.Essentials.Resource.Id.italic = global::VacationsTracker.Android.Resource.Id.italic;
-			global::Xamarin.Essentials.Resource.Id.line1 = global::VacationsTracker.Android.Resource.Id.line1;
-			global::Xamarin.Essentials.Resource.Id.line3 = global::VacationsTracker.Android.Resource.Id.line3;
-			global::Xamarin.Essentials.Resource.Id.normal = global::VacationsTracker.Android.Resource.Id.normal;
-			global::Xamarin.Essentials.Resource.Id.notification_background = global::VacationsTracker.Android.Resource.Id.notification_background;
-			global::Xamarin.Essentials.Resource.Id.notification_main_column = global::VacationsTracker.Android.Resource.Id.notification_main_column;
-			global::Xamarin.Essentials.Resource.Id.notification_main_column_container = global::VacationsTracker.Android.Resource.Id.notification_main_column_container;
-			global::Xamarin.Essentials.Resource.Id.right_icon = global::VacationsTracker.Android.Resource.Id.right_icon;
-			global::Xamarin.Essentials.Resource.Id.right_side = global::VacationsTracker.Android.Resource.Id.right_side;
-			global::Xamarin.Essentials.Resource.Id.tag_transition_group = global::VacationsTracker.Android.Resource.Id.tag_transition_group;
-			global::Xamarin.Essentials.Resource.Id.text = global::VacationsTracker.Android.Resource.Id.text;
-			global::Xamarin.Essentials.Resource.Id.text2 = global::VacationsTracker.Android.Resource.Id.text2;
-			global::Xamarin.Essentials.Resource.Id.time = global::VacationsTracker.Android.Resource.Id.time;
-			global::Xamarin.Essentials.Resource.Id.title = global::VacationsTracker.Android.Resource.Id.title;
-			global::Xamarin.Essentials.Resource.Integer.status_bar_notification_info_maxnum = global::VacationsTracker.Android.Resource.Integer.status_bar_notification_info_maxnum;
-			global::Xamarin.Essentials.Resource.Layout.notification_action = global::VacationsTracker.Android.Resource.Layout.notification_action;
-			global::Xamarin.Essentials.Resource.Layout.notification_action_tombstone = global::VacationsTracker.Android.Resource.Layout.notification_action_tombstone;
-			global::Xamarin.Essentials.Resource.Layout.notification_template_custom_big = global::VacationsTracker.Android.Resource.Layout.notification_template_custom_big;
-			global::Xamarin.Essentials.Resource.Layout.notification_template_icon_group = global::VacationsTracker.Android.Resource.Layout.notification_template_icon_group;
-			global::Xamarin.Essentials.Resource.Layout.notification_template_part_chronometer = global::VacationsTracker.Android.Resource.Layout.notification_template_part_chronometer;
-			global::Xamarin.Essentials.Resource.Layout.notification_template_part_time = global::VacationsTracker.Android.Resource.Layout.notification_template_part_time;
-			global::Xamarin.Essentials.Resource.String.status_bar_notification_info_overflow = global::VacationsTracker.Android.Resource.String.status_bar_notification_info_overflow;
-			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification = global::VacationsTracker.Android.Resource.Style.TextAppearance_Compat_Notification;
-			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Info = global::VacationsTracker.Android.Resource.Style.TextAppearance_Compat_Notification_Info;
-			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Line2 = global::VacationsTracker.Android.Resource.Style.TextAppearance_Compat_Notification_Line2;
-			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Time = global::VacationsTracker.Android.Resource.Style.TextAppearance_Compat_Notification_Time;
-			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Title = global::VacationsTracker.Android.Resource.Style.TextAppearance_Compat_Notification_Title;
-			global::Xamarin.Essentials.Resource.Style.Widget_Compat_NotificationActionContainer = global::VacationsTracker.Android.Resource.Style.Widget_Compat_NotificationActionContainer;
-			global::Xamarin.Essentials.Resource.Style.Widget_Compat_NotificationActionText = global::VacationsTracker.Android.Resource.Style.Widget_Compat_NotificationActionText;
-			global::Xamarin.Essentials.Resource.Xml.xamarin_essentials_fileprovider_file_paths = global::VacationsTracker.Android.Resource.Xml.xamarin_essentials_fileprovider_file_paths;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamily = global::VacationsTracker.Android.Resource.Styleable.FontFamily;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderAuthority = global::VacationsTracker.Android.Resource.Styleable.FontFamily_fontProviderAuthority;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderCerts = global::VacationsTracker.Android.Resource.Styleable.FontFamily_fontProviderCerts;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderFetchStrategy = global::VacationsTracker.Android.Resource.Styleable.FontFamily_fontProviderFetchStrategy;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::VacationsTracker.Android.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderPackage = global::VacationsTracker.Android.Resource.Styleable.FontFamily_fontProviderPackage;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderQuery = global::VacationsTracker.Android.Resource.Styleable.FontFamily_fontProviderQuery;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont = global::VacationsTracker.Android.Resource.Styleable.FontFamilyFont;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_android_font = global::VacationsTracker.Android.Resource.Styleable.FontFamilyFont_android_font;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_android_fontStyle = global::VacationsTracker.Android.Resource.Styleable.FontFamilyFont_android_fontStyle;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_android_fontWeight = global::VacationsTracker.Android.Resource.Styleable.FontFamilyFont_android_fontWeight;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_font = global::VacationsTracker.Android.Resource.Styleable.FontFamilyFont_font;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_fontStyle = global::VacationsTracker.Android.Resource.Styleable.FontFamilyFont_fontStyle;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_fontWeight = global::VacationsTracker.Android.Resource.Styleable.FontFamilyFont_fontWeight;
+			global::Xamarin.Essentials.Resource.Attribute.font = global::VacationsTracker.Droid.Resource.Attribute.font;
+			global::Xamarin.Essentials.Resource.Attribute.fontProviderAuthority = global::VacationsTracker.Droid.Resource.Attribute.fontProviderAuthority;
+			global::Xamarin.Essentials.Resource.Attribute.fontProviderCerts = global::VacationsTracker.Droid.Resource.Attribute.fontProviderCerts;
+			global::Xamarin.Essentials.Resource.Attribute.fontProviderFetchStrategy = global::VacationsTracker.Droid.Resource.Attribute.fontProviderFetchStrategy;
+			global::Xamarin.Essentials.Resource.Attribute.fontProviderFetchTimeout = global::VacationsTracker.Droid.Resource.Attribute.fontProviderFetchTimeout;
+			global::Xamarin.Essentials.Resource.Attribute.fontProviderPackage = global::VacationsTracker.Droid.Resource.Attribute.fontProviderPackage;
+			global::Xamarin.Essentials.Resource.Attribute.fontProviderQuery = global::VacationsTracker.Droid.Resource.Attribute.fontProviderQuery;
+			global::Xamarin.Essentials.Resource.Attribute.fontStyle = global::VacationsTracker.Droid.Resource.Attribute.fontStyle;
+			global::Xamarin.Essentials.Resource.Attribute.fontWeight = global::VacationsTracker.Droid.Resource.Attribute.fontWeight;
+			global::Xamarin.Essentials.Resource.Boolean.abc_action_bar_embed_tabs = global::VacationsTracker.Droid.Resource.Boolean.abc_action_bar_embed_tabs;
+			global::Xamarin.Essentials.Resource.Color.notification_action_color_filter = global::VacationsTracker.Droid.Resource.Color.notification_action_color_filter;
+			global::Xamarin.Essentials.Resource.Color.notification_icon_bg_color = global::VacationsTracker.Droid.Resource.Color.notification_icon_bg_color;
+			global::Xamarin.Essentials.Resource.Color.ripple_material_light = global::VacationsTracker.Droid.Resource.Color.ripple_material_light;
+			global::Xamarin.Essentials.Resource.Color.secondary_text_default_material_light = global::VacationsTracker.Droid.Resource.Color.secondary_text_default_material_light;
+			global::Xamarin.Essentials.Resource.Dimension.compat_button_inset_horizontal_material = global::VacationsTracker.Droid.Resource.Dimension.compat_button_inset_horizontal_material;
+			global::Xamarin.Essentials.Resource.Dimension.compat_button_inset_vertical_material = global::VacationsTracker.Droid.Resource.Dimension.compat_button_inset_vertical_material;
+			global::Xamarin.Essentials.Resource.Dimension.compat_button_padding_horizontal_material = global::VacationsTracker.Droid.Resource.Dimension.compat_button_padding_horizontal_material;
+			global::Xamarin.Essentials.Resource.Dimension.compat_button_padding_vertical_material = global::VacationsTracker.Droid.Resource.Dimension.compat_button_padding_vertical_material;
+			global::Xamarin.Essentials.Resource.Dimension.compat_control_corner_material = global::VacationsTracker.Droid.Resource.Dimension.compat_control_corner_material;
+			global::Xamarin.Essentials.Resource.Dimension.notification_action_icon_size = global::VacationsTracker.Droid.Resource.Dimension.notification_action_icon_size;
+			global::Xamarin.Essentials.Resource.Dimension.notification_action_text_size = global::VacationsTracker.Droid.Resource.Dimension.notification_action_text_size;
+			global::Xamarin.Essentials.Resource.Dimension.notification_big_circle_margin = global::VacationsTracker.Droid.Resource.Dimension.notification_big_circle_margin;
+			global::Xamarin.Essentials.Resource.Dimension.notification_content_margin_start = global::VacationsTracker.Droid.Resource.Dimension.notification_content_margin_start;
+			global::Xamarin.Essentials.Resource.Dimension.notification_large_icon_height = global::VacationsTracker.Droid.Resource.Dimension.notification_large_icon_height;
+			global::Xamarin.Essentials.Resource.Dimension.notification_large_icon_width = global::VacationsTracker.Droid.Resource.Dimension.notification_large_icon_width;
+			global::Xamarin.Essentials.Resource.Dimension.notification_main_column_padding_top = global::VacationsTracker.Droid.Resource.Dimension.notification_main_column_padding_top;
+			global::Xamarin.Essentials.Resource.Dimension.notification_media_narrow_margin = global::VacationsTracker.Droid.Resource.Dimension.notification_media_narrow_margin;
+			global::Xamarin.Essentials.Resource.Dimension.notification_right_icon_size = global::VacationsTracker.Droid.Resource.Dimension.notification_right_icon_size;
+			global::Xamarin.Essentials.Resource.Dimension.notification_right_side_padding_top = global::VacationsTracker.Droid.Resource.Dimension.notification_right_side_padding_top;
+			global::Xamarin.Essentials.Resource.Dimension.notification_small_icon_background_padding = global::VacationsTracker.Droid.Resource.Dimension.notification_small_icon_background_padding;
+			global::Xamarin.Essentials.Resource.Dimension.notification_small_icon_size_as_large = global::VacationsTracker.Droid.Resource.Dimension.notification_small_icon_size_as_large;
+			global::Xamarin.Essentials.Resource.Dimension.notification_subtext_size = global::VacationsTracker.Droid.Resource.Dimension.notification_subtext_size;
+			global::Xamarin.Essentials.Resource.Dimension.notification_top_pad = global::VacationsTracker.Droid.Resource.Dimension.notification_top_pad;
+			global::Xamarin.Essentials.Resource.Dimension.notification_top_pad_large_text = global::VacationsTracker.Droid.Resource.Dimension.notification_top_pad_large_text;
+			global::Xamarin.Essentials.Resource.Drawable.notification_action_background = global::VacationsTracker.Droid.Resource.Drawable.notification_action_background;
+			global::Xamarin.Essentials.Resource.Drawable.notification_bg = global::VacationsTracker.Droid.Resource.Drawable.notification_bg;
+			global::Xamarin.Essentials.Resource.Drawable.notification_bg_low = global::VacationsTracker.Droid.Resource.Drawable.notification_bg_low;
+			global::Xamarin.Essentials.Resource.Drawable.notification_bg_low_normal = global::VacationsTracker.Droid.Resource.Drawable.notification_bg_low_normal;
+			global::Xamarin.Essentials.Resource.Drawable.notification_bg_low_pressed = global::VacationsTracker.Droid.Resource.Drawable.notification_bg_low_pressed;
+			global::Xamarin.Essentials.Resource.Drawable.notification_bg_normal = global::VacationsTracker.Droid.Resource.Drawable.notification_bg_normal;
+			global::Xamarin.Essentials.Resource.Drawable.notification_bg_normal_pressed = global::VacationsTracker.Droid.Resource.Drawable.notification_bg_normal_pressed;
+			global::Xamarin.Essentials.Resource.Drawable.notification_icon_background = global::VacationsTracker.Droid.Resource.Drawable.notification_icon_background;
+			global::Xamarin.Essentials.Resource.Drawable.notification_template_icon_bg = global::VacationsTracker.Droid.Resource.Drawable.notification_template_icon_bg;
+			global::Xamarin.Essentials.Resource.Drawable.notification_template_icon_low_bg = global::VacationsTracker.Droid.Resource.Drawable.notification_template_icon_low_bg;
+			global::Xamarin.Essentials.Resource.Drawable.notification_tile_bg = global::VacationsTracker.Droid.Resource.Drawable.notification_tile_bg;
+			global::Xamarin.Essentials.Resource.Drawable.notify_panel_notification_icon_bg = global::VacationsTracker.Droid.Resource.Drawable.notify_panel_notification_icon_bg;
+			global::Xamarin.Essentials.Resource.Id.action_container = global::VacationsTracker.Droid.Resource.Id.action_container;
+			global::Xamarin.Essentials.Resource.Id.action_divider = global::VacationsTracker.Droid.Resource.Id.action_divider;
+			global::Xamarin.Essentials.Resource.Id.action_image = global::VacationsTracker.Droid.Resource.Id.action_image;
+			global::Xamarin.Essentials.Resource.Id.action_text = global::VacationsTracker.Droid.Resource.Id.action_text;
+			global::Xamarin.Essentials.Resource.Id.actions = global::VacationsTracker.Droid.Resource.Id.actions;
+			global::Xamarin.Essentials.Resource.Id.async = global::VacationsTracker.Droid.Resource.Id.async;
+			global::Xamarin.Essentials.Resource.Id.blocking = global::VacationsTracker.Droid.Resource.Id.blocking;
+			global::Xamarin.Essentials.Resource.Id.chronometer = global::VacationsTracker.Droid.Resource.Id.chronometer;
+			global::Xamarin.Essentials.Resource.Id.forever = global::VacationsTracker.Droid.Resource.Id.forever;
+			global::Xamarin.Essentials.Resource.Id.icon = global::VacationsTracker.Droid.Resource.Id.icon;
+			global::Xamarin.Essentials.Resource.Id.icon_group = global::VacationsTracker.Droid.Resource.Id.icon_group;
+			global::Xamarin.Essentials.Resource.Id.info = global::VacationsTracker.Droid.Resource.Id.info;
+			global::Xamarin.Essentials.Resource.Id.italic = global::VacationsTracker.Droid.Resource.Id.italic;
+			global::Xamarin.Essentials.Resource.Id.line1 = global::VacationsTracker.Droid.Resource.Id.line1;
+			global::Xamarin.Essentials.Resource.Id.line3 = global::VacationsTracker.Droid.Resource.Id.line3;
+			global::Xamarin.Essentials.Resource.Id.normal = global::VacationsTracker.Droid.Resource.Id.normal;
+			global::Xamarin.Essentials.Resource.Id.notification_background = global::VacationsTracker.Droid.Resource.Id.notification_background;
+			global::Xamarin.Essentials.Resource.Id.notification_main_column = global::VacationsTracker.Droid.Resource.Id.notification_main_column;
+			global::Xamarin.Essentials.Resource.Id.notification_main_column_container = global::VacationsTracker.Droid.Resource.Id.notification_main_column_container;
+			global::Xamarin.Essentials.Resource.Id.right_icon = global::VacationsTracker.Droid.Resource.Id.right_icon;
+			global::Xamarin.Essentials.Resource.Id.right_side = global::VacationsTracker.Droid.Resource.Id.right_side;
+			global::Xamarin.Essentials.Resource.Id.tag_transition_group = global::VacationsTracker.Droid.Resource.Id.tag_transition_group;
+			global::Xamarin.Essentials.Resource.Id.text = global::VacationsTracker.Droid.Resource.Id.text;
+			global::Xamarin.Essentials.Resource.Id.text2 = global::VacationsTracker.Droid.Resource.Id.text2;
+			global::Xamarin.Essentials.Resource.Id.time = global::VacationsTracker.Droid.Resource.Id.time;
+			global::Xamarin.Essentials.Resource.Id.title = global::VacationsTracker.Droid.Resource.Id.title;
+			global::Xamarin.Essentials.Resource.Integer.status_bar_notification_info_maxnum = global::VacationsTracker.Droid.Resource.Integer.status_bar_notification_info_maxnum;
+			global::Xamarin.Essentials.Resource.Layout.notification_action = global::VacationsTracker.Droid.Resource.Layout.notification_action;
+			global::Xamarin.Essentials.Resource.Layout.notification_action_tombstone = global::VacationsTracker.Droid.Resource.Layout.notification_action_tombstone;
+			global::Xamarin.Essentials.Resource.Layout.notification_template_custom_big = global::VacationsTracker.Droid.Resource.Layout.notification_template_custom_big;
+			global::Xamarin.Essentials.Resource.Layout.notification_template_icon_group = global::VacationsTracker.Droid.Resource.Layout.notification_template_icon_group;
+			global::Xamarin.Essentials.Resource.Layout.notification_template_part_chronometer = global::VacationsTracker.Droid.Resource.Layout.notification_template_part_chronometer;
+			global::Xamarin.Essentials.Resource.Layout.notification_template_part_time = global::VacationsTracker.Droid.Resource.Layout.notification_template_part_time;
+			global::Xamarin.Essentials.Resource.String.status_bar_notification_info_overflow = global::VacationsTracker.Droid.Resource.String.status_bar_notification_info_overflow;
+			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification = global::VacationsTracker.Droid.Resource.Style.TextAppearance_Compat_Notification;
+			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Info = global::VacationsTracker.Droid.Resource.Style.TextAppearance_Compat_Notification_Info;
+			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Line2 = global::VacationsTracker.Droid.Resource.Style.TextAppearance_Compat_Notification_Line2;
+			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Time = global::VacationsTracker.Droid.Resource.Style.TextAppearance_Compat_Notification_Time;
+			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Title = global::VacationsTracker.Droid.Resource.Style.TextAppearance_Compat_Notification_Title;
+			global::Xamarin.Essentials.Resource.Style.Widget_Compat_NotificationActionContainer = global::VacationsTracker.Droid.Resource.Style.Widget_Compat_NotificationActionContainer;
+			global::Xamarin.Essentials.Resource.Style.Widget_Compat_NotificationActionText = global::VacationsTracker.Droid.Resource.Style.Widget_Compat_NotificationActionText;
+			global::Xamarin.Essentials.Resource.Xml.xamarin_essentials_fileprovider_file_paths = global::VacationsTracker.Droid.Resource.Xml.xamarin_essentials_fileprovider_file_paths;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily = global::VacationsTracker.Droid.Resource.Styleable.FontFamily;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderAuthority = global::VacationsTracker.Droid.Resource.Styleable.FontFamily_fontProviderAuthority;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderCerts = global::VacationsTracker.Droid.Resource.Styleable.FontFamily_fontProviderCerts;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderFetchStrategy = global::VacationsTracker.Droid.Resource.Styleable.FontFamily_fontProviderFetchStrategy;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::VacationsTracker.Droid.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderPackage = global::VacationsTracker.Droid.Resource.Styleable.FontFamily_fontProviderPackage;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderQuery = global::VacationsTracker.Droid.Resource.Styleable.FontFamily_fontProviderQuery;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont = global::VacationsTracker.Droid.Resource.Styleable.FontFamilyFont;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_android_font = global::VacationsTracker.Droid.Resource.Styleable.FontFamilyFont_android_font;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_android_fontStyle = global::VacationsTracker.Droid.Resource.Styleable.FontFamilyFont_android_fontStyle;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_android_fontWeight = global::VacationsTracker.Droid.Resource.Styleable.FontFamilyFont_android_fontWeight;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_font = global::VacationsTracker.Droid.Resource.Styleable.FontFamilyFont_font;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_fontStyle = global::VacationsTracker.Droid.Resource.Styleable.FontFamilyFont_fontStyle;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_fontWeight = global::VacationsTracker.Droid.Resource.Styleable.FontFamilyFont_fontWeight;
 		}
 		
 		public partial class Animation
@@ -2459,8 +2459,8 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f090037
 			public const int SYM = 2131296311;
 			
-			// aapt resource value: 0x7f09009f
-			public const int action0 = 2131296415;
+			// aapt resource value: 0x7f0900a0
+			public const int action0 = 2131296416;
 			
 			// aapt resource value: 0x7f09007c
 			public const int action_bar = 2131296380;
@@ -2483,17 +2483,17 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f09005a
 			public const int action_bar_title = 2131296346;
 			
-			// aapt resource value: 0x7f09009c
-			public const int action_container = 2131296412;
+			// aapt resource value: 0x7f09009d
+			public const int action_container = 2131296413;
 			
 			// aapt resource value: 0x7f09007d
 			public const int action_context_bar = 2131296381;
 			
-			// aapt resource value: 0x7f0900a3
-			public const int action_divider = 2131296419;
+			// aapt resource value: 0x7f0900a4
+			public const int action_divider = 2131296420;
 			
-			// aapt resource value: 0x7f09009d
-			public const int action_image = 2131296413;
+			// aapt resource value: 0x7f09009e
+			public const int action_image = 2131296414;
 			
 			// aapt resource value: 0x7f090003
 			public const int action_menu_divider = 2131296259;
@@ -2510,11 +2510,11 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f09005c
 			public const int action_mode_close_button = 2131296348;
 			
-			// aapt resource value: 0x7f09009e
-			public const int action_text = 2131296414;
+			// aapt resource value: 0x7f09009f
+			public const int action_text = 2131296415;
 			
-			// aapt resource value: 0x7f0900ac
-			public const int actions = 2131296428;
+			// aapt resource value: 0x7f0900ad
+			public const int actions = 2131296429;
 			
 			// aapt resource value: 0x7f09005d
 			public const int activity_chooser_view_content = 2131296349;
@@ -2549,8 +2549,8 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f090063
 			public const int buttonPanel = 2131296355;
 			
-			// aapt resource value: 0x7f0900a0
-			public const int cancel_action = 2131296416;
+			// aapt resource value: 0x7f0900a1
+			public const int cancel_action = 2131296417;
 			
 			// aapt resource value: 0x7f090045
 			public const int center = 2131296325;
@@ -2564,8 +2564,8 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f090073
 			public const int checkbox = 2131296371;
 			
-			// aapt resource value: 0x7f0900a8
-			public const int chronometer = 2131296424;
+			// aapt resource value: 0x7f0900a9
+			public const int chronometer = 2131296425;
 			
 			// aapt resource value: 0x7f09004e
 			public const int clip_horizontal = 2131296334;
@@ -2576,14 +2576,14 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f090039
 			public const int collapseActionView = 2131296313;
 			
-			// aapt resource value: 0x7f090090
-			public const int container = 2131296400;
+			// aapt resource value: 0x7f090091
+			public const int container = 2131296401;
 			
 			// aapt resource value: 0x7f090066
 			public const int contentPanel = 2131296358;
 			
-			// aapt resource value: 0x7f090091
-			public const int coordinator = 2131296401;
+			// aapt resource value: 0x7f090092
+			public const int coordinator = 2131296402;
 			
 			// aapt resource value: 0x7f09006d
 			public const int custom = 2131296365;
@@ -2597,20 +2597,20 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f090060
 			public const int default_activity_button = 2131296352;
 			
-			// aapt resource value: 0x7f090093
-			public const int design_bottom_sheet = 2131296403;
+			// aapt resource value: 0x7f090094
+			public const int design_bottom_sheet = 2131296404;
+			
+			// aapt resource value: 0x7f09009b
+			public const int design_menu_item_action_area = 2131296411;
 			
 			// aapt resource value: 0x7f09009a
-			public const int design_menu_item_action_area = 2131296410;
+			public const int design_menu_item_action_area_stub = 2131296410;
 			
 			// aapt resource value: 0x7f090099
-			public const int design_menu_item_action_area_stub = 2131296409;
+			public const int design_menu_item_text = 2131296409;
 			
 			// aapt resource value: 0x7f090098
-			public const int design_menu_item_text = 2131296408;
-			
-			// aapt resource value: 0x7f090097
-			public const int design_navigation_view = 2131296407;
+			public const int design_navigation_view = 2131296408;
 			
 			// aapt resource value: 0x7f090020
 			public const int disableHome = 2131296288;
@@ -2621,14 +2621,17 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f090030
 			public const int end = 2131296304;
 			
-			// aapt resource value: 0x7f0900ae
-			public const int end_padder = 2131296430;
+			// aapt resource value: 0x7f0900af
+			public const int end_padder = 2131296431;
 			
 			// aapt resource value: 0x7f09003f
 			public const int enterAlways = 2131296319;
 			
 			// aapt resource value: 0x7f090040
 			public const int enterAlwaysCollapsed = 2131296320;
+			
+			// aapt resource value: 0x7f09008b
+			public const int error_text_view = 2131296395;
 			
 			// aapt resource value: 0x7f090041
 			public const int exitUntilCollapsed = 2131296321;
@@ -2666,8 +2669,8 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f090062
 			public const int icon = 2131296354;
 			
-			// aapt resource value: 0x7f0900ad
-			public const int icon_group = 2131296429;
+			// aapt resource value: 0x7f0900ae
+			public const int icon_group = 2131296430;
 			
 			// aapt resource value: 0x7f09003a
 			public const int ifRoom = 2131296314;
@@ -2675,8 +2678,8 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f09005f
 			public const int image = 2131296351;
 			
-			// aapt resource value: 0x7f0900a9
-			public const int info = 2131296425;
+			// aapt resource value: 0x7f0900aa
+			public const int info = 2131296426;
 			
 			// aapt resource value: 0x7f090059
 			public const int italic = 2131296345;
@@ -2684,8 +2687,8 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f090000
 			public const int item_touch_helper_previous_elevation = 2131296256;
 			
-			// aapt resource value: 0x7f09008f
-			public const int largeLabel = 2131296399;
+			// aapt resource value: 0x7f090090
+			public const int largeLabel = 2131296400;
 			
 			// aapt resource value: 0x7f090049
 			public const int left = 2131296329;
@@ -2702,17 +2705,17 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f090061
 			public const int list_item = 2131296353;
 			
-			// aapt resource value: 0x7f09008b
-			public const int login = 2131296395;
+			// aapt resource value: 0x7f09008c
+			public const int login_edit_text = 2131296396;
 			
-			// aapt resource value: 0x7f0900b1
-			public const int masked = 2131296433;
+			// aapt resource value: 0x7f0900b2
+			public const int masked = 2131296434;
 			
-			// aapt resource value: 0x7f0900a2
-			public const int media_actions = 2131296418;
+			// aapt resource value: 0x7f0900a3
+			public const int media_actions = 2131296419;
 			
-			// aapt resource value: 0x7f0900af
-			public const int message = 2131296431;
+			// aapt resource value: 0x7f0900b0
+			public const int message = 2131296432;
 			
 			// aapt resource value: 0x7f090031
 			public const int middle = 2131296305;
@@ -2723,8 +2726,8 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f090028
 			public const int multiply = 2131296296;
 			
-			// aapt resource value: 0x7f090096
-			public const int navigation_header_container = 2131296406;
+			// aapt resource value: 0x7f090097
+			public const int navigation_header_container = 2131296407;
 			
 			// aapt resource value: 0x7f09003b
 			public const int never = 2131296315;
@@ -2735,14 +2738,14 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f09001e
 			public const int normal = 2131296286;
 			
-			// aapt resource value: 0x7f0900ab
-			public const int notification_background = 2131296427;
+			// aapt resource value: 0x7f0900ac
+			public const int notification_background = 2131296428;
+			
+			// aapt resource value: 0x7f0900a6
+			public const int notification_main_column = 2131296422;
 			
 			// aapt resource value: 0x7f0900a5
-			public const int notification_main_column = 2131296421;
-			
-			// aapt resource value: 0x7f0900a4
-			public const int notification_main_column_container = 2131296420;
+			public const int notification_main_column_container = 2131296421;
 			
 			// aapt resource value: 0x7f09004c
 			public const int parallax = 2131296332;
@@ -2753,8 +2756,8 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f09000b
 			public const int parent_matrix = 2131296267;
 			
-			// aapt resource value: 0x7f09008c
-			public const int password = 2131296396;
+			// aapt resource value: 0x7f09008d
+			public const int password_edit_text = 2131296397;
 			
 			// aapt resource value: 0x7f09004d
 			public const int pin = 2131296333;
@@ -2771,11 +2774,11 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f09004a
 			public const int right = 2131296330;
 			
-			// aapt resource value: 0x7f0900aa
-			public const int right_icon = 2131296426;
+			// aapt resource value: 0x7f0900ab
+			public const int right_icon = 2131296427;
 			
-			// aapt resource value: 0x7f0900a6
-			public const int right_side = 2131296422;
+			// aapt resource value: 0x7f0900a7
+			public const int right_side = 2131296423;
 			
 			// aapt resource value: 0x7f09000c
 			public const int save_image_matrix = 2131296268;
@@ -2849,17 +2852,17 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f090025
 			public const int showTitle = 2131296293;
 			
-			// aapt resource value: 0x7f09008d
-			public const int signIn = 2131296397;
-			
 			// aapt resource value: 0x7f09008e
-			public const int smallLabel = 2131296398;
+			public const int sign_in_button = 2131296398;
+			
+			// aapt resource value: 0x7f09008f
+			public const int smallLabel = 2131296399;
+			
+			// aapt resource value: 0x7f090096
+			public const int snackbar_action = 2131296406;
 			
 			// aapt resource value: 0x7f090095
-			public const int snackbar_action = 2131296405;
-			
-			// aapt resource value: 0x7f090094
-			public const int snackbar_text = 2131296404;
+			public const int snackbar_text = 2131296405;
 			
 			// aapt resource value: 0x7f090043
 			public const int snap = 2131296323;
@@ -2882,8 +2885,8 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f09004b
 			public const int start = 2131296331;
 			
-			// aapt resource value: 0x7f0900a1
-			public const int status_bar_latest_event_content = 2131296417;
+			// aapt resource value: 0x7f0900a2
+			public const int status_bar_latest_event_content = 2131296418;
 			
 			// aapt resource value: 0x7f090076
 			public const int submenuarrow = 2131296374;
@@ -2909,8 +2912,8 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f090069
 			public const int textSpacerNoTitle = 2131296361;
 			
-			// aapt resource value: 0x7f09009b
-			public const int text_input_password_toggle = 2131296411;
+			// aapt resource value: 0x7f09009c
+			public const int text_input_password_toggle = 2131296412;
 			
 			// aapt resource value: 0x7f090014
 			public const int textinput_counter = 2131296276;
@@ -2918,8 +2921,8 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f090015
 			public const int textinput_error = 2131296277;
 			
-			// aapt resource value: 0x7f0900a7
-			public const int time = 2131296423;
+			// aapt resource value: 0x7f0900a8
+			public const int time = 2131296424;
 			
 			// aapt resource value: 0x7f09001c
 			public const int title = 2131296284;
@@ -2936,8 +2939,8 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f09006e
 			public const int topPanel = 2131296366;
 			
-			// aapt resource value: 0x7f090092
-			public const int touch_outside = 2131296402;
+			// aapt resource value: 0x7f090093
+			public const int touch_outside = 2131296403;
 			
 			// aapt resource value: 0x7f09000f
 			public const int transition_current_scene = 2131296271;
@@ -2966,8 +2969,8 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f090016
 			public const int view_offset_helper = 2131296278;
 			
-			// aapt resource value: 0x7f0900b0
-			public const int visible = 2131296432;
+			// aapt resource value: 0x7f0900b1
+			public const int visible = 2131296433;
 			
 			// aapt resource value: 0x7f09003c
 			public const int withText = 2131296316;

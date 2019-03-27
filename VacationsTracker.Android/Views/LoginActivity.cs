@@ -1,13 +1,10 @@
 ﻿using Android.App;
-using Android.Graphics;
 using Android.OS;
-using Android.Widget;
-using Android.Views;
 using FlexiMvvm.Bindings;
 using FlexiMvvm.Views;
 using VacationsTracker.Core.Presentation.ViewModels.Login;
 
-namespace VacationsTracker.Android.Views
+namespace VacationsTracker.Droid.Views
 {
     [Activity(
         Theme = "@style/LoginTheme",
@@ -15,68 +12,42 @@ namespace VacationsTracker.Android.Views
         NoHistory = true)]
     public class LoginActivity : BindableAppCompatActivity<LoginViewModel>
     {
-        private EditText _login;
-        private EditText _password;
-        private Button _signIn;
+        private const string LoginErrorMessage =
+            "Please, retry your login and password pair. Check current Caps Lock and input language settings";
+
+        private LoginActivityViewHolder ViewHolder { get; set; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            SetContentView(Resource.Layout.activity_login);
-
-            _login = FindViewById<EditText>(Resource.Id.login);
-            _password = FindViewById<EditText>(Resource.Id.password);
-            _signIn = FindViewById<Button>(Resource.Id.signIn);
-
             base.OnCreate(savedInstanceState);
+            SetContentView(Resource.Layout.activity_login);
+            ViewHolder = new LoginActivityViewHolder(this);
         }
 
         public override void Bind(BindingSet<LoginViewModel> bindingSet)
         {
             base.Bind(bindingSet);
 
-            bindingSet.Bind(_login)
+            bindingSet.Bind(ViewHolder.ErrorTextView)
+                .For(v => v.TextBinding())
+                .To(vm => vm.ErrorMessage);
+
+            // TODO: ask mentor how to work with visibility - how transform bool to ViewState for platform
+            //bindingSet.Bind(ViewHolder.ErrorTextView)
+            //    .For(v => v.VisibilityBinding())
+            //    .To(vm => vm.ErrorMessageVisible);
+
+            bindingSet.Bind(ViewHolder.LoginEditText)
                 .For(v => v.TextAndTextChangedBinding())
                 .To(vm => vm.Login);
 
-            bindingSet.Bind(_password)
+            bindingSet.Bind(ViewHolder.PasswordEditText)
                 .For(v => v.TextAndTextChangedBinding())
                 .To(vm => vm.Password);
 
-            bindingSet.Bind(_signIn)
+            bindingSet.Bind(ViewHolder.SignInButton)
               .For(v => v.ClickBinding())
               .To(vm => vm.SignInCommand);
-
-            ViewModel.LoginFailed += OnLoginFailed; // subscribe on event
-        }
-
-        protected override void OnDestroy()
-        {
-            ViewModel.LoginFailed -= OnLoginFailed; // unsubscribe from event
-            base.OnDestroy();
-        }
-
-        private void OnLoginFailed(object sender, System.EventArgs e)
-        {
-            // only for debug aims
-            if (string.IsNullOrWhiteSpace(ViewModel.Login)
-                || string.IsNullOrWhiteSpace(ViewModel.Password))
-            {
-                // TODO: include fluent validation
-                // ...
-            }
-
-            // TODO: show warning message
-            var toast =Toast.MakeText(this, // ApplicationContext
-                "Please, retry your login and password pair. Check current Caps Lock and input language settings",
-                ToastLength.Long);
-
-            // TODO: set color message (ask mentor)
-            //toast.View.FindViewById<TextView>(Android.Resource.Id.message).SetTextColor(Color.Red);
-
-            // TODO bind to _login text view
-            toast.SetGravity(GravityFlags.Top, 0, 0);
-
-            toast.Show();
         }
     }
 }

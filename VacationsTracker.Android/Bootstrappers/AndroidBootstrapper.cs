@@ -1,10 +1,10 @@
 ﻿using FlexiMvvm.Bootstrappers;
 using FlexiMvvm.Ioc;
-using VacationsTracker.Android.Navigation;
+using VacationsTracker.Droid.Navigation;
 using VacationsTracker.Core.Bootstrappers;
 using VacationsTracker.Core.Navigation;
 
-namespace VacationsTracker.Android.Bootstrappers
+namespace VacationsTracker.Droid.Bootstrappers
 {
     public class AndroidBootstrapper : IBootstrapper
     {

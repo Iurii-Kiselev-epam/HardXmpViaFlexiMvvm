@@ -1,10 +1,10 @@
 ﻿using Android.App;
 using Android.Runtime;
 using System;
-using VacationsTracker.Android.Bootstrappers;
+using VacationsTracker.Droid.Bootstrappers;
 using VacationsTracker.Core.Bootstrappers;
 
-namespace VacationsTracker.Android.Infrastructure
+namespace VacationsTracker.Droid.Infrastructure
 {
 #if DEBUG
     [Application(Debuggable = true)]

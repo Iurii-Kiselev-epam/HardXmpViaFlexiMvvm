@@ -1,6 +1,7 @@
 ﻿using FlexiMvvm.Commands;
 using FlexiMvvm.ViewModels;
 using System;
+using System.Windows.Input;
 using VacationsTracker.Core.Navigation;
 
 namespace VacationsTracker.Core.Presentation.ViewModels.Login
@@ -9,9 +10,10 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
     {
         private readonly INavigationService _navigationService;
         private string _login;
+        private string _loginError;
         private string _password;
-
-        public event EventHandler LoginFailed = delegate { };
+        private string _passwordError;
+        private bool _errorMessageVisible;
 
         public LoginViewModel(INavigationService navigationService)
         {
@@ -23,13 +25,35 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
             get => _login;
             set => SetValue(ref _login, value);
         }
+
+        public string LoginError
+        {
+            get => _loginError;
+            set => SetValue(ref _loginError, value);
+        }
+
         public string Password
         {
             get => _password;
             set => SetValue(ref _password, value);
         }
 
-        public Command SignInCommand => CommandProvider.Get(SignIn);
+        public string PasswordError
+        {
+            get => _passwordError;
+            set => SetValue(ref _passwordError, value);
+        }
+
+        public bool ErrorMessageVisible
+        {
+            get => _errorMessageVisible;
+            set => SetValue(ref _errorMessageVisible, value);
+        }
+
+        public string ErrorMessage { get; }
+            = "Please, retry your login and password pair. Check current Caps Lock and input language settings";
+
+        public ICommand SignInCommand => CommandProvider.Get(SignIn);
 
         private void SignIn()
         {
@@ -39,9 +63,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
                 // TODO: include fluent validation
                 // ...
             }
-
-            // TODO: if login succeeded navigate to the next screen else raise event
-            LoginFailed?.Invoke(this, EventArgs.Empty); // simulate login failed now to show notify window
+            ErrorMessageVisible = true; // show error message in view
         }
 
         public override void Initialize()

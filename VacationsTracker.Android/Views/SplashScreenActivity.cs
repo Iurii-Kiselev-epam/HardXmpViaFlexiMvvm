@@ -3,7 +3,7 @@ using FlexiMvvm.Views;
 using System.Threading.Tasks;
 using VacationsTracker.Core.Presentation.ViewModels;
 
-namespace VacationsTracker.Android.Views
+namespace VacationsTracker.Droid.Views
 {
     [Activity(
         Theme = "@style/SplashTheme",
@@ -11,7 +11,7 @@ namespace VacationsTracker.Android.Views
         NoHistory = true)]
     public class SplashScreenActivity : AppCompatActivity<EntryViewModel>
     {
-        const int SplashDelayInMS = 3000;
+        const int SplashDelayInMS = 1000;
 
         protected override void OnResume()
         {

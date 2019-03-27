@@ -1,10 +1,10 @@
 ﻿using Android.Content;
 using FlexiMvvm;
-using VacationsTracker.Android.Views;
+using VacationsTracker.Droid.Views;
 using VacationsTracker.Core.Navigation;
 using VacationsTracker.Core.Presentation.ViewModels;
 
-namespace VacationsTracker.Android.Navigation
+namespace VacationsTracker.Droid.Navigation
 {
     public class NavigationService : FlexiMvvm.Navigation.NavigationService, INavigationService
     {
