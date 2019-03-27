@@ -32,7 +32,9 @@ namespace VacationsTracker.Droid.Views
                 .For(v => v.TextBinding())
                 .To(vm => vm.ErrorMessage);
 
-            // TODO: ask mentor how to work with visibility - how transform bool to ViewState for platform
+            // TODO: ask mentor how to work with visibility 
+            // how transform bool to ViewState for platform,
+            // is there any converter from bool to view state?
             //bindingSet.Bind(ViewHolder.ErrorTextView)
             //    .For(v => v.VisibilityBinding())
             //    .To(vm => vm.ErrorMessageVisible);
