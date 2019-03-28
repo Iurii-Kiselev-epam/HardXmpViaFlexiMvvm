@@ -1,5 +1,6 @@
 ﻿using Android.App;
 using Android.OS;
+using Android.Views;
 using FlexiMvvm.Bindings;
 using FlexiMvvm.Views;
 using VacationsTracker.Core.Presentation.ViewModels.Login;
@@ -28,16 +29,18 @@ namespace VacationsTracker.Droid.Views
         {
             base.Bind(bindingSet);
 
+            ViewHolder.ErrorTextView.Visibility = ViewStates.Invisible;
+
             bindingSet.Bind(ViewHolder.ErrorTextView)
                 .For(v => v.TextBinding())
                 .To(vm => vm.ErrorMessage);
 
-            // TODO: ask mentor how to work with visibility 
+            // TODO: ask mentor how to work with visibility
             // how transform bool to ViewState for platform,
             // is there any converter from bool to view state?
-            //bindingSet.Bind(ViewHolder.ErrorTextView)
-            //    .For(v => v.VisibilityBinding())
-            //    .To(vm => vm.ErrorMessageVisible);
+            bindingSet.Bind(ViewHolder.ErrorTextView)
+                .For(v => v.VisibilityBinding())
+                .To(vm => vm.ErrorMessageVisible ? ViewStates.Visible : ViewStates.Invisible);
 
             bindingSet.Bind(ViewHolder.LoginEditText)
                 .For(v => v.TextAndTextChangedBinding())
