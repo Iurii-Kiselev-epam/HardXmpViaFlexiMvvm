@@ -23,7 +23,14 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
         public string Login
         {
             get => _login;
-            set => SetValue(ref _login, value);
+            set
+            {
+                if (_login != value)
+                {
+                    SetValue(ref _login, value);
+                    ErrorMessageVisible = false;
+                }
+            }
         }
 
         public string LoginError
@@ -35,7 +42,14 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
         public string Password
         {
             get => _password;
-            set => SetValue(ref _password, value);
+            set
+            {
+                if (_password != value)
+                {
+                    SetValue(ref _password, value);
+                    ErrorMessageVisible = false;
+                }
+            }
         }
 
         public string PasswordError

@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#fff8f8f8"
-        android:textSize="11dp"
+        android:textSize="11sp"
         android:textColor="#ffa55171"/>
     <EditText
         android:id="@+id/login_edit_text"
@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ffffffff"
-        android:textSize="12dp"
+        android:textSize="12sp"
         android:hint="Login" />
     <EditText
         android:id="@+id/password_edit_text"
@@ -39,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ffffffff"
-        android:textSize="12dp"
+        android:textSize="12sp"
         android:hint="Password"
         android:password="true" />
     <Button
@@ -54,5 +54,5 @@
         android:background="#ff39c5d6"
         android:text="SIGN IN"
         android:textColor="#ffffffff"
-        android:textSize="12dp" />
+        android:textSize="12sp" />
 </RelativeLayout>

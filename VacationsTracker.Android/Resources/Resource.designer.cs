@@ -1602,6 +1602,15 @@ namespace VacationsTracker.Droid
 		public partial class Dimension
 		{
 			
+			// aapt resource value: 0x7f08009b
+			public const int Inset1x = 2131230875;
+			
+			// aapt resource value: 0x7f08009c
+			public const int Inset2x = 2131230876;
+			
+			// aapt resource value: 0x7f08009d
+			public const int Inset3x = 2131230877;
+			
 			// aapt resource value: 0x7f080012
 			public const int abc_action_bar_content_inset_material = 2131230738;
 			
