@@ -1,7 +1,7 @@
 ﻿using FlexiMvvm.Commands;
 using FlexiMvvm.ViewModels;
-using System;
 using System.Windows.Input;
+using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Navigation;
 
 namespace VacationsTracker.Core.Presentation.ViewModels.Login
@@ -18,6 +18,11 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
         public LoginViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
+
+#if DEBUG
+            Login = UserConstants.Default.Login;
+            Password = UserConstants.Default.Password;
+#endif
         }
 
         public string Login

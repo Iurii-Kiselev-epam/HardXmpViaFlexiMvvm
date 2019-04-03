@@ -14,6 +14,7 @@
     <PackageReference Include="FlexiMvvm.Essentials.PreRelease" Version="0.10.6-prerelease" />
     <PackageReference Include="FlexiMvvm.Lifecycle.PreRelease" Version="0.10.6-prerelease" />
     <PackageReference Include="FlexiMvvm.Validation.PreRelease" Version="0.10.6-prerelease" />
+    <PackageReference Include="IdentityModel" Version="3.10.6" />
     <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
   </ItemGroup>
 

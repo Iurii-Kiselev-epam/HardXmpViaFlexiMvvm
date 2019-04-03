@@ -2,6 +2,8 @@
 using FlexiMvvm.Ioc;
 using FlexiMvvm.ViewModels;
 using VacationsTracker.Core.Application.Connectivity;
+using VacationsTracker.Core.Communication;
+using VacationsTracker.Core.Infrastructure;
 using VacationsTracker.Core.Infrastructure.Connectivity;
 using VacationsTracker.Core.Navigation;
 using VacationsTracker.Core.Presentation.ViewModels;
@@ -23,14 +25,23 @@ namespace VacationsTracker.Core.Bootstrappers
 
         private void SetupDependencies(ISimpleIoc simpleIoc)
         {
-            simpleIoc.Register<IConnectivity>(() => Connectivity.Instance);
-            simpleIoc.Register<IConnectivityService>(() => new ConnectivityService(simpleIoc.Get<IConnectivity>()), Reuse.Singleton);
+            simpleIoc.Register<IConnectivity>(() =>
+                Connectivity.Instance);
+            simpleIoc.Register<IConnectivityService>(() =>
+                new ConnectivityService(simpleIoc.Get<IConnectivity>()), Reuse.Singleton);
+
+            simpleIoc.Register<IAppSettings>(() =>
+                new AppSettings(), Reuse.Singleton);
+            simpleIoc.Register<IXmpProxy>(() =>
+                new XmpProxy(simpleIoc.Get<IAppSettings>()), Reuse.Singleton);
         }
 
         private void SetupViewModelLocator(ISimpleIoc simpleIoc)
         {
-            simpleIoc.Register(() => new EntryViewModel(simpleIoc.Get<INavigationService>()));
-            simpleIoc.Register(() => new LoginViewModel(simpleIoc.Get<INavigationService>()));
+            simpleIoc.Register(() =>
+                new EntryViewModel(simpleIoc.Get<INavigationService>()));
+            simpleIoc.Register(() =>
+                new LoginViewModel(simpleIoc.Get<INavigationService>()));
         }
 
         private void SetupViewModelProvider(IDependencyProvider dependencyProvider)
