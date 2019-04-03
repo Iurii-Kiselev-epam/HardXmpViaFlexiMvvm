@@ -1,6 +1,8 @@
 ﻿using FlexiMvvm.Commands;
 using FlexiMvvm.ViewModels;
+using System;
 using System.Windows.Input;
+using VacationsTracker.Core.Communication;
 using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Navigation;
 
@@ -9,15 +11,20 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
     public class LoginViewModel : ViewModel
     {
         private readonly INavigationService _navigationService;
+        private readonly IXmpProxy _xmpProxy;
         private string _login;
         private string _loginError;
         private string _password;
         private string _passwordError;
+        private string _errorMessage;
         private bool _errorMessageVisible;
 
-        public LoginViewModel(INavigationService navigationService)
+        public LoginViewModel(
+            INavigationService navigationService,
+            IXmpProxy xmpProxy)
         {
             _navigationService = navigationService;
+            _xmpProxy = xmpProxy;
 
 #if DEBUG
             Login = UserConstants.Default.Login;
@@ -69,8 +76,15 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
             set => SetValue(ref _errorMessageVisible, value);
         }
 
-        public string ErrorMessage { get; }
-            = "Please, retry your login and password pair. Check current Caps Lock and input language settings";
+        public string ErrorMessage
+        {
+            get => _errorMessage;
+            private set
+            {
+                SetValue(ref _errorMessage, value);
+                ErrorMessageVisible = true;
+            }
+        }
 
         public ICommand SignInCommand => CommandProvider.Get(SignIn);
 
@@ -80,9 +94,32 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
                 || string.IsNullOrWhiteSpace(Password))
             {
                 // TODO: include fluent validation
-                // ...
+                ErrorMessage = UserConstants.Errors.InvalidErrorMessage;
+                return;
             }
-            ErrorMessageVisible = true; // show error message in view
+
+            try
+            {
+                _xmpProxy.Authenticate(Login, Password);
+                _navigationService.NavigateToMainList(this);
+
+            }
+            catch(AuthenticationException authExc)
+            {
+                // TODO: use authExc to log error
+                ErrorMessage = UserConstants.Errors.AuthErrorMessage;
+            }
+            catch(CommunicationException cmnExc)
+            {
+                // TODO: use cmnExc to log error
+                ErrorMessage = UserConstants.Errors.CommunicationErrorMessage;
+
+            }
+            catch (Exception ex)
+            {
+                // TODO: use ex to log error
+                ErrorMessage = UserConstants.Errors.UnexpectedErrorMessage;
+            }
         }
 
         public override void Initialize()

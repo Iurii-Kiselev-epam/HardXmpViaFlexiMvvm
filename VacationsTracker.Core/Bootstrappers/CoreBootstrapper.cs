@@ -8,6 +8,7 @@ using VacationsTracker.Core.Infrastructure.Connectivity;
 using VacationsTracker.Core.Navigation;
 using VacationsTracker.Core.Presentation.ViewModels;
 using VacationsTracker.Core.Presentation.ViewModels.Login;
+using VacationsTracker.Core.Presentation.ViewModels.MainList;
 using Connectivity = VacationsTracker.Core.Infrastructure.Connectivity.Connectivity;
 
 namespace VacationsTracker.Core.Bootstrappers
@@ -41,7 +42,13 @@ namespace VacationsTracker.Core.Bootstrappers
             simpleIoc.Register(() =>
                 new EntryViewModel(simpleIoc.Get<INavigationService>()));
             simpleIoc.Register(() =>
-                new LoginViewModel(simpleIoc.Get<INavigationService>()));
+                new LoginViewModel(
+                    simpleIoc.Get<INavigationService>(),
+                    simpleIoc.Get<IXmpProxy>()));
+            simpleIoc.Register(() =>
+                new MainListViewModel(
+                    simpleIoc.Get<INavigationService>(),
+                    simpleIoc.Get<IXmpProxy>()));
         }
 
         private void SetupViewModelProvider(IDependencyProvider dependencyProvider)

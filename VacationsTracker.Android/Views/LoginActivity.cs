@@ -14,9 +14,6 @@ namespace VacationsTracker.Droid.Views
         NoHistory = true)]
     public class LoginActivity : BindableAppCompatActivity<LoginViewModel>
     {
-        private const string LoginErrorMessage =
-            "Please, retry your login and password pair. Check current Caps Lock and input language settings";
-
         private LoginActivityViewHolder ViewHolder { get; set; }
 
         protected override void OnCreate(Bundle savedInstanceState)
