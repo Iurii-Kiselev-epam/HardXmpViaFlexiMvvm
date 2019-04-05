@@ -20,12 +20,12 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
         {
             _navigationService = navigationService;
             _xmpProxy = xmpProxy;
+            VacationRequests = new ObservableCollection<VacationRequestViewModel>();
         }
 
-        public ObservableCollection<VacationRequest> VacationRequests
+        public ObservableCollection<VacationRequestViewModel> VacationRequests
         {
             get;
-            set;
         }
 
         public override void Initialize()

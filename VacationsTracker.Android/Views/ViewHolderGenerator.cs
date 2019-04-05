@@ -41,5 +41,23 @@ namespace VacationsTracker.Droid.Views
             signInButton ?? (signInButton = activity.FindViewById<Button>(Resource.Id.sign_in_button));
     }
 
+    public partial class MainListActivityViewHolder
+    {
+         private readonly Activity activity;
+
+         private Android.Support.V7.Widget.RecyclerView recyclerView;
+
+        public MainListActivityViewHolder( Activity activity)
+        {
+            if (activity == null) throw new ArgumentNullException(nameof(activity));
+
+            this.activity = activity;
+        }
+
+        
+        public Android.Support.V7.Widget.RecyclerView RecyclerView =>
+            recyclerView ?? (recyclerView = activity.FindViewById<Android.Support.V7.Widget.RecyclerView>(Resource.Id.recycler_view));
+    }
+
 }
 // ReSharper restore All

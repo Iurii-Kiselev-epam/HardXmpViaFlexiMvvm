@@ -17,11 +17,15 @@ namespace VacationsTracker.Droid.Views
     [Activity(Label = "MainListActivity")]
     public class MainListActivity : BindableAppCompatActivity<MainListViewModel>
     {
+        private MainListActivityViewHolder ViewHolder { get; set; }
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            // Create your application here
+            SetContentView(Resource.Layout.activity_main_list);
+
+            ViewHolder = new MainListActivityViewHolder(this);
         }
     }
 }
