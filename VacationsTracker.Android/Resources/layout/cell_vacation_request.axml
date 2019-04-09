@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/medium_cell_default_height">
+    <View
+        android:id="@+id/bckgrnd_cell_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite" />
+    <TextView
+        android:id="@+id/duration_range"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/inset2x"
+        android:layout_marginTop="@dimen/inset2x"
+        android:layout_marginRight="@dimen/inset2x" />
+    <TextView
+        android:id="@+id/vacation_type"
+        android:layout_marginLeft="@dimen/inset2x"
+        android:layout_marginTop="@dimen/inset2x"
+        android:layout_marginRight="@dimen/inset2x" />
+</RelativeLayout>

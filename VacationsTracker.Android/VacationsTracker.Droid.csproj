@@ -67,7 +67,7 @@
     <Compile Include="Views\LoginActivity.cs" />
     <Compile Include="Views\MainListActivity.cs" />
     <Compile Include="Views\SplashScreenActivity.cs" />
-    <Compile Include="Views\VacationRequestViewHolder.cs" />
+    <Compile Include="Views\VacationRequestCellViewHolder.cs" />
     <Compile Include="Views\ViewHolderGenerator.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -149,6 +149,9 @@
   <ItemGroup>
     <AndroidResource Include="Resources\values\dimens.xml" />
     <AndroidResource Include="Resources\layout\activity_main_list.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\cell_vacation_request.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <Content Include="Views\ViewHolderGenerator.tt">

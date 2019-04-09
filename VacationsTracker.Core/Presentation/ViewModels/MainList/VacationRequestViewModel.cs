@@ -1,12 +1,95 @@
 ﻿using FlexiMvvm.ViewModels;
 using System;
+using System.Threading.Tasks;
+using System.Windows.Input;
 using VacationsTracker.Core.Communication;
+using VacationsTracker.Core.Domain;
+using VacationsTracker.Core.Navigation;
 
 namespace VacationsTracker.Core.Presentation.ViewModels.MainList
 {
     public class VacationRequestViewModel : ViewModel
     {
-        public VacationRequestViewModel(VacationRequest vacationRequest)
+        private readonly INavigationService _navigationService;
+        private readonly IXmpProxy _xmpProxy;
+
+        private Guid _id;
+        private DateTime _start;
+        private DateTime _end;
+        private VacationType _vacationType;
+        private VacationStatus _vacationStatus;
+        private string _createdBy;
+        private DateTime _created;
+
+        /// <summary>
+        /// ctor() for details view.
+        /// </summary>
+        /// <param name="navigationService">navigation service</param>
+        /// <param name="xmpProxy">xmp service proxy</param>
+        public VacationRequestViewModel(
+            INavigationService navigationService,
+            IXmpProxy xmpProxy)
+        {
+            _navigationService = navigationService ?? throw new ArgumentNullException(nameof(navigationService));
+            _xmpProxy = xmpProxy ?? throw new ArgumentNullException(nameof(xmpProxy));
+
+            Id = Guid.Empty; //Guid.NewGuid();
+            Start = End = Created = DateTime.UtcNow;
+            VacationType = VacationType.Regular;
+            VacationStatus = VacationStatus.Draft;
+            CreatedBy = UserConstants.Default.Login;
+        }
+
+        /// <summary>
+        /// ctor() for main list.
+        /// </summary>
+        /// <param name="vacationRequest">vacation request</param>
+        public VacationRequestViewModel(VacationRequest vacationRequest) =>
+            GetDataFrom(vacationRequest);
+
+        public Guid Id
+        {
+            get => _id;
+            set => SetValue(ref _id, value);
+        }
+
+        public DateTime Start
+        {
+            get => _start;
+            set => SetValue(ref _start, value);
+        }
+
+        public DateTime End
+        {
+            get => _end;
+            set => SetValue(ref _end, value);
+        }
+
+        public VacationType VacationType
+        {
+            get => _vacationType;
+            set => SetValue(ref _vacationType, value);
+        }
+
+        public VacationStatus VacationStatus
+        {
+            get => _vacationStatus;
+            set => SetValue(ref _vacationStatus, value);
+        }
+
+        public string CreatedBy
+        {
+            get => _createdBy;
+            set => SetValue(ref _createdBy, value);
+        }
+
+        public DateTime Created
+        {
+            get => _created;
+            set => SetValue(ref _created, value);
+        }
+
+        public void GetDataFrom(VacationRequest vacationRequest)
         {
             if (vacationRequest == null)
             {
@@ -22,19 +105,52 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
             Created = vacationRequest.Created;
         }
 
-        public Guid Id { get; }
+        public VacationRequest ToVacationRequest() =>
+            new VacationRequest
+            {
+                Id = Id,
+                Start = Start,
+                End = End,
+                VacationType = VacationType,
+                VacationStatus = VacationStatus,
+                CreatedBy = CreatedBy,
+                Created = Created
+            };
 
-        public DateTime Start { get; }
+        public static implicit operator VacationRequest(VacationRequestViewModel vacRqstVwModel) =>
+            vacRqstVwModel.ToVacationRequest();
 
-        public DateTime End { get; }
+        public static implicit operator VacationRequestViewModel(VacationRequest vacRqst) =>
+            new VacationRequestViewModel(vacRqst);
 
-        public VacationType VacationType { get; }
+        public ICommand SaveCommand => CommandProvider.GetForAsync(Save);
 
-        public VacationStatus VacationStatus { get; }
+        private async Task Save()
+        {
+            try
+            {
+                var vacationRequest = ToVacationRequest();
+                await _xmpProxy.VtsVacationUpsertAsync(vacationRequest);
 
-        public string CreatedBy { get; }
-
-        public DateTime Created { get; }
-
+                // TODO: if operation suceeded
+                // navigate to main list
+                // ...
+            }
+            catch (AuthenticationException authExc)
+            {
+                // TODO: use authExc to log error
+                //ErrorMessage = UserConstants.Errors.AuthErrorMessage;
+            }
+            catch (CommunicationException cmnExc)
+            {
+                // TODO: use cmnExc to log error
+                //ErrorMessage = UserConstants.Errors.CommunicationErrorMessage;
+            }
+            catch (Exception ex)
+            {
+                // TODO: use ex to log error
+                //ErrorMessage = UserConstants.Errors.UnexpectedErrorMessage;
+            }
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using FlexiMvvm.Commands;
 using FlexiMvvm.ViewModels;
 using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using VacationsTracker.Core.Communication;
 using VacationsTracker.Core.Domain;
@@ -23,26 +24,20 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
             INavigationService navigationService,
             IXmpProxy xmpProxy)
         {
-            _navigationService = navigationService;
-            _xmpProxy = xmpProxy;
+            _navigationService = navigationService ?? throw new ArgumentNullException(nameof(navigationService));
+            _xmpProxy = xmpProxy ?? throw new ArgumentNullException(nameof(xmpProxy));
 
 #if DEBUG
             Login = UserConstants.Default.Login;
             Password = UserConstants.Default.Password;
+            ErrorMessageVisible = false;
 #endif
         }
 
         public string Login
         {
             get => _login;
-            set
-            {
-                if (_login != value)
-                {
-                    SetValue(ref _login, value);
-                    ErrorMessageVisible = false;
-                }
-            }
+            set => ErrorMessageVisible = !SetValue(ref _login, value);
         }
 
         public string LoginError
@@ -54,14 +49,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
         public string Password
         {
             get => _password;
-            set
-            {
-                if (_password != value)
-                {
-                    SetValue(ref _password, value);
-                    ErrorMessageVisible = false;
-                }
-            }
+            set => ErrorMessageVisible = !SetValue(ref _password, value);
         }
 
         public string PasswordError
@@ -86,21 +74,22 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
             }
         }
 
-        public ICommand SignInCommand => CommandProvider.Get(SignIn);
+        public ICommand SignInCommand => CommandProvider.GetForAsync(SignIn);
 
-        private void SignIn()
+        private async Task SignIn()
         {
             if (string.IsNullOrWhiteSpace(Login)
                 || string.IsNullOrWhiteSpace(Password))
             {
                 // TODO: include fluent validation
                 ErrorMessage = UserConstants.Errors.InvalidErrorMessage;
+                await Task.CompletedTask;
                 return;
             }
 
             try
             {
-                _xmpProxy.Authenticate(Login, Password);
+                await _xmpProxy.Authenticate(Login, Password);
                 _navigationService.NavigateToMainList(this);
 
             }
@@ -113,7 +102,6 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
             {
                 // TODO: use cmnExc to log error
                 ErrorMessage = UserConstants.Errors.CommunicationErrorMessage;
-
             }
             catch (Exception ex)
             {

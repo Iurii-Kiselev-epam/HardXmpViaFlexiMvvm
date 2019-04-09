@@ -59,5 +59,26 @@ namespace VacationsTracker.Droid.Views
             recyclerView ?? (recyclerView = activity.FindViewById<Android.Support.V7.Widget.RecyclerView>(Resource.Id.recycler_view));
     }
 
+    public partial class VacationRequestCellViewHolder
+    {
+         private View bckgrndCellView;
+         private TextView durationRange;
+         private TextView vacationType;
+
+
+
+        
+        public View BckgrndCellView =>
+            bckgrndCellView ?? (bckgrndCellView = ItemView.FindViewById<View>(Resource.Id.bckgrnd_cell_view));
+
+        
+        public TextView DurationRange =>
+            durationRange ?? (durationRange = ItemView.FindViewById<TextView>(Resource.Id.duration_range));
+
+        
+        public TextView VacationType =>
+            vacationType ?? (vacationType = ItemView.FindViewById<TextView>(Resource.Id.vacation_type));
+    }
+
 }
 // ReSharper restore All

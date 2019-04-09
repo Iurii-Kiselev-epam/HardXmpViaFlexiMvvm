@@ -18,8 +18,9 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
             INavigationService navigationService,
             IXmpProxy xmpProxy)
         {
-            _navigationService = navigationService;
-            _xmpProxy = xmpProxy;
+            _navigationService = navigationService ?? throw new ArgumentNullException(nameof(navigationService));
+            _xmpProxy = xmpProxy ?? throw new ArgumentNullException(nameof(xmpProxy));
+
             VacationRequests = new ObservableCollection<VacationRequestViewModel>();
         }
 

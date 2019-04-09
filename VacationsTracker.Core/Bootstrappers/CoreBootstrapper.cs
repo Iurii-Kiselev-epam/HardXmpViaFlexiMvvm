@@ -49,6 +49,10 @@ namespace VacationsTracker.Core.Bootstrappers
                 new MainListViewModel(
                     simpleIoc.Get<INavigationService>(),
                     simpleIoc.Get<IXmpProxy>()));
+            simpleIoc.Register(() =>
+                new VacationRequestViewModel(
+                    simpleIoc.Get<INavigationService>(),
+                    simpleIoc.Get<IXmpProxy>()));
         }
 
         private void SetupViewModelProvider(IDependencyProvider dependencyProvider)

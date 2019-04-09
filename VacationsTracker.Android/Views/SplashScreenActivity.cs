@@ -11,7 +11,7 @@ namespace VacationsTracker.Droid.Views
         NoHistory = true)]
     public class SplashScreenActivity : AppCompatActivity<EntryViewModel>
     {
-        const int SplashDelayInMS = 1000;
+        const int SplashDelayInMS = 500;
 
         protected override void OnResume()
         {

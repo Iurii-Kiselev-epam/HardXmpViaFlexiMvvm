@@ -14,9 +14,9 @@ using VacationsTracker.Core.Presentation.ViewModels.MainList;
 
 namespace VacationsTracker.Droid.Views
 {
-    public partial class VacationRequestViewHolder : RecyclerViewBindableItemViewHolder<MainListViewModel, VacationRequestViewModel>
+    public partial class VacationRequestCellViewHolder : RecyclerViewBindableItemViewHolder<MainListViewModel, VacationRequestViewModel>
     {
-        public VacationRequestViewHolder(View itemView)
+        public VacationRequestCellViewHolder(View itemView)
             : base(itemView)
         {
             // TODO: create layout and update view holder

@@ -24,4 +24,23 @@
         <item name="android:windowActionBar">true</item>
     </style>
 
+    <style name="EditTextTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/input1_text_size</item>
+        <item name="android:padding">@dimen/text_padding</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:background">@color/colorWhite</item>
+        <item name="android:textColorHint">@color/grayText</item>
+    </style>
+
+    <style name="ErrorMsgTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/msg_text_size</item>
+        <item name="android:padding">@dimen/text_padding</item>
+        <item name="android:background">@color/colorMsgBkgnd</item>
+        <item name="android:textColor">@color/colorDarkRed</item>
+    </style>
+
 </resources>
