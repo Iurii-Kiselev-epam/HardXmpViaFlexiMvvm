@@ -91,7 +91,6 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
             {
                 await _xmpProxy.Authenticate(Login, Password);
                 _navigationService.NavigateToMainList(this);
-
             }
             catch(AuthenticationException authExc)
             {

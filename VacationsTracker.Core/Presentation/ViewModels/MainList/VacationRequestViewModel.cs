@@ -1,5 +1,6 @@
 ﻿using FlexiMvvm.ViewModels;
 using System;
+using System.Globalization;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using VacationsTracker.Core.Communication;
@@ -59,11 +60,21 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
             set => SetValue(ref _start, value);
         }
 
+        public string ShortStartMonth => GetAbbreviatedEnUsMonthName(Start);
+
+        public string ShortStart => $"{ShortStartMonth} {Start.Day}";
+
         public DateTime End
         {
             get => _end;
             set => SetValue(ref _end, value);
         }
+
+        public string ShortEndMonth => GetAbbreviatedEnUsMonthName(End);
+
+        public string ShortEnd => $"{ShortEndMonth} {End.Day}";
+
+        public string DurationRange => $"{ShortStart} - {ShortEnd}";
 
         public VacationType VacationType
         {
@@ -71,11 +82,31 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
             set => SetValue(ref _vacationType, value);
         }
 
+        public string VacationTypeUI
+        {
+            get
+            {
+                switch (VacationType)
+                {
+                    case VacationType.Sick:
+                        return "Sick days";
+                    case VacationType.Exceptional:
+                        return "Exceptional Leave";
+                    case VacationType.LeaveWithoutPay:
+                        return "Leave without Pay";
+                    default:
+                        return VacationType.ToString();
+                }
+            }
+        }
+
         public VacationStatus VacationStatus
         {
             get => _vacationStatus;
             set => SetValue(ref _vacationStatus, value);
         }
+
+        public string VacationStatusUI => VacationStatus.ToString();
 
         public string CreatedBy
         {
@@ -151,6 +182,13 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
                 // TODO: use ex to log error
                 //ErrorMessage = UserConstants.Errors.UnexpectedErrorMessage;
             }
+        }
+
+        public static string GetAbbreviatedEnUsMonthName(DateTime dateTime)
+        {
+            var culture = CultureInfo.GetCultureInfo("en-US");
+            var dateTimeInfo = DateTimeFormatInfo.GetInstance(culture);
+            return dateTimeInfo.GetAbbreviatedMonthName(dateTime.Month);
         }
     }
 }

@@ -1,8 +1,10 @@
 ﻿using FlexiMvvm.Collections;
+using FlexiMvvm.Commands;
 using FlexiMvvm.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
 using VacationsTracker.Core.Communication;
 using VacationsTracker.Core.Navigation;
@@ -29,18 +31,42 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
             get;
         }
 
-        public override void Initialize()
+        public override async Task InitializeAsync()
         {
-            base.Initialize();
+            await base.InitializeAsync();
 
             try
             {
-                var listResult = Task.Run(async () => await _xmpProxy.VtsVacationGetListAsync()).Result;
+                var listResult = await _xmpProxy.VtsVacationGetListAsync();
+                var vacations = listResult.Result.Select(v => new VacationRequestViewModel(v)).ToList();
+
+                VacationRequests.Clear();
+                VacationRequests.AddRange(vacations);
             }
-            catch(Exception ex)
+            catch (AuthenticationException authExc)
             {
-                // TODO: log exception
+                // TODO: use authExc to log error
+                //ErrorMessage = UserConstants.Errors.AuthErrorMessage;
             }
+            catch (CommunicationException cmnExc)
+            {
+                // TODO: use cmnExc to log error
+                //ErrorMessage = UserConstants.Errors.CommunicationErrorMessage;
+            }
+            catch (Exception ex)
+            {
+                // TODO: use ex to log error
+                //ErrorMessage = UserConstants.Errors.UnexpectedErrorMessage;
+            }
+        }
+
+        public Command<VacationRequestViewModel> OpenVacationDetailsCommand =>
+            CommandProvider.Get<VacationRequestViewModel>(OpenVacationDetails);
+
+        private void OpenVacationDetails(VacationRequestViewModel itemViewModel)
+        {
+            // TODO: navigate to details
+            //_navigationService.NavigateToEventDetails(this, new EventDetailsParameters { EventId = itemViewModel.Id });
         }
     }
 }

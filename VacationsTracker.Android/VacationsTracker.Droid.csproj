@@ -66,6 +66,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\LoginActivity.cs" />
     <Compile Include="Views\MainListActivity.cs" />
+    <Compile Include="Views\MainListRecyclerAdapter.cs" />
     <Compile Include="Views\SplashScreenActivity.cs" />
     <Compile Include="Views\VacationRequestCellViewHolder.cs" />
     <Compile Include="Views\ViewHolderGenerator.cs">
