@@ -8,4 +8,5 @@
     <color name="colorDarkRed">#ffa55171</color>
     <color name="colorMsgBkgnd">#fff8f8f8</color>
     <color name="grayText">#bfbec1</color>
+    <color name="primaryDark">#4B4A67</color>
 </resources>

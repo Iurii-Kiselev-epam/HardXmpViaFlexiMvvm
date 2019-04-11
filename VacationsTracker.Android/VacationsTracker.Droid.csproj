@@ -60,10 +60,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrappers\AndroidBootstrapper.cs" />
+    <Compile Include="Extensions\ImageViewExtensions.cs" />
     <Compile Include="Infrastructure\VacationsTrackerApp.cs" />
     <Compile Include="Navigation\NavigationService.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValueConverters\VacationTypeDrawableConverter.cs" />
     <Compile Include="Views\LoginActivity.cs" />
     <Compile Include="Views\MainListActivity.cs" />
     <Compile Include="Views\MainListRecyclerAdapter.cs" />

@@ -7,20 +7,29 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorWhite" />
+    <ImageView
+        android:id="@+id/image_cell_view"
+        android:layout_alignTop="@id/background_cell_view"
+        android:layout_width="@dimen/medium_cell_default_height"
+        android:layout_height="@dimen/medium_cell_default_height"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop" />
     <TextView
         android:id="@+id/duration_range"
         android:text="MAR 20 - MAR 31"
+        android:layout_toRightOf="@id/image_cell_view"
         android:layout_alignTop="@id/background_cell_view"
-        android:layout_marginLeft="@dimen/inset1x"
-        android:layout_marginTop="@dimen/inset1x"
-        android:layout_marginRight="@dimen/inset1x"
         style="@style/CellDateTheme" />
     <TextView
         android:id="@+id/vacation_type"
         android:text="Regular"
+        android:layout_toRightOf="@id/image_cell_view"
         android:layout_below="@id/duration_range"
-        android:layout_marginLeft="@dimen/inset1x"
-        android:layout_marginTop="@dimen/inset1x"
-        android:layout_marginRight="@dimen/inset1x"
+        style="@style/CellTextTheme" />
+    <TextView
+        android:id="@+id/vacation_status"
+        android:text="Closed"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
         style="@style/CellTextTheme" />
 </RelativeLayout>

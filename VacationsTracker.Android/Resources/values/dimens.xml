@@ -2,8 +2,8 @@
 <resources>
     <!--Text sizes-->
     <dimen name="input1_text_size">16sp</dimen>
-    <dimen name="cell_large_text_size">14sp</dimen>
-    <dimen name="cell_text_size">12sp</dimen>
+    <dimen name="cell_large_text_size">13sp</dimen>
+    <dimen name="cell_text_size">11sp</dimen>
     <dimen name="msg_text_size">11sp</dimen>
     <dimen name="text_padding">4dp</dimen>
 
@@ -16,5 +16,5 @@
     <dimen name="inset6x">48dp</dimen>
     <dimen name="inset7x">56dp</dimen>
     <dimen name="inset8x">64dp</dimen>
-    <dimen name="medium_cell_default_height">64dp</dimen>
+    <dimen name="medium_cell_default_height">48dp</dimen>
 </resources>

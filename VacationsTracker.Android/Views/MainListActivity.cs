@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
+﻿using Android.App;
 using Android.OS;
-using Android.Runtime;
 using Android.Support.V7.Widget;
-using Android.Views;
-using Android.Widget;
 using FlexiMvvm.Bindings;
 using FlexiMvvm.Views;
 using VacationsTracker.Core.Presentation.ViewModels.MainList;
@@ -35,7 +26,7 @@ namespace VacationsTracker.Droid.Views
                 Items = ViewModel.VacationRequests
             };
             ViewHolder.RecyclerView.SetAdapter(RequestsAdapter);
-            ViewHolder.RecyclerView.SetLayoutManager(new LinearLayoutManager(this)); // new LinearLayoutManager(this, 1, false)
+            ViewHolder.RecyclerView.SetLayoutManager(new LinearLayoutManager(this));
         }
 
         public override void Bind(BindingSet<MainListViewModel> bindingSet)

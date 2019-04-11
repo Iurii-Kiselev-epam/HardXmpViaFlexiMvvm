@@ -62,8 +62,10 @@ namespace VacationsTracker.Droid.Views
     public partial class VacationRequestCellViewHolder
     {
          private View backgroundCellView;
+         private ImageView imageCellView;
          private TextView durationRange;
          private TextView vacationType;
+         private TextView vacationStatus;
 
 
 
@@ -72,12 +74,20 @@ namespace VacationsTracker.Droid.Views
             backgroundCellView ?? (backgroundCellView = ItemView.FindViewById<View>(Resource.Id.background_cell_view));
 
         
+        public ImageView ImageCellView =>
+            imageCellView ?? (imageCellView = ItemView.FindViewById<ImageView>(Resource.Id.image_cell_view));
+
+        
         public TextView DurationRange =>
             durationRange ?? (durationRange = ItemView.FindViewById<TextView>(Resource.Id.duration_range));
 
         
         public TextView VacationType =>
             vacationType ?? (vacationType = ItemView.FindViewById<TextView>(Resource.Id.vacation_type));
+
+        
+        public TextView VacationStatus =>
+            vacationStatus ?? (vacationStatus = ItemView.FindViewById<TextView>(Resource.Id.vacation_status));
     }
 
 }
