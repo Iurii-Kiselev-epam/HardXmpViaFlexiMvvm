@@ -1,6 +1,7 @@
 ﻿using Android.Support.V7.Widget;
 using Android.Views;
 using FlexiMvvm.Collections;
+using System;
 
 namespace VacationsTracker.Droid.Views
 {
@@ -13,8 +14,16 @@ namespace VacationsTracker.Droid.Views
 
         protected override RecyclerViewObservableViewHolder OnCreateItemViewHolder(ViewGroup parent, int viewType)
         {
-            var itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.cell_vacation_request, parent, false);
-            return new VacationRequestCellViewHolder(itemView);
+            try
+            {
+                var itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.cell_vacation_request, parent, false);
+                return new VacationRequestCellViewHolder(itemView);
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
     }
 }

@@ -61,15 +61,15 @@ namespace VacationsTracker.Droid.Views
 
     public partial class VacationRequestCellViewHolder
     {
-         private View bckgrndCellView;
+         private View backgroundCellView;
          private TextView durationRange;
          private TextView vacationType;
 
 
 
         
-        public View BckgrndCellView =>
-            bckgrndCellView ?? (bckgrndCellView = ItemView.FindViewById<View>(Resource.Id.bckgrnd_cell_view));
+        public View BackgroundCellView =>
+            backgroundCellView ?? (backgroundCellView = ItemView.FindViewById<View>(Resource.Id.background_cell_view));
 
         
         public TextView DurationRange =>

@@ -3,19 +3,24 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/medium_cell_default_height">
     <View
-        android:id="@+id/bckgrnd_cell_view"
+        android:id="@+id/background_cell_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorWhite" />
     <TextView
         android:id="@+id/duration_range"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="@dimen/inset2x"
-        android:layout_marginTop="@dimen/inset2x"
-        android:layout_marginRight="@dimen/inset2x" />
+        android:text="MAR 20 - MAR 31"
+        android:layout_alignTop="@id/background_cell_view"
+        android:layout_marginLeft="@dimen/inset1x"
+        android:layout_marginTop="@dimen/inset1x"
+        android:layout_marginRight="@dimen/inset1x"
+        style="@style/CellDateTheme" />
     <TextView
         android:id="@+id/vacation_type"
-        android:layout_marginLeft="@dimen/inset2x"
-        android:layout_marginTop="@dimen/inset2x"
-        android:layout_marginRight="@dimen/inset2x" />
+        android:text="Regular"
+        android:layout_below="@id/duration_range"
+        android:layout_marginLeft="@dimen/inset1x"
+        android:layout_marginTop="@dimen/inset1x"
+        android:layout_marginRight="@dimen/inset1x"
+        style="@style/CellTextTheme" />
 </RelativeLayout>

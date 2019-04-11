@@ -155,6 +155,12 @@
     <AndroidResource Include="Resources\layout\cell_vacation_request.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\drawable\Avatar_Ark.png" />
+    <AndroidResource Include="Resources\drawable\Icon_Request_Blue.png" />
+    <AndroidResource Include="Resources\drawable\Icon_Request_Dark.png" />
+    <AndroidResource Include="Resources\drawable\Icon_Request_Gray.png" />
+    <AndroidResource Include="Resources\drawable\Icon_Request_Green.png" />
+    <AndroidResource Include="Resources\drawable\Icon_Request_Plum.png" />
     <Content Include="Views\ViewHolderGenerator.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ViewHolderGenerator.cs</LastGenOutput>

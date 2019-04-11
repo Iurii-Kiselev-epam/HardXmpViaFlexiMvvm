@@ -188,7 +188,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
         {
             var culture = CultureInfo.GetCultureInfo("en-US");
             var dateTimeInfo = DateTimeFormatInfo.GetInstance(culture);
-            return dateTimeInfo.GetAbbreviatedMonthName(dateTime.Month);
+            return dateTimeInfo.GetAbbreviatedMonthName(dateTime.Month).ToUpper();
         }
     }
 }

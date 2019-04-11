@@ -43,4 +43,20 @@
         <item name="android:textColor">@color/colorDarkRed</item>
     </style>
 
+    <style name="CellDateTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/cell_large_text_size</item>
+        <item name="android:padding">@dimen/text_padding</item>
+        <item name="android:textColor">@color/colorBright</item>
+    </style>
+
+    <style name="CellTextTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/cell_text_size</item>
+        <item name="android:padding">@dimen/text_padding</item>
+        <item name="android:textColor">@color/grayText</item>
+    </style>
+
 </resources>
