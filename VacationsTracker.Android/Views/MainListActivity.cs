@@ -7,7 +7,9 @@ using VacationsTracker.Core.Presentation.ViewModels.MainList;
 
 namespace VacationsTracker.Droid.Views
 {
-    [Activity(Label = "MainListActivity")]
+    [Activity(
+        Theme = "@style/MainListTheme",
+        Label = "MainListActivity")]
     public class MainListActivity : BindableAppCompatActivity<MainListViewModel>
     {
         private MainListActivityViewHolder ViewHolder { get; set; }

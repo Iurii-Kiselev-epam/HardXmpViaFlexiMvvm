@@ -8,8 +8,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:layout_marginTop="@dimen/inset1x"
-        android:paddingLeft="@dimen/inset2x"
-        android:paddingRight="@dimen/inset2x"
-        android:background="@android:color/white" />
+        android:background="@color/colorMsgBkgnd" />
 </LinearLayout>

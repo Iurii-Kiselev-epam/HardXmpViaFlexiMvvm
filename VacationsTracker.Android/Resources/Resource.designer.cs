@@ -3997,20 +3997,32 @@ namespace VacationsTracker.Droid
 			// aapt resource value: 0x7f0b0161
 			public const int Base_Widget_Design_TabLayout = 2131427681;
 			
-			// aapt resource value: 0x7f0b0185
-			public const int CellDateTheme = 2131427717;
-			
 			// aapt resource value: 0x7f0b0186
-			public const int CellTextTheme = 2131427718;
+			public const int BaseCellTextTheme = 2131427718;
+			
+			// aapt resource value: 0x7f0b0185
+			public const int BaseTextTheme = 2131427717;
+			
+			// aapt resource value: 0x7f0b0181
+			public const int BaseTheme = 2131427713;
+			
+			// aapt resource value: 0x7f0b0189
+			public const int CellDateTheme = 2131427721;
+			
+			// aapt resource value: 0x7f0b018a
+			public const int CellTextTheme = 2131427722;
+			
+			// aapt resource value: 0x7f0b0187
+			public const int EditTextTheme = 2131427719;
+			
+			// aapt resource value: 0x7f0b0188
+			public const int ErrorMsgTheme = 2131427720;
 			
 			// aapt resource value: 0x7f0b0183
-			public const int EditTextTheme = 2131427715;
+			public const int LoginTheme = 2131427715;
 			
 			// aapt resource value: 0x7f0b0184
-			public const int ErrorMsgTheme = 2131427716;
-			
-			// aapt resource value: 0x7f0b0182
-			public const int LoginTheme = 2131427714;
+			public const int MainListTheme = 2131427716;
 			
 			// aapt resource value: 0x7f0b001e
 			public const int Platform_AppCompat = 2131427358;
@@ -4096,8 +4108,8 @@ namespace VacationsTracker.Droid
 			// aapt resource value: 0x7f0b0038
 			public const int RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = 2131427384;
 			
-			// aapt resource value: 0x7f0b0181
-			public const int SplashTheme = 2131427713;
+			// aapt resource value: 0x7f0b0182
+			public const int SplashTheme = 2131427714;
 			
 			// aapt resource value: 0x7f0b00c7
 			public const int TextAppearance_AppCompat = 2131427527;
