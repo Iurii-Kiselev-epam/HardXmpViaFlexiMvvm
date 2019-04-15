@@ -16,6 +16,7 @@ namespace VacationsTracker.Droid.Views
          private EditText loginEditText;
          private EditText passwordEditText;
          private Button signInButton;
+         private ProgressBar progressBarWidget;
 
         public LoginActivityViewHolder( Activity activity)
         {
@@ -39,12 +40,17 @@ namespace VacationsTracker.Droid.Views
         
         public Button SignInButton =>
             signInButton ?? (signInButton = activity.FindViewById<Button>(Resource.Id.sign_in_button));
+
+        
+        public ProgressBar ProgressBarWidget =>
+            progressBarWidget ?? (progressBarWidget = activity.FindViewById<ProgressBar>(Resource.Id.progress_bar_widget));
     }
 
     public partial class MainListActivityViewHolder
     {
          private readonly Activity activity;
 
+         private ProgressBar progressBarWidget;
          private Android.Support.V7.Widget.RecyclerView recyclerView;
 
         public MainListActivityViewHolder( Activity activity)
@@ -53,6 +59,10 @@ namespace VacationsTracker.Droid.Views
 
             this.activity = activity;
         }
+
+        
+        public ProgressBar ProgressBarWidget =>
+            progressBarWidget ?? (progressBarWidget = activity.FindViewById<ProgressBar>(Resource.Id.progress_bar_widget));
 
         
         public Android.Support.V7.Widget.RecyclerView RecyclerView =>

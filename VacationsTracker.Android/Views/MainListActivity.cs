@@ -2,6 +2,7 @@
 using Android.OS;
 using Android.Support.V7.Widget;
 using FlexiMvvm.Bindings;
+using FlexiMvvm.ValueConverters;
 using FlexiMvvm.Views;
 using VacationsTracker.Core.Presentation.ViewModels.MainList;
 
@@ -43,6 +44,11 @@ namespace VacationsTracker.Droid.Views
             bindingSet.Bind(RequestsAdapter)
                 .For(v => v.ItemClickedBinding())
                 .To(vm => vm.OpenVacationDetailsCommand);
+
+            bindingSet.Bind(ViewHolder.ProgressBarWidget)
+                .For(v => v.VisibilityBinding())
+                .To(vm => vm.ProgressVisible)
+                .WithConversion<VisibleGoneValueConverter>();
         }
     }
 }

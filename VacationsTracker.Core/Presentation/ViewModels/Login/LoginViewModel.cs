@@ -19,6 +19,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
         private string _passwordError;
         private string _errorMessage;
         private bool _errorMessageVisible;
+        private bool _signInVisible;
 
         public LoginViewModel(
             INavigationService navigationService,
@@ -26,6 +27,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
         {
             _navigationService = navigationService ?? throw new ArgumentNullException(nameof(navigationService));
             _xmpProxy = xmpProxy ?? throw new ArgumentNullException(nameof(xmpProxy));
+            SignInVisible = true;
 
 #if DEBUG
             Login = UserConstants.Default.Login;
@@ -64,6 +66,21 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
             set => SetValue(ref _errorMessageVisible, value);
         }
 
+        public bool SignInVisible
+        {
+            get => _signInVisible;
+            set
+            {
+                SetValue(ref _signInVisible, value);
+                RaisePropertyChanged(nameof(ProgressVisible));
+            }
+        }
+
+        public bool ProgressVisible
+        {
+            get => !SignInVisible;
+        }
+
         public string ErrorMessage
         {
             get => _errorMessage;
@@ -89,6 +106,8 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
 
             try
             {
+                SignInVisible = false;
+
                 await _xmpProxy.Authenticate(Login, Password);
                 _navigationService.NavigateToMainList(this);
             }
@@ -96,16 +115,19 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
             {
                 // TODO: use authExc to log error
                 ErrorMessage = UserConstants.Errors.AuthErrorMessage;
+                SignInVisible = true;
             }
-            catch(CommunicationException cmnExc)
+            catch (CommunicationException cmnExc)
             {
                 // TODO: use cmnExc to log error
                 ErrorMessage = UserConstants.Errors.CommunicationErrorMessage;
+                SignInVisible = true;
             }
             catch (Exception ex)
             {
                 // TODO: use ex to log error
                 ErrorMessage = UserConstants.Errors.UnexpectedErrorMessage;
+                SignInVisible = true;
             }
         }
 

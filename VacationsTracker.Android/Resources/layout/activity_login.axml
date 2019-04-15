@@ -42,4 +42,12 @@
         android:text="SIGN IN"
         android:textColor="#ffffffff"
         android:textSize="12sp" />
+    <ProgressBar
+        android:id="@+id/progress_bar_widget"
+        android:layout_below="@id/sign_in_button"
+        android:indeterminate="true"
+        android:indeterminateTintMode="src_atop"
+        android:indeterminateTint="@color/colorBright"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/inset4x" />
 </RelativeLayout>

@@ -46,6 +46,15 @@ namespace VacationsTracker.Droid.Views
             bindingSet.Bind(ViewHolder.SignInButton)
               .For(v => v.ClickBinding())
               .To(vm => vm.SignInCommand);
+            bindingSet.Bind(ViewHolder.SignInButton)
+                .For(v => v.VisibilityBinding())
+                .To(vm => vm.SignInVisible)
+                .WithConversion<VisibleInvisibleValueConverter>();
+
+            bindingSet.Bind(ViewHolder.ProgressBarWidget)
+                .For(v => v.VisibilityBinding())
+                .To(vm => vm.ProgressVisible)
+                .WithConversion<VisibleInvisibleValueConverter>();
         }
     }
 }

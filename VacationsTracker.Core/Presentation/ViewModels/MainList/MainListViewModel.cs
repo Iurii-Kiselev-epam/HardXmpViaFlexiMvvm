@@ -13,6 +13,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
     {
         private readonly INavigationService _navigationService;
         private readonly IXmpProxy _xmpProxy;
+        private bool _progressVisible;
 
         public MainListViewModel(
             INavigationService navigationService,
@@ -21,7 +22,14 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
             _navigationService = navigationService ?? throw new ArgumentNullException(nameof(navigationService));
             _xmpProxy = xmpProxy ?? throw new ArgumentNullException(nameof(xmpProxy));
 
+            ProgressVisible = true;
             VacationRequests = new ObservableCollection<VacationRequestViewModel>();
+        }
+
+        public bool ProgressVisible
+        {
+            get => _progressVisible;
+            set => SetValue(ref _progressVisible, value);
         }
 
         public ObservableCollection<VacationRequestViewModel> VacationRequests
@@ -56,6 +64,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
                 // TODO: use ex to log error
                 //ErrorMessage = UserConstants.Errors.UnexpectedErrorMessage;
             }
+            ProgressVisible = false;
         }
 
         public Command<VacationRequestViewModel> OpenVacationDetailsCommand =>
