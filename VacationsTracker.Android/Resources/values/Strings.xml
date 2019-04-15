@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">VacationsTracker.Android</string>
     <string name="action_settings">Settings</string>
+    <string name="login_hint">Login</string>
+    <string name="password_hint">Password</string>
+    <string name="sign_in_button_text">SIGN IN</string>
 </resources>

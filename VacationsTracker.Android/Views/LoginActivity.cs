@@ -1,6 +1,5 @@
 ﻿using Android.App;
 using Android.OS;
-using Android.Views;
 using FlexiMvvm.Bindings;
 using FlexiMvvm.ValueConverters;
 using FlexiMvvm.Views;

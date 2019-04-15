@@ -19,7 +19,7 @@
         android:layout_marginLeft="@dimen/inset4x"
         android:layout_marginRight="@dimen/inset4x"
         style="@style/EditTextTheme"
-        android:hint="Login" />
+        android:hint="@string/login_hint" />
     <EditText
         android:id="@+id/password_edit_text"
         android:layout_below="@id/login_edit_text"
@@ -27,7 +27,7 @@
         android:layout_marginLeft="@dimen/inset4x"
         android:layout_marginRight="@dimen/inset4x"
         style="@style/EditTextTheme"
-        android:hint="Password"
+        android:hint="@string/password_hint"
         android:password="true" />
     <Button
         android:id="@+id/sign_in_button"
@@ -39,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ff39c5d6"
-        android:text="SIGN IN"
+        android:text="@string/sign_in_button_text"
         android:textColor="#ffffffff"
         android:textSize="12sp" />
     <ProgressBar

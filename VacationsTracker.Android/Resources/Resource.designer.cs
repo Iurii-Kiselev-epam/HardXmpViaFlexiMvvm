@@ -3456,6 +3456,12 @@ namespace VacationsTracker.Droid
 			// aapt resource value: 0x7f0a0020
 			public const int character_counter_pattern = 2131361824;
 			
+			// aapt resource value: 0x7f0a0029
+			public const int login_hint = 2131361833;
+			
+			// aapt resource value: 0x7f0a002a
+			public const int password_hint = 2131361834;
+			
 			// aapt resource value: 0x7f0a0021
 			public const int password_toggle_content_description = 2131361825;
 			
@@ -3473,6 +3479,9 @@ namespace VacationsTracker.Droid
 			
 			// aapt resource value: 0x7f0a0011
 			public const int search_menu_title = 2131361809;
+			
+			// aapt resource value: 0x7f0a002b
+			public const int sign_in_button_text = 2131361835;
 			
 			// aapt resource value: 0x7f0a0026
 			public const int status_bar_notification_info_overflow = 2131361830;

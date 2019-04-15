@@ -6,6 +6,7 @@ using System.Windows.Input;
 using VacationsTracker.Core.Communication;
 using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Navigation;
+using VacationsTracker.Core.Resources;
 
 namespace VacationsTracker.Core.Presentation.ViewModels.MainList
 {
@@ -89,11 +90,11 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
                 switch (VacationType)
                 {
                     case VacationType.Sick:
-                        return "Sick days";
+                        return Strings.VacationType_Sick;
                     case VacationType.Exceptional:
-                        return "Exceptional Leave";
+                        return Strings.VacationType_Exceptional;
                     case VacationType.LeaveWithoutPay:
-                        return "Leave without Pay";
+                        return Strings.VacationType_LeaveWithoutPay;
                     default:
                         return VacationType.ToString();
                 }

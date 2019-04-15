@@ -36,11 +36,6 @@ namespace VacationsTracker.Droid.Views
         {
             base.Bind(bindingSet);
 
-            // how to bind items?
-            //bindingSet.Bind(RequestsAdapter)
-            //    .For(v => v.Items)
-            //    .To(vm => vm.VacationRequests);
-
             bindingSet.Bind(RequestsAdapter)
                 .For(v => v.ItemClickedBinding())
                 .To(vm => vm.OpenVacationDetailsCommand);
