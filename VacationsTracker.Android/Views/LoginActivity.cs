@@ -1,6 +1,5 @@
 ﻿using Android.App;
 using Android.OS;
-using Android.Views;
 using FlexiMvvm.Bindings;
 using FlexiMvvm.ValueConverters;
 using FlexiMvvm.Views;
@@ -14,9 +13,6 @@ namespace VacationsTracker.Droid.Views
         NoHistory = true)]
     public class LoginActivity : BindableAppCompatActivity<LoginViewModel>
     {
-        private const string LoginErrorMessage =
-            "Please, retry your login and password pair. Check current Caps Lock and input language settings";
-
         private LoginActivityViewHolder ViewHolder { get; set; }
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -49,6 +45,15 @@ namespace VacationsTracker.Droid.Views
             bindingSet.Bind(ViewHolder.SignInButton)
               .For(v => v.ClickBinding())
               .To(vm => vm.SignInCommand);
+            bindingSet.Bind(ViewHolder.SignInButton)
+                .For(v => v.VisibilityBinding())
+                .To(vm => vm.SignInVisible)
+                .WithConversion<VisibleInvisibleValueConverter>();
+
+            bindingSet.Bind(ViewHolder.ProgressBarWidget)
+                .For(v => v.VisibilityBinding())
+                .To(vm => vm.ProgressVisible)
+                .WithConversion<VisibleInvisibleValueConverter>();
         }
     }
 }

@@ -16,6 +16,7 @@ namespace VacationsTracker.Droid.Views
          private EditText loginEditText;
          private EditText passwordEditText;
          private Button signInButton;
+         private ProgressBar progressBarWidget;
 
         public LoginActivityViewHolder( Activity activity)
         {
@@ -39,6 +40,64 @@ namespace VacationsTracker.Droid.Views
         
         public Button SignInButton =>
             signInButton ?? (signInButton = activity.FindViewById<Button>(Resource.Id.sign_in_button));
+
+        
+        public ProgressBar ProgressBarWidget =>
+            progressBarWidget ?? (progressBarWidget = activity.FindViewById<ProgressBar>(Resource.Id.progress_bar_widget));
+    }
+
+    public partial class MainListActivityViewHolder
+    {
+         private readonly Activity activity;
+
+         private ProgressBar progressBarWidget;
+         private Android.Support.V7.Widget.RecyclerView recyclerView;
+
+        public MainListActivityViewHolder( Activity activity)
+        {
+            if (activity == null) throw new ArgumentNullException(nameof(activity));
+
+            this.activity = activity;
+        }
+
+        
+        public ProgressBar ProgressBarWidget =>
+            progressBarWidget ?? (progressBarWidget = activity.FindViewById<ProgressBar>(Resource.Id.progress_bar_widget));
+
+        
+        public Android.Support.V7.Widget.RecyclerView RecyclerView =>
+            recyclerView ?? (recyclerView = activity.FindViewById<Android.Support.V7.Widget.RecyclerView>(Resource.Id.recycler_view));
+    }
+
+    public partial class VacationRequestCellViewHolder
+    {
+         private View backgroundCellView;
+         private ImageView imageCellView;
+         private TextView durationRange;
+         private TextView vacationType;
+         private TextView vacationStatus;
+
+
+
+        
+        public View BackgroundCellView =>
+            backgroundCellView ?? (backgroundCellView = ItemView.FindViewById<View>(Resource.Id.background_cell_view));
+
+        
+        public ImageView ImageCellView =>
+            imageCellView ?? (imageCellView = ItemView.FindViewById<ImageView>(Resource.Id.image_cell_view));
+
+        
+        public TextView DurationRange =>
+            durationRange ?? (durationRange = ItemView.FindViewById<TextView>(Resource.Id.duration_range));
+
+        
+        public TextView VacationType =>
+            vacationType ?? (vacationType = ItemView.FindViewById<TextView>(Resource.Id.vacation_type));
+
+        
+        public TextView VacationStatus =>
+            vacationStatus ?? (vacationStatus = ItemView.FindViewById<TextView>(Resource.Id.vacation_status));
     }
 
 }
