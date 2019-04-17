@@ -165,6 +165,10 @@
     <AndroidResource Include="Resources\drawable\Icon_Request_Gray.png" />
     <AndroidResource Include="Resources\drawable\Icon_Request_Green.png" />
     <AndroidResource Include="Resources\drawable\Icon_Request_Plum.png" />
+    <AndroidResource Include="Resources\drawable\Rounded.png" />
+    <AndroidResource Include="Resources\drawable\Rounded_focused.png" />
+    <AndroidResource Include="Resources\drawable\Rounded_pressed.png" />
+    <AndroidResource Include="Resources\drawable\rounded_button.xml" />
     <Content Include="Views\ViewHolderGenerator.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ViewHolderGenerator.cs</LastGenOutput>
