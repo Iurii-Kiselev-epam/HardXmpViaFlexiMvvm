@@ -52,6 +52,7 @@ namespace VacationsTracker.Droid.Views
 
          private ProgressBar progressBarWidget;
          private Android.Support.V7.Widget.RecyclerView recyclerView;
+         private ImageButton imageButtonWidget;
 
         public MainListActivityViewHolder( Activity activity)
         {
@@ -67,6 +68,10 @@ namespace VacationsTracker.Droid.Views
         
         public Android.Support.V7.Widget.RecyclerView RecyclerView =>
             recyclerView ?? (recyclerView = activity.FindViewById<Android.Support.V7.Widget.RecyclerView>(Resource.Id.recycler_view));
+
+        
+        public ImageButton ImageButtonWidget =>
+            imageButtonWidget ?? (imageButtonWidget = activity.FindViewById<ImageButton>(Resource.Id.image_button_widget));
     }
 
     public partial class VacationRequestCellViewHolder

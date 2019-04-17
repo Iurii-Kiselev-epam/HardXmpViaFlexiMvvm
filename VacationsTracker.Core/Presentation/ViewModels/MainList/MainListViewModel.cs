@@ -4,6 +4,7 @@ using FlexiMvvm.ViewModels;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using VacationsTracker.Core.Communication;
 using VacationsTracker.Core.Navigation;
 
@@ -74,6 +75,15 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
         {
             // TODO: navigate to details
             //_navigationService.NavigateToEventDetails(this, new EventDetailsParameters { EventId = itemViewModel.Id });
+        }
+
+        public ICommand NewRequestCommand => CommandProvider.GetForAsync(OnNewRequest);
+
+        private async Task OnNewRequest()
+        {
+            // TODO: navigate to details with empty id
+            //_navigationService.NavigateToEventDetails(this, new EventDetailsParameters { EventId = itemViewModel.Id });
+            await Task.CompletedTask;
         }
     }
 }
