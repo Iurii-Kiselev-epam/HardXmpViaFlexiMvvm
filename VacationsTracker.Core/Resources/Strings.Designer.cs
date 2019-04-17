@@ -61,6 +61,87 @@ namespace VacationsTracker.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        internal static string Action_Settings {
+            get {
+                return ResourceManager.GetString("Action_Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VacationsTracker.Android.
+        /// </summary>
+        internal static string Android_App_Name {
+            get {
+                return ResourceManager.GetString("Android_App_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login and password pair looks not correct. Please, retry them. Check current Caps Lock and input language settings.
+        /// </summary>
+        internal static string Auth_Error_Message {
+            get {
+                return ResourceManager.GetString("Auth_Error_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Communication error. Please retry later.
+        /// </summary>
+        internal static string Communication_Error_Message {
+            get {
+                return ResourceManager.GetString("Communication_Error_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login and password pair is invalid.
+        /// </summary>
+        internal static string Invalid_Error_Message {
+            get {
+                return ResourceManager.GetString("Invalid_Error_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        internal static string Login_Hint {
+            get {
+                return ResourceManager.GetString("Login_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        internal static string Password_Hint {
+            get {
+                return ResourceManager.GetString("Password_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SIGN IN.
+        /// </summary>
+        internal static string Sign_In_Button_Text {
+            get {
+                return ResourceManager.GetString("Sign_In_Button_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unexpected error during authentification. Please retry later.
+        /// </summary>
+        internal static string Unexpected_Error_Message {
+            get {
+                return ResourceManager.GetString("Unexpected_Error_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exceptional Leave.
         /// </summary>
         internal static string VacationType_Exceptional {

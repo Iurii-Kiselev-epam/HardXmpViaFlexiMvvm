@@ -3441,14 +3441,17 @@ namespace VacationsTracker.Droid
 			// aapt resource value: 0x7f0a0010
 			public const int abc_toolbar_collapse_description = 2131361808;
 			
-			// aapt resource value: 0x7f0a0028
-			public const int action_settings = 2131361832;
-			
 			// aapt resource value: 0x7f0a0027
-			public const int app_name = 2131361831;
+			public const int action_settings = 2131361831;
+			
+			// aapt resource value: 0x7f0a0028
+			public const int android_app_name = 2131361832;
 			
 			// aapt resource value: 0x7f0a001e
 			public const int appbar_scrolling_view_behavior = 2131361822;
+			
+			// aapt resource value: 0x7f0a0029
+			public const int auth_error_message = 2131361833;
 			
 			// aapt resource value: 0x7f0a001f
 			public const int bottom_sheet_behavior = 2131361823;
@@ -3456,11 +3459,17 @@ namespace VacationsTracker.Droid
 			// aapt resource value: 0x7f0a0020
 			public const int character_counter_pattern = 2131361824;
 			
-			// aapt resource value: 0x7f0a0029
-			public const int login_hint = 2131361833;
-			
 			// aapt resource value: 0x7f0a002a
-			public const int password_hint = 2131361834;
+			public const int communication_error_message = 2131361834;
+			
+			// aapt resource value: 0x7f0a002b
+			public const int invalid_error_message = 2131361835;
+			
+			// aapt resource value: 0x7f0a002c
+			public const int login_hint = 2131361836;
+			
+			// aapt resource value: 0x7f0a002d
+			public const int password_hint = 2131361837;
 			
 			// aapt resource value: 0x7f0a0021
 			public const int password_toggle_content_description = 2131361825;
@@ -3480,11 +3489,23 @@ namespace VacationsTracker.Droid
 			// aapt resource value: 0x7f0a0011
 			public const int search_menu_title = 2131361809;
 			
-			// aapt resource value: 0x7f0a002b
-			public const int sign_in_button_text = 2131361835;
+			// aapt resource value: 0x7f0a002e
+			public const int sign_in_button_text = 2131361838;
 			
 			// aapt resource value: 0x7f0a0026
 			public const int status_bar_notification_info_overflow = 2131361830;
+			
+			// aapt resource value: 0x7f0a002f
+			public const int unexpected_error_message = 2131361839;
+			
+			// aapt resource value: 0x7f0a0030
+			public const int vacation_type_exceptional = 2131361840;
+			
+			// aapt resource value: 0x7f0a0031
+			public const int vacation_type_leave_without_pay = 2131361841;
+			
+			// aapt resource value: 0x7f0a0032
+			public const int vacation_type_sick = 2131361842;
 			
 			static String()
 			{

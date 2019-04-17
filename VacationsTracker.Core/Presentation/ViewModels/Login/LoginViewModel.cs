@@ -6,6 +6,7 @@ using System.Windows.Input;
 using VacationsTracker.Core.Communication;
 using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Navigation;
+using VacationsTracker.Core.Resources;
 
 namespace VacationsTracker.Core.Presentation.ViewModels.Login
 {
@@ -30,8 +31,8 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
             SignInVisible = true;
 
 #if DEBUG
-            Login = UserConstants.Default.Login;
-            Password = UserConstants.Default.Password;
+            Login = UserSecrets.Default.Login;
+            Password = UserSecrets.Default.Password;
             ErrorMessageVisible = false;
 #endif
         }
@@ -99,7 +100,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
                 || string.IsNullOrWhiteSpace(Password))
             {
                 // TODO: include fluent validation
-                ErrorMessage = UserConstants.Errors.InvalidErrorMessage;
+                ErrorMessage = Strings.Invalid_Error_Message;
                 await Task.CompletedTask;
                 return;
             }
@@ -114,19 +115,19 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
             catch(AuthenticationException authExc)
             {
                 // TODO: use authExc to log error
-                ErrorMessage = UserConstants.Errors.AuthErrorMessage;
+                ErrorMessage = Strings.Auth_Error_Message;
                 SignInVisible = true;
             }
             catch (CommunicationException cmnExc)
             {
                 // TODO: use cmnExc to log error
-                ErrorMessage = UserConstants.Errors.CommunicationErrorMessage;
+                ErrorMessage = Strings.Communication_Error_Message;
                 SignInVisible = true;
             }
             catch (Exception ex)
             {
                 // TODO: use ex to log error
-                ErrorMessage = UserConstants.Errors.UnexpectedErrorMessage;
+                ErrorMessage = Strings.Unexpected_Error_Message;
                 SignInVisible = true;
             }
         }

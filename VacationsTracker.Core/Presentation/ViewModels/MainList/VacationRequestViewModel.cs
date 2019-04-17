@@ -39,7 +39,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
             Start = End = Created = DateTime.UtcNow;
             VacationType = VacationType.Regular;
             VacationStatus = VacationStatus.Draft;
-            CreatedBy = UserConstants.Default.Login;
+            CreatedBy = UserSecrets.Default.Login;
         }
 
         /// <summary>
