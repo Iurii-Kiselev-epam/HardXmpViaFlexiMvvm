@@ -26,4 +26,11 @@
         android:layout_marginBottom="@dimen/inset9x"
         android:src="@drawable/rounded_button"
         android:background="@android:color/transparent"/>
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_navigation_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/inset7x"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorBright"
+        app:menu="@menu/navigation_activity_main_list" />
 </RelativeLayout>

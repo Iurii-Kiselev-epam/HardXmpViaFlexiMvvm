@@ -129,6 +129,12 @@
   <data name="Communication_Error_Message" xml:space="preserve">
     <value>Communication error. Please retry later</value>
   </data>
+  <data name="Home_Tab_List" xml:space="preserve">
+    <value>Requests</value>
+  </data>
+  <data name="Home_Tab_Profile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
   <data name="Invalid_Error_Message" xml:space="preserve">
     <value>Login and password pair is invalid</value>
   </data>

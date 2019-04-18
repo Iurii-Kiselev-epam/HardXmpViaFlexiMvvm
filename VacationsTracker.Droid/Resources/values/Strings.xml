@@ -4,6 +4,8 @@
     <string name="android_app_name">VacationsTracker.Android</string>
     <string name="auth_error_message">Login and password pair looks not correct. Please, retry them. Check current Caps Lock and input language settings</string>
     <string name="communication_error_message">Communication error. Please retry later</string>
+    <string name="home_tab_list">Requests</string>
+    <string name="home_tab_profile">Profile</string>
     <string name="invalid_error_message">Login and password pair is invalid</string>
     <string name="login_hint">Login</string>
     <string name="password_hint">Password</string>
