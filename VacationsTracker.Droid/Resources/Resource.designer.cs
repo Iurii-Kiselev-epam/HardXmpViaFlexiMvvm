@@ -2495,16 +2495,16 @@ namespace VacationsTracker.Droid
 			public const int notify_panel_notification_icon_bg = 2130837613;
 			
 			// aapt resource value: 0x7f02006e
-			public const int Rounded = 2130837614;
+			public const int rounded_button = 2130837614;
 			
 			// aapt resource value: 0x7f02006f
-			public const int rounded_button = 2130837615;
+			public const int rounded_image = 2130837615;
 			
 			// aapt resource value: 0x7f020070
-			public const int Rounded_focused = 2130837616;
+			public const int rounded_image_focused = 2130837616;
 			
 			// aapt resource value: 0x7f020071
-			public const int Rounded_pressed = 2130837617;
+			public const int rounded_image_pressed = 2130837617;
 			
 			// aapt resource value: 0x7f020072
 			public const int splash_bg = 2130837618;
@@ -3343,6 +3343,22 @@ namespace VacationsTracker.Droid
 			}
 			
 			private Layout()
+			{
+			}
+		}
+		
+		public partial class Menu
+		{
+			
+			// aapt resource value: 0x7f0f0000
+			public const int navigation_activity_main_list = 2131689472;
+			
+			static Menu()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Menu()
 			{
 			}
 		}

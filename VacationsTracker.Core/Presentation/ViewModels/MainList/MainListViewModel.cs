@@ -30,7 +30,16 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
         public bool ProgressVisible
         {
             get => _progressVisible;
-            set => SetValue(ref _progressVisible, value);
+            set
+            {
+                SetValue(ref _progressVisible, value);
+                RaisePropertyChanged(nameof(ImageButtonVisible));
+            }
+        }
+
+        public bool ImageButtonVisible
+        {
+            get => !_progressVisible;
         }
 
         public ObservableCollection<VacationRequestViewModel> VacationRequests

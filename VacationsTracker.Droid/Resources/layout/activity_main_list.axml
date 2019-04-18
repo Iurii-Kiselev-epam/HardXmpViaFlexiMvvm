@@ -20,9 +20,10 @@
         android:id="@+id/image_button_widget"
         android:layout_width="@dimen/inset9x"
         android:layout_height="@dimen/inset9x"
-        android:layout_marginRight="@dimen/inset4x"
-        android:layout_marginBottom="@dimen/inset9x"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:src="@drawable/rounded_button"/>
+        android:layout_marginRight="@dimen/inset4x"
+        android:layout_marginBottom="@dimen/inset9x"
+        android:src="@drawable/rounded_button"
+        android:background="@android:color/transparent"/>
 </RelativeLayout>

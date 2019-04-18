@@ -45,11 +45,13 @@ namespace VacationsTracker.Droid.Views
                 .To(vm => vm.ProgressVisible)
                 .WithConversion<VisibleGoneValueConverter>();
 
-            //bindingSet.Bind(ViewHolder.ImageButtonWidget)
-            //    .For(v => v.ItemClickedBinding())
-            //    .To(vm => vm.NewRequestCommand);
-
-            //iewHolder.ImageButtonWidget.ClickWeakSubscribe(OnNewRequest);
+            bindingSet.Bind(ViewHolder.ImageButtonWidget)
+                .For(v => v.ClickBinding())
+                .To(vm => vm.NewRequestCommand);
+            bindingSet.Bind(ViewHolder.ImageButtonWidget)
+                .For(v => v.VisibilityBinding())
+                .To(vm => vm.ImageButtonVisible)
+                .WithConversion<VisibleGoneValueConverter>();
         }
     }
 }

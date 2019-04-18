@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--<item
+        android:id="@+id/navigation_list_menu_item"
+        android:enabled="true"
+        android:icon="@drawable/home_tab_feed"
+        android:title="@string/home_tab_feed"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/navigation_profile_menu_item"
+        android:enabled="true"
+        android:icon="@drawable/home_tab_gallery"
+        android:title="@string/home_tab_gellery"
+        app:showAsAction="always" />-->
+</menu>

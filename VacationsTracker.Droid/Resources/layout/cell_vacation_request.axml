@@ -31,5 +31,6 @@
         android:text="Closed"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/inset1x"
         style="@style/CellTextTheme" />
 </RelativeLayout>

@@ -137,6 +137,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
             base.Initialize();
 
             //TODO login view initialization
+            // ....
         }
     }
 }
