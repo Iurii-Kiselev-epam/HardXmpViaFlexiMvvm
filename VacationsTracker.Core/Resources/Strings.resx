@@ -120,11 +120,17 @@
   <data name="Action_Settings" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="All_Requests" xml:space="preserve">
+    <value>All Requests</value>
+  </data>
   <data name="Android_App_Name" xml:space="preserve">
     <value>VacationsTracker.Android</value>
   </data>
   <data name="Auth_Error_Message" xml:space="preserve">
     <value>Login and password pair looks not correct. Please, retry them. Check current Caps Lock and input language settings</value>
+  </data>
+  <data name="Closed_Requests" xml:space="preserve">
+    <value>Closed Requests</value>
   </data>
   <data name="Communication_Error_Message" xml:space="preserve">
     <value>Communication error. Please retry later</value>
@@ -140,6 +146,9 @@
   </data>
   <data name="Login_Hint" xml:space="preserve">
     <value>Login</value>
+  </data>
+  <data name="Open_Requests" xml:space="preserve">
+    <value>Open Requests</value>
   </data>
   <data name="Password_Hint" xml:space="preserve">
     <value>Password</value>

@@ -53,7 +53,12 @@ namespace VacationsTracker.Droid.Views
                 .To(vm => vm.NewRequestCommand);
             bindingSet.Bind(ViewHolder.ImageButtonWidget)
                 .For(v => v.VisibilityBinding())
-                .To(vm => vm.ImageButtonVisible)
+                .To(vm => vm.IsUIVisible)
+                .WithConversion<VisibleGoneValueConverter>();
+
+            bindingSet.Bind(ViewHolder.BottomNavigation)
+                .For(v => v.VisibilityBinding())
+                .To(vm => vm.IsUIVisible)
                 .WithConversion<VisibleGoneValueConverter>();
         }
 

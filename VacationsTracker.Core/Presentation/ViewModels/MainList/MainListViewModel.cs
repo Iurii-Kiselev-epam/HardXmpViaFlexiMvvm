@@ -2,11 +2,14 @@
 using FlexiMvvm.Commands;
 using FlexiMvvm.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using VacationsTracker.Core.Communication;
+using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Navigation;
+using VacationsTracker.Core.Resources;
 
 namespace VacationsTracker.Core.Presentation.ViewModels.MainList
 {
@@ -15,6 +18,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
         private readonly INavigationService _navigationService;
         private readonly IXmpProxy _xmpProxy;
         private bool _progressVisible;
+        private RequestFilters _filter;
 
         public MainListViewModel(
             INavigationService navigationService,
@@ -33,13 +37,40 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
             set
             {
                 SetValue(ref _progressVisible, value);
-                RaisePropertyChanged(nameof(ImageButtonVisible));
+                RaisePropertyChanged(nameof(IsUIVisible));
             }
         }
 
-        public bool ImageButtonVisible
+        public bool IsUIVisible
         {
             get => !_progressVisible;
+        }
+
+        public RequestFilters Filter
+        {
+            get => _filter;
+            set
+            {
+                SetValue(ref _filter, value);
+                RaisePropertyChanged(nameof(UIFilter));
+            }
+        }
+
+        public string UIFilter
+        {
+            get
+            {
+                switch(Filter)
+                {
+                    case RequestFilters.All:
+                        return Strings.All_Requests;
+                    case RequestFilters.Open:
+                        return Strings.Open_Requests;
+                    case RequestFilters.Closed:
+                    default:
+                        return Strings.Closed_Requests;
+                }
+            }
         }
 
         public ObservableCollection<VacationRequestViewModel> VacationRequests
@@ -53,8 +84,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
 
             try
             {
-                var listResult = await _xmpProxy.VtsVacationGetListAsync();
-                var vacations = listResult.Result.Select(v => new VacationRequestViewModel(v)).ToList();
+                var vacations = await GetRequestsAsync();
 
                 VacationRequests.Clear();
                 VacationRequests.AddRange(vacations);
@@ -93,6 +123,12 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
             // TODO: navigate to details with empty id
             //_navigationService.NavigateToEventDetails(this, new EventDetailsParameters { EventId = itemViewModel.Id });
             await Task.CompletedTask;
+        }
+
+        private async Task<IEnumerable<VacationRequestViewModel>> GetRequestsAsync()
+        {
+            var listResult = await _xmpProxy.GetRequestsAsync(Filter);
+            return listResult.Select(v => new VacationRequestViewModel(v));
         }
     }
 }

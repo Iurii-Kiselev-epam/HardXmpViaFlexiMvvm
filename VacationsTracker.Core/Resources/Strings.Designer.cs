@@ -70,6 +70,15 @@ namespace VacationsTracker.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All Requests.
+        /// </summary>
+        internal static string All_Requests {
+            get {
+                return ResourceManager.GetString("All_Requests", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to VacationsTracker.Android.
         /// </summary>
         internal static string Android_App_Name {
@@ -84,6 +93,15 @@ namespace VacationsTracker.Core.Resources {
         internal static string Auth_Error_Message {
             get {
                 return ResourceManager.GetString("Auth_Error_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Closed Requests.
+        /// </summary>
+        internal static string Closed_Requests {
+            get {
+                return ResourceManager.GetString("Closed_Requests", resourceCulture);
             }
         }
         
@@ -129,6 +147,15 @@ namespace VacationsTracker.Core.Resources {
         internal static string Login_Hint {
             get {
                 return ResourceManager.GetString("Login_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open Requests.
+        /// </summary>
+        internal static string Open_Requests {
+            get {
+                return ResourceManager.GetString("Open_Requests", resourceCulture);
             }
         }
         
