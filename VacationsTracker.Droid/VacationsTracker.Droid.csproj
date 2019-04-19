@@ -71,6 +71,7 @@
     <Compile Include="Views\LoginActivity.cs" />
     <Compile Include="Views\MainListActivity.cs" />
     <Compile Include="Views\MainListRecyclerAdapter.cs" />
+    <Compile Include="Views\ProfileActivity.cs" />
     <Compile Include="Views\SplashScreenActivity.cs" />
     <Compile Include="Views\VacationRequestCellViewHolder.cs" />
     <Compile Include="Views\ViewHolderGenerator.cs">
@@ -175,6 +176,9 @@
     <AndroidResource Include="Resources\menu\navigation_activity_main_list.xml" />
     <AndroidResource Include="Resources\drawable\home_tab_list.xml" />
     <AndroidResource Include="Resources\drawable\home_tab_profile.xml" />
+    <AndroidResource Include="Resources\layout\activity_profile.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <Content Include="Views\ViewHolderGenerator.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ViewHolderGenerator.cs</LastGenOutput>

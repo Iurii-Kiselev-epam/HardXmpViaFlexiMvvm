@@ -144,6 +144,9 @@
   <data name="Password_Hint" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="Profile_Name" xml:space="preserve">
+    <value>Arkadiy Dobkin</value>
+  </data>
   <data name="Sign_In_Button_Text" xml:space="preserve">
     <value>SIGN IN</value>
   </data>

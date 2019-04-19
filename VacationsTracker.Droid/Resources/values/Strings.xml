@@ -9,6 +9,7 @@
     <string name="invalid_error_message">Login and password pair is invalid</string>
     <string name="login_hint">Login</string>
     <string name="password_hint">Password</string>
+    <string name="profile_name">Arkadiy Dobkin</string>
     <string name="sign_in_button_text">SIGN IN</string>
     <string name="unexpected_error_message">Unexpected error during authentification. Please retry later</string>
     <string name="vacation_type_exceptional">Exceptional Leave</string>

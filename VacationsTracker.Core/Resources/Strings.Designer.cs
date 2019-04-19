@@ -142,6 +142,15 @@ namespace VacationsTracker.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Arkadiy Dobkin.
+        /// </summary>
+        internal static string Profile_Name {
+            get {
+                return ResourceManager.GetString("Profile_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SIGN IN.
         /// </summary>
         internal static string Sign_In_Button_Text {

@@ -1,5 +1,6 @@
 ﻿using Android.App;
 using Android.OS;
+using Android.Support.Design.Widget;
 using Android.Support.V7.Widget;
 using FlexiMvvm.Bindings;
 using FlexiMvvm.ValueConverters;
@@ -30,6 +31,8 @@ namespace VacationsTracker.Droid.Views
             };
             ViewHolder.RecyclerView.SetAdapter(RequestsAdapter);
             ViewHolder.RecyclerView.SetLayoutManager(new LinearLayoutManager(this));
+
+            ViewHolder.BottomNavigation.NavigationItemSelectedWeakSubscribe(OnNavigationItemSelected);
         }
 
         public override void Bind(BindingSet<MainListViewModel> bindingSet)
@@ -53,5 +56,13 @@ namespace VacationsTracker.Droid.Views
                 .To(vm => vm.ImageButtonVisible)
                 .WithConversion<VisibleGoneValueConverter>();
         }
+
+        private void OnNavigationItemSelected(object sender, BottomNavigationView.NavigationItemSelectedEventArgs e)
+        {
+            if(e.Item.ItemId == Resource.Id.navigation_profile_menu_item)
+            {
+            }
+        }
+
     }
 }
