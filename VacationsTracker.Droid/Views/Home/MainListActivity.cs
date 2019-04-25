@@ -60,6 +60,11 @@ namespace VacationsTracker.Droid.Views.Home
                 .For(v => v.VisibilityBinding())
                 .To(vm => vm.IsUIVisible)
                 .WithConversion<VisibleGoneValueConverter>();
+
+            bindingSet.Bind(ViewHolder.RecyclerView)
+                .For(v => v.VisibilityBinding())
+                .To(vm => vm.IsUIVisible)
+                .WithConversion<VisibleGoneValueConverter>();
         }
 
         private void OnNavigationItemSelected(object sender, BottomNavigationView.NavigationItemSelectedEventArgs e)

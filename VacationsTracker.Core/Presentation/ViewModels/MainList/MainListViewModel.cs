@@ -124,6 +124,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
         {
             // TODO: navigate to details
             //_navigationService.NavigateToEventDetails(this, new EventDetailsParameters { EventId = itemViewModel.Id });
+            ProgressVisible = true;
             _navigationService.NavigateToProfile(this);
         }
 
