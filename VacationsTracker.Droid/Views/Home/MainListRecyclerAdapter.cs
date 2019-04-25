@@ -2,7 +2,7 @@
 using Android.Views;
 using FlexiMvvm.Collections;
 
-namespace VacationsTracker.Droid.Views
+namespace VacationsTracker.Droid.Views.Home
 {
     public class MainListRecyclerAdapter : RecyclerViewObservablePlainAdapter
     {

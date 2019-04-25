@@ -2,6 +2,7 @@
 using VacationsTracker.Core.Navigation;
 using VacationsTracker.Core.Presentation.ViewModels;
 using VacationsTracker.Core.Presentation.ViewModels.Login;
+using VacationsTracker.Core.Presentation.ViewModels.MainList;
 using VacationsTracker.iOS.Views;
 using VacationsTracker.iOS.Views.Login;
 
@@ -16,6 +17,11 @@ namespace VacationsTracker.iOS.Navigation
         }
 
         public void NavigateToMainList(LoginViewModel fromViewModel)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void NavigateToProfile(MainListViewModel fromViewModel)
         {
             throw new System.NotImplementedException();
         }

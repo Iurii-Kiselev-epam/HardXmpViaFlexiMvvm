@@ -5,7 +5,7 @@ using FlexiMvvm.ValueConverters;
 using FlexiMvvm.Views;
 using VacationsTracker.Core.Presentation.ViewModels.Login;
 
-namespace VacationsTracker.Droid.Views
+namespace VacationsTracker.Droid.Views.Login
 {
     [Activity(
         Theme = "@style/LoginTheme",

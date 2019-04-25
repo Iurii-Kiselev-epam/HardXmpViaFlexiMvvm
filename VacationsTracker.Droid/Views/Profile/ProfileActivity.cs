@@ -9,17 +9,22 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using FlexiMvvm.Views;
+using VacationsTracker.Core.Presentation.ViewModels.Profile;
 
-namespace VacationsTracker.Droid.Views
+namespace VacationsTracker.Droid.Views.Profile
 {
     [Activity(Label = "ProfileActivity")]
-    public class ProfileActivity : Activity
+    public class ProfileActivity : BindableAppCompatActivity<ProfileViewModel>
     {
+        private ProfileActivityViewHolder ViewHolder { get; set; }
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            // Create your application here
+            SetContentView(Resource.Layout.activity_profile);
+            ViewHolder = new ProfileActivityViewHolder(this);
         }
     }
 }

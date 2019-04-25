@@ -9,6 +9,10 @@ using System;
 using FlexiMvvm.Views;
 using Android.Support.V4.App;
 using FlexiMvvm.ViewModels;
+using VacationsTracker.Droid.Views.Login;
+using VacationsTracker.Droid.Views.Home;
+using VacationsTracker.Core.Presentation.ViewModels.MainList;
+using VacationsTracker.Droid.Views.Profile;
 
 namespace VacationsTracker.Droid.Navigation
 {
@@ -38,5 +42,15 @@ namespace VacationsTracker.Droid.Navigation
         public void NavigateToMainList(LoginViewModel fromViewModel) =>
             NavigateTo<LoginActivity, MainListActivity, LoginViewModel>(fromViewModel,
                 cleanHistory: true);
+
+        public void NavigateToProfile(MainListViewModel fromViewModel) =>
+            NavigateTo<MainListActivity, ProfileActivity, MainListViewModel>(
+                fromViewModel,
+                false,
+                intent =>
+                {
+                    // TODO: tune fromViewModel.Filter
+                    // ...
+                });
     }
 }

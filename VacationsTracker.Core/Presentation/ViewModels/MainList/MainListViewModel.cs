@@ -110,13 +110,22 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
         public Command<VacationRequestViewModel> OpenVacationDetailsCommand =>
             CommandProvider.Get<VacationRequestViewModel>(OpenVacationDetails);
 
+        public ICommand NewRequestCommand => CommandProvider.GetForAsync(OnNewRequest);
+
+        public ICommand OpenProfileCommand => CommandProvider.Get(OpenProfile);
+
         private void OpenVacationDetails(VacationRequestViewModel itemViewModel)
         {
-            // TODO: navigate to details
+            // TODO: navigate to profile
             //_navigationService.NavigateToEventDetails(this, new EventDetailsParameters { EventId = itemViewModel.Id });
         }
 
-        public ICommand NewRequestCommand => CommandProvider.GetForAsync(OnNewRequest);
+        private void OpenProfile()
+        {
+            // TODO: navigate to details
+            //_navigationService.NavigateToEventDetails(this, new EventDetailsParameters { EventId = itemViewModel.Id });
+            _navigationService.NavigateToProfile(this);
+        }
 
         private async Task OnNewRequest()
         {

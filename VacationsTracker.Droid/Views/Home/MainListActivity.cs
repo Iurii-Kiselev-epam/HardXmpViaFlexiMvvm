@@ -7,7 +7,7 @@ using FlexiMvvm.ValueConverters;
 using FlexiMvvm.Views;
 using VacationsTracker.Core.Presentation.ViewModels.MainList;
 
-namespace VacationsTracker.Droid.Views
+namespace VacationsTracker.Droid.Views.Home
 {
     [Activity(
         Theme = "@style/MainListTheme",
@@ -66,6 +66,7 @@ namespace VacationsTracker.Droid.Views
         {
             if(e.Item.ItemId == Resource.Id.navigation_profile_menu_item)
             {
+                ViewModel.OpenProfileCommand.Execute(null);
             }
         }
 

@@ -79,6 +79,29 @@ namespace VacationsTracker.Droid.Views
             bottomNavigation ?? (bottomNavigation = activity.FindViewById<Android.Support.Design.Widget.BottomNavigationView>(Resource.Id.bottom_navigation));
     }
 
+    public partial class ProfileActivityViewHolder
+    {
+         private readonly Activity activity;
+
+         private ImageView imageViewWidget;
+         private TextView errorTextView;
+
+        public ProfileActivityViewHolder( Activity activity)
+        {
+            if (activity == null) throw new ArgumentNullException(nameof(activity));
+
+            this.activity = activity;
+        }
+
+        
+        public ImageView ImageViewWidget =>
+            imageViewWidget ?? (imageViewWidget = activity.FindViewById<ImageView>(Resource.Id.image_view_widget));
+
+        
+        public TextView ErrorTextView =>
+            errorTextView ?? (errorTextView = activity.FindViewById<TextView>(Resource.Id.error_text_view));
+    }
+
     public partial class VacationRequestCellViewHolder
     {
          private View backgroundCellView;
