@@ -1,4 +1,5 @@
 ﻿using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Support.Design.Widget;
 using Android.Support.V7.Widget;
@@ -65,6 +66,17 @@ namespace VacationsTracker.Droid.Views.Home
                 .For(v => v.VisibilityBinding())
                 .To(vm => vm.IsUIVisible)
                 .WithConversion<VisibleGoneValueConverter>();
+        }
+
+        protected override void OnStart()
+        {
+            base.OnStart();
+        }
+
+        protected override void OnSaveInstanceState(Bundle outState)
+        {
+            base.OnSaveInstanceState(outState);
+            ViewModel.ProgressVisible = false;
         }
 
         private void OnNavigationItemSelected(object sender, BottomNavigationView.NavigationItemSelectedEventArgs e)

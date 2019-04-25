@@ -37,5 +37,11 @@ namespace VacationsTracker.Droid.Views.Profile
             // TODO: bind to selected filter
             // ...
         }
+
+        public override void OnBackPressed()
+        {
+            base.OnBackPressed();
+        }
+
     }
 }
