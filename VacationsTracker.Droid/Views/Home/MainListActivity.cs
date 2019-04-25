@@ -73,6 +73,16 @@ namespace VacationsTracker.Droid.Views.Home
             base.OnStart();
         }
 
+        protected override void OnResume()
+        {
+            base.OnResume();
+
+            //ViewModel.UpdateContentCommand.Execute(null);
+
+            // select first item
+            ViewHolder.BottomNavigation.SelectedItemId = Resource.Id.navigation_list_menu_item;
+        }
+
         protected override void OnSaveInstanceState(Bundle outState)
         {
             base.OnSaveInstanceState(outState);
