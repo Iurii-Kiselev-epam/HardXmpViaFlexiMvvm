@@ -63,6 +63,7 @@
     <Compile Include="Bootstrappers\AndroidBootstrapper.cs" />
     <Compile Include="Extensions\ImageViewExtensions.cs" />
     <Compile Include="Extensions\IntentExtensions.cs" />
+    <Compile Include="Infrastructure\Dialogs\DialogService.cs" />
     <Compile Include="Infrastructure\VacationsTrackerApp.cs" />
     <Compile Include="Navigation\NavigationService.cs" />
     <Compile Include="Resources\Resource.designer.cs" />

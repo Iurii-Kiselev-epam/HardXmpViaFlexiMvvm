@@ -15,6 +15,8 @@ namespace VacationsTracker.Droid.Views.Home
         Label = "MainListActivity")]
     public class MainListActivity : BindableAppCompatActivity<MainListViewModel>
     {
+        private const string RequestFilterKey = "RequestFilterKey";
+
         private MainListActivityViewHolder ViewHolder { get; set; }
         private MainListRecyclerAdapter RequestsAdapter { get; set; }
 
@@ -80,13 +82,17 @@ namespace VacationsTracker.Droid.Views.Home
             //ViewModel.UpdateContentCommand.Execute(null);
 
             // select first item
-            ViewHolder.BottomNavigation.SelectedItemId = Resource.Id.navigation_list_menu_item;
+            if (ViewHolder.BottomNavigation.SelectedItemId != Resource.Id.navigation_list_menu_item)
+            {
+                ViewHolder.BottomNavigation.SelectedItemId = Resource.Id.navigation_list_menu_item;
+            }
         }
 
         protected override void OnSaveInstanceState(Bundle outState)
         {
             base.OnSaveInstanceState(outState);
             ViewModel.ProgressVisible = false;
+            outState.PutInt(RequestFilterKey, (int)ViewModel.Filter);
         }
 
         private void OnNavigationItemSelected(object sender, BottomNavigationView.NavigationItemSelectedEventArgs e)
