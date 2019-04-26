@@ -29,7 +29,7 @@ namespace VacationsTracker.Core.Communication
             //_logger = log.GetLogger(nameof(XmpProxy));
         }
 
-        public async Task Authenticate(string login, string passw)
+        public async Task AuthenticateAsync(string login, string passw)
         {
             //await _logger.Verbose(() => "Authenticating...");
 

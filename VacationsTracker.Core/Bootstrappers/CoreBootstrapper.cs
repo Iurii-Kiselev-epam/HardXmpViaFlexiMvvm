@@ -56,11 +56,13 @@ namespace VacationsTracker.Core.Bootstrappers
             simpleIoc.Register(() =>
                 new LoginViewModel(
                     simpleIoc.Get<INavigationService>(),
-                    simpleIoc.Get<IXmpProxy>()));
+                    simpleIoc.Get<IXmpProxy>(),
+                    simpleIoc.Get<IOperationFactory>()));
             simpleIoc.Register(() =>
                 new MainListViewModel(
                     simpleIoc.Get<INavigationService>(),
-                    simpleIoc.Get<IXmpProxy>()));
+                    simpleIoc.Get<IXmpProxy>(),
+                    simpleIoc.Get<IOperationFactory>()));
             simpleIoc.Register(() =>
                 new VacationRequestViewModel(
                     simpleIoc.Get<INavigationService>(),

@@ -1,5 +1,6 @@
 ﻿using FlexiMvvm.Collections;
 using FlexiMvvm.Commands;
+using FlexiMvvm.Operations;
 using FlexiMvvm.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -17,15 +18,18 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
     {
         private readonly INavigationService _navigationService;
         private readonly IXmpProxy _xmpProxy;
+        private readonly IOperationFactory _operationFactory;
         private bool _progressVisible;
         private RequestFilters _filter;
 
         public MainListViewModel(
             INavigationService navigationService,
-            IXmpProxy xmpProxy)
+            IXmpProxy xmpProxy,
+            IOperationFactory operationFactory)
         {
             _navigationService = navigationService ?? throw new ArgumentNullException(nameof(navigationService));
             _xmpProxy = xmpProxy ?? throw new ArgumentNullException(nameof(xmpProxy));
+            _operationFactory = operationFactory ?? throw new ArgumentNullException(nameof(operationFactory));
 
             ProgressVisible = true;
             VacationRequests = new ObservableCollection<VacationRequestViewModel>();
@@ -43,7 +47,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
 
         public bool IsUIVisible
         {
-            get => !_progressVisible;
+            get => !ProgressVisible;
         }
 
         public RequestFilters Filter
@@ -58,19 +62,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
 
         public string UIFilter
         {
-            get
-            {
-                switch(Filter)
-                {
-                    case RequestFilters.All:
-                        return Strings.All_Requests;
-                    case RequestFilters.Open:
-                        return Strings.Open_Requests;
-                    case RequestFilters.Closed:
-                    default:
-                        return Strings.Closed_Requests;
-                }
-            }
+            get => Filter.GetUiName();
         }
 
         public ObservableCollection<VacationRequestViewModel> VacationRequests
