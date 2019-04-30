@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
+﻿using Android.App;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
+using Android.Support.V7.Widget;
 using FlexiMvvm.Bindings;
 using FlexiMvvm.Views;
 using VacationsTracker.Core.Presentation.ViewModels.Profile;
@@ -21,6 +13,7 @@ namespace VacationsTracker.Droid.Views.Profile
     public class ProfileActivity : BindableAppCompatActivity<ProfileViewModel>
     {
         private ProfileActivityViewHolder ViewHolder { get; set; }
+        private RequestFilterRecyclerAdapter FiltersAdapter { get; set; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -28,6 +21,13 @@ namespace VacationsTracker.Droid.Views.Profile
 
             SetContentView(Resource.Layout.activity_profile);
             ViewHolder = new ProfileActivityViewHolder(this);
+
+            FiltersAdapter = new RequestFilterRecyclerAdapter(ViewHolder.RecyclerView)
+            {
+                Items = ViewModel.Filters
+            };
+            ViewHolder.RecyclerView.SetAdapter(FiltersAdapter);
+            ViewHolder.RecyclerView.SetLayoutManager(new LinearLayoutManager(this));
         }
 
         public override void Bind(BindingSet<ProfileViewModel> bindingSet)
@@ -36,12 +36,15 @@ namespace VacationsTracker.Droid.Views.Profile
 
             // TODO: bind to selected filter
             // ...
+
+            bindingSet.Bind(FiltersAdapter)
+                .For(v => v.ItemClickedBinding())
+                .To(vm => vm.OpenFilterCommand);
         }
 
         public override void OnBackPressed()
         {
             base.OnBackPressed();
         }
-
     }
 }

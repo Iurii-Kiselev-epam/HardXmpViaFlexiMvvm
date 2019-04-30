@@ -1,10 +1,9 @@
-﻿using FlexiMvvm.ViewModels;
+﻿using FlexiMvvm.Collections;
+using FlexiMvvm.Commands;
+using FlexiMvvm.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Navigation;
-using VacationsTracker.Core.Resources;
 
 namespace VacationsTracker.Core.Presentation.ViewModels.Profile
 {
@@ -16,6 +15,12 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Profile
         public ProfileViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService ?? throw new ArgumentNullException(nameof(navigationService));
+            Filters = new ObservableCollection<RequestFilterViewModel>();
+        }
+
+        public ObservableCollection<RequestFilterViewModel> Filters
+        {
+            get;
         }
 
         public RequestFilters Filter
@@ -30,19 +35,25 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Profile
 
         public string UIFilter
         {
-            get
-            {
-                switch (Filter)
-                {
-                    case RequestFilters.All:
-                        return Strings.All_Requests;
-                    case RequestFilters.Open:
-                        return Strings.Open_Requests;
-                    case RequestFilters.Closed:
-                    default:
-                        return Strings.Closed_Requests;
-                }
-            }
+            get => Filter.GetUiName();
+        }
+
+        public Command<RequestFilterViewModel> OpenFilterCommand =>
+            CommandProvider.Get<RequestFilterViewModel>(OpenFilter);
+
+
+        public override void Initialize()
+        {
+            base.Initialize();
+
+            Filters.Clear();
+            Filters.AddRange(RequestFilterViewModel.GetAllFilters());
+        }
+
+        private void OpenFilter(RequestFilterViewModel itemViewModel)
+        {
+            // TODO: navigate to profile
+            //_navigationService.NavigateToEventDetails(this, new EventDetailsParameters { EventId = itemViewModel.Id });
         }
 
     }

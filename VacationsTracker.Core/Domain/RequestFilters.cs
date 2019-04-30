@@ -1,4 +1,7 @@
-﻿using VacationsTracker.Core.Resources;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using VacationsTracker.Core.Resources;
 
 namespace VacationsTracker.Core.Domain
 {
@@ -24,5 +27,16 @@ namespace VacationsTracker.Core.Domain
                     return Strings.Closed_Requests;
             }
         }
+
+        public static IEnumerable<RequestFilters> GetAllRequests()
+        {
+            foreach (var rqst in Enum.GetValues(typeof(RequestFilters)))
+            {
+                yield return (RequestFilters)rqst;
+            }
+        }
+
+        public static IEnumerable<string> GetAllUiRequests() =>
+            GetAllRequests().Select(r => r.GetUiName());
     }
 }

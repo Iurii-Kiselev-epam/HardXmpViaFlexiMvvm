@@ -73,6 +73,8 @@
     <Compile Include="Views\Home\MainListActivity.cs" />
     <Compile Include="Views\Home\MainListRecyclerAdapter.cs" />
     <Compile Include="Views\Profile\ProfileActivity.cs" />
+    <Compile Include="Views\Profile\RequestFilterCellViewHolder.cs" />
+    <Compile Include="Views\Profile\RequestFilterRecyclerAdapter.cs" />
     <Compile Include="Views\SplashScreenActivity.cs" />
     <Compile Include="Views\Home\VacationRequestCellViewHolder.cs" />
     <Compile Include="Views\ViewHolderGenerator.cs">
@@ -181,6 +183,9 @@
     <AndroidResource Include="Resources\drawable\home_tab_list.xml" />
     <AndroidResource Include="Resources\drawable\home_tab_profile.xml" />
     <AndroidResource Include="Resources\layout\activity_profile.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\cell_request_filter.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <Content Include="Views\ViewHolderGenerator.tt">
