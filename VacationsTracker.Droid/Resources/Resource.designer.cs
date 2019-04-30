@@ -2789,8 +2789,8 @@ namespace VacationsTracker.Droid
 			// aapt resource value: 0x7f090097
 			public const int image_cell_view = 2131296407;
 			
-			// aapt resource value: 0x7f090093
-			public const int image_view_widget = 2131296403;
+			// aapt resource value: 0x7f090094
+			public const int image_view_widget = 2131296404;
 			
 			// aapt resource value: 0x7f0900b6
 			public const int info = 2131296438;
@@ -2882,8 +2882,8 @@ namespace VacationsTracker.Droid
 			// aapt resource value: 0x7f09004d
 			public const int pin = 2131296333;
 			
-			// aapt resource value: 0x7f090094
-			public const int profile_name_text_view = 2131296404;
+			// aapt resource value: 0x7f090093
+			public const int profile_name_text_view = 2131296403;
 			
 			// aapt resource value: 0x7f09008f
 			public const int progress_bar_widget = 2131296399;

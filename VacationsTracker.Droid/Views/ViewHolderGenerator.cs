@@ -83,9 +83,9 @@ namespace VacationsTracker.Droid.Views
     {
          private readonly Activity activity;
 
-         private ImageView imageViewWidget;
-         private TextView profileNameTextView;
          private Android.Support.V7.Widget.RecyclerView recyclerView;
+         private TextView profileNameTextView;
+         private ImageView imageViewWidget;
 
         public ProfileActivityViewHolder( Activity activity)
         {
@@ -95,16 +95,16 @@ namespace VacationsTracker.Droid.Views
         }
 
         
-        public ImageView ImageViewWidget =>
-            imageViewWidget ?? (imageViewWidget = activity.FindViewById<ImageView>(Resource.Id.image_view_widget));
+        public Android.Support.V7.Widget.RecyclerView RecyclerView =>
+            recyclerView ?? (recyclerView = activity.FindViewById<Android.Support.V7.Widget.RecyclerView>(Resource.Id.recycler_view));
 
         
         public TextView ProfileNameTextView =>
             profileNameTextView ?? (profileNameTextView = activity.FindViewById<TextView>(Resource.Id.profile_name_text_view));
 
         
-        public Android.Support.V7.Widget.RecyclerView RecyclerView =>
-            recyclerView ?? (recyclerView = activity.FindViewById<Android.Support.V7.Widget.RecyclerView>(Resource.Id.recycler_view));
+        public ImageView ImageViewWidget =>
+            imageViewWidget ?? (imageViewWidget = activity.FindViewById<ImageView>(Resource.Id.image_view_widget));
     }
 
     public partial class RequestFilterCellViewHolder
@@ -115,7 +115,7 @@ namespace VacationsTracker.Droid.Views
 
         
         public TextView RequestUiFilter =>
-            requestUiFilter ?? (requestUiFilter = (TextView)ItemView);
+            requestUiFilter ?? (requestUiFilter = ItemView.FindViewById<TextView>(Resource.Id.request_ui_filter));
     }
 
     public partial class VacationRequestCellViewHolder

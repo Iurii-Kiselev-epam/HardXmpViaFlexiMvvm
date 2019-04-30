@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/request_ui_filter"
-    android:text="item"
-    style="@style/BaseCellTextTheme">
-</TextView>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/inset3x">
+    <TextView
+        android:id="@+id/request_ui_filter"
+        android:text="item"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        style="@style/BaseCellTextTheme">
+    </TextView>
+</RelativeLayout>
