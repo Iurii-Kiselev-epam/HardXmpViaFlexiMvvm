@@ -1,8 +1,10 @@
 ﻿using FlexiMvvm;
+using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Navigation;
 using VacationsTracker.Core.Presentation.ViewModels;
 using VacationsTracker.Core.Presentation.ViewModels.Login;
 using VacationsTracker.Core.Presentation.ViewModels.MainList;
+using VacationsTracker.Core.Presentation.ViewModels.Profile;
 using VacationsTracker.iOS.Views;
 using VacationsTracker.iOS.Views.Login;
 
@@ -17,6 +19,11 @@ namespace VacationsTracker.iOS.Navigation
         }
 
         public void NavigateToMainList(LoginViewModel fromViewModel)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void NavigateToMainList(ProfileViewModel fromViewModel, RequestFilterParameters parameters)
         {
             throw new System.NotImplementedException();
         }

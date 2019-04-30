@@ -13,6 +13,8 @@ using VacationsTracker.Droid.Views.Login;
 using VacationsTracker.Droid.Views.Home;
 using VacationsTracker.Core.Presentation.ViewModels.MainList;
 using VacationsTracker.Droid.Views.Profile;
+using VacationsTracker.Core.Presentation.ViewModels.Profile;
+using VacationsTracker.Core.Domain;
 
 namespace VacationsTracker.Droid.Navigation
 {
@@ -41,7 +43,12 @@ namespace VacationsTracker.Droid.Navigation
 
         public void NavigateToMainList(LoginViewModel fromViewModel) =>
             NavigateTo<LoginActivity, MainListActivity, LoginViewModel>(fromViewModel,
-                cleanHistory: true);
+                true,
+                intent => intent.PutParameters(
+                    new RequestFilterParameters
+                    {
+                        Filter = RequestFilters.All
+                    }));
 
         public void NavigateToProfile(MainListViewModel fromViewModel) =>
             NavigateTo<MainListActivity, ProfileActivity, MainListViewModel>(
@@ -52,5 +59,11 @@ namespace VacationsTracker.Droid.Navigation
                     // TODO: tune fromViewModel.Filter
                     // ...
                 });
+
+        public void NavigateToMainList(ProfileViewModel fromViewModel, RequestFilterParameters parameters) =>
+            NavigateTo<ProfileActivity, MainListActivity, ProfileViewModel>(
+                fromViewModel,
+                false,
+                intent => intent.PutParameters(parameters));
     }
 }

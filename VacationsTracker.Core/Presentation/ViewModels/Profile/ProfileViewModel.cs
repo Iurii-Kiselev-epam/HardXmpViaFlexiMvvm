@@ -52,8 +52,15 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Profile
 
         private void OpenFilter(RequestFilterViewModel itemViewModel)
         {
-            // TODO: navigate to profile
-            //_navigationService.NavigateToEventDetails(this, new EventDetailsParameters { EventId = itemViewModel.Id });
+            if (itemViewModel == null)
+            {
+                throw new ArgumentNullException(nameof(itemViewModel));
+            }
+            _navigationService.NavigateToMainList(this,
+                new RequestFilterParameters
+                {
+                    Filter = itemViewModel.Filter
+                });
         }
 
     }

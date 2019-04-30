@@ -1,6 +1,8 @@
-﻿using VacationsTracker.Core.Presentation.ViewModels;
+﻿using VacationsTracker.Core.Domain;
+using VacationsTracker.Core.Presentation.ViewModels;
 using VacationsTracker.Core.Presentation.ViewModels.Login;
 using VacationsTracker.Core.Presentation.ViewModels.MainList;
+using VacationsTracker.Core.Presentation.ViewModels.Profile;
 
 namespace VacationsTracker.Core.Navigation
 {
@@ -9,5 +11,6 @@ namespace VacationsTracker.Core.Navigation
         void NavigateToLogin(EntryViewModel fromViewModel);
         void NavigateToMainList(LoginViewModel fromViewModel);
         void NavigateToProfile(MainListViewModel fromViewModel);
+        void NavigateToMainList(ProfileViewModel fromViewModel, RequestFilterParameters parameters);
     }
 }

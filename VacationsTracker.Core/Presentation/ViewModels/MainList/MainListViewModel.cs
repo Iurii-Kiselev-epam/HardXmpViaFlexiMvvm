@@ -14,7 +14,7 @@ using VacationsTracker.Core.Resources;
 
 namespace VacationsTracker.Core.Presentation.ViewModels.MainList
 {
-    public class MainListViewModel : ViewModel
+    public class MainListViewModel : ViewModel<RequestFilterParameters>
     {
         private readonly INavigationService _navigationService;
         private readonly IXmpProxy _xmpProxy;
@@ -70,9 +70,11 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
             get;
         }
 
-        public override async Task InitializeAsync()
+        public override async Task InitializeAsync(RequestFilterParameters parameters)
         {
-            await base.InitializeAsync();
+            await base.InitializeAsync(parameters);
+
+            Filter = parameters.Filter;
 
             try
             {

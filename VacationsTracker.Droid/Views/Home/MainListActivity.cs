@@ -6,6 +6,7 @@ using Android.Support.V7.Widget;
 using FlexiMvvm.Bindings;
 using FlexiMvvm.ValueConverters;
 using FlexiMvvm.Views;
+using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Presentation.ViewModels.MainList;
 
 namespace VacationsTracker.Droid.Views.Home
@@ -13,7 +14,7 @@ namespace VacationsTracker.Droid.Views.Home
     [Activity(
         Theme = "@style/MainListTheme",
         Label = "MainListActivity")]
-    public class MainListActivity : BindableAppCompatActivity<MainListViewModel>
+    public class MainListActivity : BindableAppCompatActivity<MainListViewModel, RequestFilterParameters>
     {
         private const string RequestFilterKey = "RequestFilterKey";
 
