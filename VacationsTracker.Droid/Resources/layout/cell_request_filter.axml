@@ -7,7 +7,7 @@
         android:id="@+id/request_ui_filter"
         android:text="item"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentRight="true"
         style="@style/BaseCellTextTheme">
     </TextView>
 </RelativeLayout>
