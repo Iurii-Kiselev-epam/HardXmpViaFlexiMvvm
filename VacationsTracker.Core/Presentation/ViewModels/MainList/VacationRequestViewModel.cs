@@ -10,7 +10,7 @@ using VacationsTracker.Core.Resources;
 
 namespace VacationsTracker.Core.Presentation.ViewModels.MainList
 {
-    public class VacationRequestViewModel : ViewModel
+    public class VacationRequestViewModel : ViewModel<VacationRequestParameters>
     {
         private readonly INavigationService _navigationService;
         private readonly IXmpProxy _xmpProxy;
@@ -182,6 +182,41 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
             {
                 // TODO: use ex to log error
                 //ErrorMessage = UserConstants.Errors.UnexpectedErrorMessage;
+            }
+        }
+
+        public override async Task InitializeAsync(VacationRequestParameters parameters)
+        {
+            await base.InitializeAsync(parameters);
+
+            if (parameters.RequestId == Guid.Empty)
+            {
+                // TODO: create new vacation request
+                // ...
+            }
+            else
+            {
+                // TODO: get request from server
+                try
+                {
+                    var result = await _xmpProxy.VtsVacationGetByIdAsync(parameters.RequestId.ToString());
+                    GetDataFrom(result.Result);
+                }
+                catch (AuthenticationException authExc)
+                {
+                    // TODO: use authExc to log error
+                    //ErrorMessage = UserConstants.Errors.AuthErrorMessage;
+                }
+                catch (CommunicationException cmnExc)
+                {
+                    // TODO: use cmnExc to log error
+                    //ErrorMessage = UserConstants.Errors.CommunicationErrorMessage;
+                }
+                catch (Exception ex)
+                {
+                    // TODO: use ex to log error
+                    //ErrorMessage = UserConstants.Errors.UnexpectedErrorMessage;
+                }
             }
         }
 
