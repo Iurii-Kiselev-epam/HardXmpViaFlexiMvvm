@@ -43,6 +43,10 @@ namespace VacationsTracker.Droid.Views.Home
         {
             base.Bind(bindingSet);
 
+            bindingSet.Bind(ViewHolder.FilterTextView)
+                .For(v => v.TextBinding())
+                .To(vm => vm.UIFilter);
+
             bindingSet.Bind(RequestsAdapter)
                 .For(v => v.ItemClickedBinding())
                 .To(vm => vm.OpenVacationDetailsCommand);

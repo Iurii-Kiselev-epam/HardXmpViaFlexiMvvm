@@ -5,23 +5,39 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:background="@color/colorWhite">
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_weight="1"
-        android:background="@color/colorMsgBkgnd" />
+        android:layout_alignParentTop="true"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/colorBright"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <TextView
+            android:id="@+id/filter_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/inset2x"
+            android:layout_gravity="left"
+            android:layout_marginLeft="@dimen/inset4x"
+            android:text="Filter here" />
+    </android.support.v7.widget.Toolbar>
+    <ImageView
+        android:id="@+id/image_view_widget"
+        android:layout_below="@id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/medium_avatar_height"
+        android:src="@drawable/Avatar_Ark"/>
     <TextView
         android:id="@+id/profile_name_text_view"
-        android:layout_above="@id/recycler_view"
+        android:layout_below="@id/image_view_widget"
         android:layout_centerHorizontal="true"
         android:text="@string/profile_name"
         style="@style/CellDateTheme"/>
-    <ImageView
-        android:id="@+id/image_view_widget"
-        android:layout_above="@id/profile_name_text_view"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_below="@id/profile_name_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/Avatar_Ark"/>
+        android:layout_weight="1"
+        android:background="@color/colorMsgBkgnd" />
 </RelativeLayout>

@@ -19,7 +19,7 @@ namespace VacationsTracker.Core.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Strings {
@@ -79,6 +79,15 @@ namespace VacationsTracker.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All.
+        /// </summary>
+        internal static string All_Requests_Shortcut {
+            get {
+                return ResourceManager.GetString("All_Requests_Shortcut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to VacationsTracker.Android.
         /// </summary>
         internal static string Android_App_Name {
@@ -102,6 +111,15 @@ namespace VacationsTracker.Core.Resources {
         internal static string Closed_Requests {
             get {
                 return ResourceManager.GetString("Closed_Requests", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Closed.
+        /// </summary>
+        internal static string Closed_Requests_Shortcut {
+            get {
+                return ResourceManager.GetString("Closed_Requests_Shortcut", resourceCulture);
             }
         }
         
@@ -156,6 +174,15 @@ namespace VacationsTracker.Core.Resources {
         internal static string Open_Requests {
             get {
                 return ResourceManager.GetString("Open_Requests", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open.
+        /// </summary>
+        internal static string Open_Requests_Shortcut {
+            get {
+                return ResourceManager.GetString("Open_Requests_Shortcut", resourceCulture);
             }
         }
         

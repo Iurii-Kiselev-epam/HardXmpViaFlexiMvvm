@@ -22,7 +22,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Profile
 
         public string UiFilter
         {
-            get => Filter.GetUiName();
+            get => Filter.GetUiNameShortcut();
         }
 
         public static IEnumerable<RequestFilterViewModel> GetAllFilters() =>

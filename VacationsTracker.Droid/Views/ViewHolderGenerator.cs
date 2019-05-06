@@ -50,6 +50,8 @@ namespace VacationsTracker.Droid.Views
     {
          private readonly Activity activity;
 
+         private Android.Support.V7.Widget.Toolbar toolbar;
+         private TextView filterTextView;
          private ProgressBar progressBarWidget;
          private Android.Support.V7.Widget.RecyclerView recyclerView;
          private ImageButton imageButtonWidget;
@@ -61,6 +63,14 @@ namespace VacationsTracker.Droid.Views
 
             this.activity = activity;
         }
+
+        
+        public Android.Support.V7.Widget.Toolbar Toolbar =>
+            toolbar ?? (toolbar = activity.FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar));
+
+        
+        public TextView FilterTextView =>
+            filterTextView ?? (filterTextView = activity.FindViewById<TextView>(Resource.Id.filter_text_view));
 
         
         public ProgressBar ProgressBarWidget =>
