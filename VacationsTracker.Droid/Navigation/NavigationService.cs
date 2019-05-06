@@ -50,15 +50,11 @@ namespace VacationsTracker.Droid.Navigation
                         Filter = RequestFilters.All
                     }));
 
-        public void NavigateToProfile(MainListViewModel fromViewModel) =>
+        public void NavigateToProfile(MainListViewModel fromViewModel, RequestFilterParameters parameters) =>
             NavigateTo<MainListActivity, ProfileActivity, MainListViewModel>(
                 fromViewModel,
                 false,
-                intent =>
-                {
-                    // TODO: tune fromViewModel.Filter
-                    // ...
-                });
+                intent => intent.PutParameters(parameters));
 
         public void NavigateToMainList(ProfileViewModel fromViewModel, RequestFilterParameters parameters) =>
             NavigateTo<ProfileActivity, MainListActivity, ProfileViewModel>(

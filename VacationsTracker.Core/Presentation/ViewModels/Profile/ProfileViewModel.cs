@@ -7,7 +7,7 @@ using VacationsTracker.Core.Navigation;
 
 namespace VacationsTracker.Core.Presentation.ViewModels.Profile
 {
-    public class ProfileViewModel : ViewModel
+    public class ProfileViewModel : ViewModel<RequestFilterParameters>
     {
         private readonly INavigationService _navigationService;
         private RequestFilters _filter;
@@ -42,9 +42,11 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Profile
             CommandProvider.Get<RequestFilterViewModel>(OpenFilter);
 
 
-        public override void Initialize()
+        public override void Initialize(RequestFilterParameters parameters)
         {
-            base.Initialize();
+            base.Initialize(parameters);
+
+            Filter = parameters.Filter;
 
             Filters.Clear();
             Filters.AddRange(RequestFilterViewModel.GetAllFilters());

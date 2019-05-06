@@ -1,5 +1,4 @@
 ﻿using Android.App;
-using Android.Content;
 using Android.OS;
 using Android.Support.Design.Widget;
 using Android.Support.V7.Widget;
@@ -75,18 +74,11 @@ namespace VacationsTracker.Droid.Views.Home
                 .WithConversion<VisibleGoneValueConverter>();
         }
 
-        protected override void OnStart()
-        {
-            base.OnStart();
-        }
-
         protected override void OnResume()
         {
             base.OnResume();
 
-            //ViewModel.UpdateContentCommand.Execute(null);
-
-            // select first item
+            // select first navigation item
             if (ViewHolder.BottomNavigation.SelectedItemId != Resource.Id.navigation_list_menu_item)
             {
                 ViewHolder.BottomNavigation.SelectedItemId = Resource.Id.navigation_list_menu_item;
@@ -107,6 +99,5 @@ namespace VacationsTracker.Droid.Views.Home
                 ViewModel.OpenProfileCommand.Execute(null);
             }
         }
-
     }
 }

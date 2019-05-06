@@ -93,9 +93,11 @@ namespace VacationsTracker.Droid.Views
     {
          private readonly Activity activity;
 
-         private Android.Support.V7.Widget.RecyclerView recyclerView;
-         private TextView profileNameTextView;
+         private Android.Support.V7.Widget.Toolbar toolbar;
+         private TextView filterTextView;
          private ImageView imageViewWidget;
+         private TextView profileNameTextView;
+         private Android.Support.V7.Widget.RecyclerView recyclerView;
 
         public ProfileActivityViewHolder( Activity activity)
         {
@@ -105,16 +107,24 @@ namespace VacationsTracker.Droid.Views
         }
 
         
-        public Android.Support.V7.Widget.RecyclerView RecyclerView =>
-            recyclerView ?? (recyclerView = activity.FindViewById<Android.Support.V7.Widget.RecyclerView>(Resource.Id.recycler_view));
+        public Android.Support.V7.Widget.Toolbar Toolbar =>
+            toolbar ?? (toolbar = activity.FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar));
+
+        
+        public TextView FilterTextView =>
+            filterTextView ?? (filterTextView = activity.FindViewById<TextView>(Resource.Id.filter_text_view));
+
+        
+        public ImageView ImageViewWidget =>
+            imageViewWidget ?? (imageViewWidget = activity.FindViewById<ImageView>(Resource.Id.image_view_widget));
 
         
         public TextView ProfileNameTextView =>
             profileNameTextView ?? (profileNameTextView = activity.FindViewById<TextView>(Resource.Id.profile_name_text_view));
 
         
-        public ImageView ImageViewWidget =>
-            imageViewWidget ?? (imageViewWidget = activity.FindViewById<ImageView>(Resource.Id.image_view_widget));
+        public Android.Support.V7.Widget.RecyclerView RecyclerView =>
+            recyclerView ?? (recyclerView = activity.FindViewById<Android.Support.V7.Widget.RecyclerView>(Resource.Id.recycler_view));
     }
 
     public partial class RequestFilterCellViewHolder

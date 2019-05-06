@@ -10,7 +10,6 @@ using System.Windows.Input;
 using VacationsTracker.Core.Communication;
 using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Navigation;
-using VacationsTracker.Core.Resources;
 
 namespace VacationsTracker.Core.Presentation.ViewModels.MainList
 {
@@ -116,10 +115,12 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
 
         private void OpenProfile()
         {
-            // TODO: navigate to details
-            //_navigationService.NavigateToEventDetails(this, new EventDetailsParameters { EventId = itemViewModel.Id });
             ProgressVisible = true;
-            _navigationService.NavigateToProfile(this);
+            _navigationService.NavigateToProfile(this,
+                new RequestFilterParameters
+                {
+                    Filter = Filter
+                });
         }
 
         private async Task OnNewRequest()

@@ -28,7 +28,7 @@ namespace VacationsTracker.iOS.Navigation
             throw new System.NotImplementedException();
         }
 
-        public void NavigateToProfile(MainListViewModel fromViewModel)
+        public void NavigateToProfile(MainListViewModel fromViewModel, RequestFilterParameters parameters)
         {
             throw new System.NotImplementedException();
         }
