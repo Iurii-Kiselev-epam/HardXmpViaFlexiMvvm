@@ -12,5 +12,6 @@ namespace VacationsTracker.Core.Navigation
         void NavigateToMainList(LoginViewModel fromViewModel);
         void NavigateToProfile(MainListViewModel fromViewModel, RequestFilterParameters parameters);
         void NavigateToMainList(ProfileViewModel fromViewModel, RequestFilterParameters parameters);
+        void NavigateToRequest(MainListViewModel fromViewModel, VacationRequestParameters parameters);
     }
 }

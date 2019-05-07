@@ -32,5 +32,10 @@ namespace VacationsTracker.iOS.Navigation
         {
             throw new System.NotImplementedException();
         }
+
+        public void NavigateToRequest(MainListViewModel fromViewModel, VacationRequestParameters parameters)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

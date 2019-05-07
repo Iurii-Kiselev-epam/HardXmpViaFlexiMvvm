@@ -103,14 +103,18 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
         public Command<VacationRequestViewModel> OpenVacationDetailsCommand =>
             CommandProvider.Get<VacationRequestViewModel>(OpenVacationDetails);
 
-        public ICommand NewRequestCommand => CommandProvider.GetForAsync(OnNewRequest);
+        public ICommand NewRequestCommand => CommandProvider.Get(OnNewRequest);
 
         public ICommand OpenProfileCommand => CommandProvider.Get(OpenProfile);
 
         private void OpenVacationDetails(VacationRequestViewModel itemViewModel)
         {
-            // TODO: navigate to profile
-            //_navigationService.NavigateToEventDetails(this, new EventDetailsParameters { EventId = itemViewModel.Id });
+            if (itemViewModel == null)
+            {
+                throw new ArgumentNullException(nameof(itemViewModel));
+            }
+
+            DoOpenRequest(itemViewModel.Id);
         }
 
         private void OpenProfile()
@@ -123,11 +127,16 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
                 });
         }
 
-        private async Task OnNewRequest()
+        private void OnNewRequest() => DoOpenRequest(Guid.Empty);
+
+        private void DoOpenRequest(Guid id)
         {
-            // TODO: navigate to details with empty id
-            //_navigationService.NavigateToEventDetails(this, new EventDetailsParameters { EventId = itemViewModel.Id });
-            await Task.CompletedTask;
+            ProgressVisible = true;
+            _navigationService.NavigateToRequest(this,
+                new VacationRequestParameters
+                {
+                    RequestId = id
+                });
         }
 
         private async Task<IEnumerable<VacationRequestViewModel>> GetRequestsAsync()
