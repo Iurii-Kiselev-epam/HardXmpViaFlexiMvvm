@@ -127,6 +127,34 @@ namespace VacationsTracker.Droid.Views
             recyclerView ?? (recyclerView = activity.FindViewById<Android.Support.V7.Widget.RecyclerView>(Resource.Id.recycler_view));
     }
 
+    public partial class RequestActivityViewHolder
+    {
+         private readonly Activity activity;
+
+         private Android.Support.V7.Widget.Toolbar toolbar;
+         private TextView requestTextView;
+         private Android.Support.V4.View.ViewPager vacationTypesViewpager;
+
+        public RequestActivityViewHolder( Activity activity)
+        {
+            if (activity == null) throw new ArgumentNullException(nameof(activity));
+
+            this.activity = activity;
+        }
+
+        
+        public Android.Support.V7.Widget.Toolbar Toolbar =>
+            toolbar ?? (toolbar = activity.FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar));
+
+        
+        public TextView RequestTextView =>
+            requestTextView ?? (requestTextView = activity.FindViewById<TextView>(Resource.Id.request_text_view));
+
+        
+        public Android.Support.V4.View.ViewPager VacationTypesViewpager =>
+            vacationTypesViewpager ?? (vacationTypesViewpager = activity.FindViewById<Android.Support.V4.View.ViewPager>(Resource.Id.vacation_types_viewpager));
+    }
+
     public partial class RequestFilterCellViewHolder
     {
          private TextView requestUiFilter;
@@ -167,6 +195,29 @@ namespace VacationsTracker.Droid.Views
         
         public TextView VacationStatus =>
             vacationStatus ?? (vacationStatus = ItemView.FindViewById<TextView>(Resource.Id.vacation_status));
+    }
+
+    public partial class VacationTypeFragmentViewHolder
+    {
+         private readonly View rootView;
+
+         private ImageView imageViewWidget;
+         private TextView vacationTypeTextView;
+
+        public VacationTypeFragmentViewHolder( View rootView)
+        {
+            if (rootView == null) throw new ArgumentNullException(nameof(rootView));
+
+            this.rootView = rootView;
+        }
+
+        
+        public ImageView ImageViewWidget =>
+            imageViewWidget ?? (imageViewWidget = rootView.FindViewById<ImageView>(Resource.Id.image_view_widget));
+
+        
+        public TextView VacationTypeTextView =>
+            vacationTypeTextView ?? (vacationTypeTextView = rootView.FindViewById<TextView>(Resource.Id.vacation_type_text_view));
     }
 
 }

@@ -171,13 +171,37 @@
   <data name="Unexpected_Error_Message" xml:space="preserve">
     <value>Unexpected error during authentification. Please retry later</value>
   </data>
+  <data name="VacationStatus_Approved" xml:space="preserve">
+    <value>Approved</value>
+  </data>
+  <data name="VacationStatus_Closed" xml:space="preserve">
+    <value>Closed</value>
+  </data>
+  <data name="VacationStatus_Draft" xml:space="preserve">
+    <value>Draft</value>
+  </data>
+  <data name="VacationStatus_InProgress" xml:space="preserve">
+    <value>InProgress</value>
+  </data>
+  <data name="VacationStatus_Submitted" xml:space="preserve">
+    <value>Submitted</value>
+  </data>
   <data name="VacationType_Exceptional" xml:space="preserve">
     <value>Exceptional Leave</value>
   </data>
   <data name="VacationType_LeaveWithoutPay" xml:space="preserve">
     <value>Leave without Pay</value>
   </data>
+  <data name="VacationType_Overtime" xml:space="preserve">
+    <value>Overtime</value>
+  </data>
+  <data name="VacationType_Regular" xml:space="preserve">
+    <value>Regular</value>
+  </data>
   <data name="VacationType_Sick" xml:space="preserve">
     <value>Sick days</value>
+  </data>
+  <data name="VacationType_Undefined" xml:space="preserve">
+    <value>Undefined</value>
   </data>
 </root>

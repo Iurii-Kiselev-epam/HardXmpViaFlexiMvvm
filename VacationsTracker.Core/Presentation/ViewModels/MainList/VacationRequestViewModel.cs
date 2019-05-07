@@ -1,17 +1,20 @@
 ﻿using FlexiMvvm.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using VacationsTracker.Core.Communication;
 using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Navigation;
-using VacationsTracker.Core.Resources;
 
 namespace VacationsTracker.Core.Presentation.ViewModels.MainList
 {
     public class VacationRequestViewModel : ViewModel<VacationRequestParameters>
     {
+        private static readonly IList<VacationTypeViewModel> _valuableTypes;
+
         private readonly INavigationService _navigationService;
         private readonly IXmpProxy _xmpProxy;
 
@@ -22,6 +25,17 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
         private VacationStatus _vacationStatus;
         private string _createdBy;
         private DateTime _created;
+
+        /// <summary>
+        /// cctor() for all valueable vacation types.
+        /// </summary>
+        static VacationRequestViewModel()
+        {
+            _valuableTypes = VacationTypeExtensions
+                .GetAllValueableTypes()
+                .Select(vt => new VacationTypeViewModel(vt))
+                .ToList();
+        }
 
         /// <summary>
         /// ctor() for details view.
@@ -48,6 +62,11 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
         /// <param name="vacationRequest">vacation request</param>
         public VacationRequestViewModel(VacationRequest vacationRequest) =>
             GetDataFrom(vacationRequest);
+
+        public static IEnumerable<VacationTypeViewModel> AllValueableVacationTypes
+        {
+            get => _valuableTypes;
+        }
 
         public Guid Id
         {
@@ -85,20 +104,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
 
         public string VacationTypeUI
         {
-            get
-            {
-                switch (VacationType)
-                {
-                    case VacationType.Sick:
-                        return Strings.VacationType_Sick;
-                    case VacationType.Exceptional:
-                        return Strings.VacationType_Exceptional;
-                    case VacationType.LeaveWithoutPay:
-                        return Strings.VacationType_LeaveWithoutPay;
-                    default:
-                        return VacationType.ToString();
-                }
-            }
+            get => VacationType.GetVacationTypeUI();
         }
 
         public VacationStatus VacationStatus
@@ -107,7 +113,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
             set => SetValue(ref _vacationStatus, value);
         }
 
-        public string VacationStatusUI => VacationStatus.ToString();
+        public string VacationStatusUI => VacationStatus.GetVacationStatusUI();
 
         public string CreatedBy
         {

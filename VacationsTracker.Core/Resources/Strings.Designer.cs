@@ -223,6 +223,51 @@ namespace VacationsTracker.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Approved.
+        /// </summary>
+        internal static string VacationStatus_Approved {
+            get {
+                return ResourceManager.GetString("VacationStatus_Approved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Closed.
+        /// </summary>
+        internal static string VacationStatus_Closed {
+            get {
+                return ResourceManager.GetString("VacationStatus_Closed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Draft.
+        /// </summary>
+        internal static string VacationStatus_Draft {
+            get {
+                return ResourceManager.GetString("VacationStatus_Draft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to InProgress.
+        /// </summary>
+        internal static string VacationStatus_InProgress {
+            get {
+                return ResourceManager.GetString("VacationStatus_InProgress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submitted.
+        /// </summary>
+        internal static string VacationStatus_Submitted {
+            get {
+                return ResourceManager.GetString("VacationStatus_Submitted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exceptional Leave.
         /// </summary>
         internal static string VacationType_Exceptional {
@@ -241,11 +286,38 @@ namespace VacationsTracker.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Overtime.
+        /// </summary>
+        internal static string VacationType_Overtime {
+            get {
+                return ResourceManager.GetString("VacationType_Overtime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Regular.
+        /// </summary>
+        internal static string VacationType_Regular {
+            get {
+                return ResourceManager.GetString("VacationType_Regular", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sick days.
         /// </summary>
         internal static string VacationType_Sick {
             get {
                 return ResourceManager.GetString("VacationType_Sick", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Undefined.
+        /// </summary>
+        internal static string VacationType_Undefined {
+            get {
+                return ResourceManager.GetString("VacationType_Undefined", resourceCulture);
             }
         }
     }
