@@ -134,6 +134,7 @@ namespace VacationsTracker.Droid.Views
          private Android.Support.V7.Widget.Toolbar toolbar;
          private TextView requestTextView;
          private Android.Support.V4.View.ViewPager vacationTypesViewpager;
+         private Android.Support.Design.Widget.TabLayout tabLayout;
 
         public RequestActivityViewHolder( Activity activity)
         {
@@ -153,6 +154,10 @@ namespace VacationsTracker.Droid.Views
         
         public Android.Support.V4.View.ViewPager VacationTypesViewpager =>
             vacationTypesViewpager ?? (vacationTypesViewpager = activity.FindViewById<Android.Support.V4.View.ViewPager>(Resource.Id.vacation_types_viewpager));
+
+        
+        public Android.Support.Design.Widget.TabLayout TabLayout =>
+            tabLayout ?? (tabLayout = activity.FindViewById<Android.Support.Design.Widget.TabLayout>(Resource.Id.tab_layout));
     }
 
     public partial class RequestFilterCellViewHolder

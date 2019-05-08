@@ -1,4 +1,5 @@
-﻿using FlexiMvvm.ViewModels;
+﻿using FlexiMvvm.Collections;
+using FlexiMvvm.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -13,8 +14,6 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
 {
     public class VacationRequestViewModel : ViewModel<VacationRequestParameters>
     {
-        private static readonly IList<VacationTypeViewModel> _valuableTypes;
-
         private readonly INavigationService _navigationService;
         private readonly IXmpProxy _xmpProxy;
 
@@ -25,17 +24,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
         private VacationStatus _vacationStatus;
         private string _createdBy;
         private DateTime _created;
-
-        /// <summary>
-        /// cctor() for all valueable vacation types.
-        /// </summary>
-        static VacationRequestViewModel()
-        {
-            _valuableTypes = VacationTypeExtensions
-                .GetAllValueableTypes()
-                .Select(vt => new VacationTypeViewModel(vt))
-                .ToList();
-        }
+        private ObservableCollection<VacationTypeParameters> _valuableParameters;
 
         /// <summary>
         /// ctor() for details view.
@@ -49,11 +38,15 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
             _navigationService = navigationService ?? throw new ArgumentNullException(nameof(navigationService));
             _xmpProxy = xmpProxy ?? throw new ArgumentNullException(nameof(xmpProxy));
 
-            Id = Guid.Empty; //Guid.NewGuid();
-            Start = End = Created = DateTime.UtcNow;
-            VacationType = VacationType.Regular;
-            VacationStatus = VacationStatus.Draft;
-            CreatedBy = UserSecrets.Default.Login;
+            SetDefault();
+
+            _valuableParameters = new ObservableCollection<VacationTypeParameters>();
+            _valuableParameters.AddRange(VacationTypeExtensions
+                .GetAllValueableTypes()
+                .Select(vt => new VacationTypeParameters
+                {
+                    VacationReason = vt
+                }));
         }
 
         /// <summary>
@@ -63,9 +56,9 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
         public VacationRequestViewModel(VacationRequest vacationRequest) =>
             GetDataFrom(vacationRequest);
 
-        public static IEnumerable<VacationTypeViewModel> AllValueableVacationTypes
+        public ObservableCollection<VacationTypeParameters> AllValueableVacationTypes
         {
-            get => _valuableTypes;
+            get => _valuableParameters;
         }
 
         public Guid Id
@@ -96,7 +89,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
 
         public string DurationRange => $"{ShortStart} - {ShortEnd}";
 
-        public VacationType VacationType
+        public VacationType VacationReason
         {
             get => _vacationType;
             set => SetValue(ref _vacationType, value);
@@ -104,7 +97,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
 
         public string VacationTypeUI
         {
-            get => VacationType.GetVacationTypeUI();
+            get => VacationReason.GetVacationTypeUI();
         }
 
         public VacationStatus VacationStatus
@@ -137,7 +130,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
             Id = vacationRequest.Id;
             Start = vacationRequest.Start;
             End = vacationRequest.End;
-            VacationType = vacationRequest.VacationType;
+            VacationReason = vacationRequest.VacationType;
             VacationStatus = vacationRequest.VacationStatus;
             CreatedBy = vacationRequest.CreatedBy;
             Created = vacationRequest.Created;
@@ -149,7 +142,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
                 Id = Id,
                 Start = Start,
                 End = End,
-                VacationType = VacationType,
+                VacationType = VacationReason,
                 VacationStatus = VacationStatus,
                 CreatedBy = CreatedBy,
                 Created = Created
@@ -197,8 +190,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
 
             if (parameters.RequestId == Guid.Empty)
             {
-                // TODO: create new vacation request
-                // ...
+                SetDefault(createNewGuid: true);
             }
             else
             {
@@ -231,6 +223,15 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
             var culture = CultureInfo.GetCultureInfo("en-US");
             var dateTimeInfo = DateTimeFormatInfo.GetInstance(culture);
             return dateTimeInfo.GetAbbreviatedMonthName(dateTime.Month).ToUpper();
+        }
+
+        private void SetDefault(bool createNewGuid = false)
+        {
+            Id = createNewGuid ? Guid.NewGuid() : Guid.Empty;
+            Start = End = Created = DateTime.UtcNow;
+            VacationReason = VacationType.Regular;
+            VacationStatus = VacationStatus.Draft;
+            CreatedBy = UserSecrets.Default.Login;
         }
     }
 }

@@ -21,7 +21,7 @@ namespace VacationsTracker.Droid.Views
 
             bindingSet.Bind(ImageCellView)
                 .For(v => v.DrawableBinding())
-                .To(vm => vm.VacationType)
+                .To(vm => vm.VacationReason)
                 .WithConversion<VacationTypeDrawableConverter>();
 
             bindingSet.Bind(DurationRange)

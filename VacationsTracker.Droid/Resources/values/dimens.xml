@@ -19,4 +19,5 @@
     <dimen name="inset9x">72dp</dimen>
     <dimen name="medium_cell_default_height">48dp</dimen>
     <dimen name="medium_avatar_height">160dp</dimen>
+    <dimen name="pager_default_height">84dp</dimen>
 </resources>

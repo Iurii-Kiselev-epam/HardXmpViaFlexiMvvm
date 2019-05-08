@@ -38,9 +38,10 @@ namespace VacationsTracker.Droid.Views.Request
 
             VacationTypesAdapter = new FragmentPagerObservableAdapter(SupportFragmentManager, PagesFactory)
             {
-                Items = VacationRequestViewModel.AllValueableVacationTypes
+                Items = ViewModel.AllValueableVacationTypes
             };
             ViewHolder.VacationTypesViewpager.Adapter = VacationTypesAdapter;
+            ViewHolder.TabLayout.SetupWithViewPager(ViewHolder.VacationTypesViewpager);
         }
 
         public override void Bind(BindingSet<VacationRequestViewModel> bindingSet)
@@ -64,13 +65,20 @@ namespace VacationsTracker.Droid.Views.Request
         private Fragment PagesFactory(object viewModelParameters)
         {
             var parametersBundle = new Bundle();
-            //parametersBundle.PutParameters((ImageDetailsParameters)viewModelParameters);
-
+            if (viewModelParameters is VacationTypeParameters parameters)
+            {
+                parametersBundle.PutParameters(parameters);
+            }
+            else
+            {
+                // TODO: think about exception generation
+                // ...
+                return null;
+            }
             var fragment = new VacationTypeFragment
             {
                 Arguments = parametersBundle
             };
-
             return fragment;
         }
     }
