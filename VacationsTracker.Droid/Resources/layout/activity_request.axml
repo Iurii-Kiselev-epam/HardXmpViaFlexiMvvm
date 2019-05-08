@@ -34,4 +34,10 @@
         app:tabBackground="@drawable/tab_selector"
         app:tabGravity="center"
         app:tabIndicatorHeight="0dp"/>
+    <View
+        android:id="@+id/first_splitter_view"
+        android:layout_below="@id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorBright" />
 </RelativeLayout>

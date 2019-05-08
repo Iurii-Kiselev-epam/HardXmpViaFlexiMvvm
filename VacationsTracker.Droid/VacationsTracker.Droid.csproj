@@ -75,6 +75,7 @@
     <Compile Include="Views\Profile\ProfileActivity.cs" />
     <Compile Include="Views\Profile\RequestFilterCellViewHolder.cs" />
     <Compile Include="Views\Profile\RequestFilterRecyclerAdapter.cs" />
+    <Compile Include="Views\Request\DatePickerFragment.cs" />
     <Compile Include="Views\Request\RequestActivity.cs" />
     <Compile Include="Views\Request\VacationTypeFragment.cs" />
     <Compile Include="Views\SplashScreenActivity.cs" />

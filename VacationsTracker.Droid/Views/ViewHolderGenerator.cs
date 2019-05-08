@@ -135,6 +135,7 @@ namespace VacationsTracker.Droid.Views
          private TextView requestTextView;
          private Android.Support.V4.View.ViewPager vacationTypesViewpager;
          private Android.Support.Design.Widget.TabLayout tabLayout;
+         private View firstSplitterView;
 
         public RequestActivityViewHolder( Activity activity)
         {
@@ -158,6 +159,10 @@ namespace VacationsTracker.Droid.Views
         
         public Android.Support.Design.Widget.TabLayout TabLayout =>
             tabLayout ?? (tabLayout = activity.FindViewById<Android.Support.Design.Widget.TabLayout>(Resource.Id.tab_layout));
+
+        
+        public View FirstSplitterView =>
+            firstSplitterView ?? (firstSplitterView = activity.FindViewById<View>(Resource.Id.first_splitter_view));
     }
 
     public partial class RequestFilterCellViewHolder

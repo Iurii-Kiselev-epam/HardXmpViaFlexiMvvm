@@ -43,6 +43,9 @@ namespace VacationsTracker.Droid.Views.Request
             };
             ViewHolder.VacationTypesViewpager.Adapter = VacationTypesAdapter;
             ViewHolder.TabLayout.SetupWithViewPager(ViewHolder.VacationTypesViewpager);
+
+            // temporary code for testing
+            ViewHolder.FirstSplitterView.Click += View_Click;
         }
 
         public override void Bind(BindingSet<VacationRequestViewModel> bindingSet)
@@ -73,6 +76,13 @@ namespace VacationsTracker.Droid.Views.Request
                 Arguments = parametersBundle
             };
             return fragment;
+        }
+
+        private void View_Click(object sender, EventArgs e)
+        {
+            var datePickerFragment = DatePickerFragment.NewInstance(
+                ViewModel.Start, ViewModel.Start.AddMonths(1), date => ViewModel.Start = date);
+            datePickerFragment.Show(SupportFragmentManager, nameof(DatePickerFragment));
         }
     }
 }
