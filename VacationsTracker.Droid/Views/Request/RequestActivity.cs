@@ -14,6 +14,7 @@ using FlexiMvvm.Collections;
 using FlexiMvvm.Views;
 using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Presentation.ViewModels.MainList;
+using VacationsTracker.Core.ValueConverters;
 using VacationsTracker.Droid.Extensions;
 using VacationsTracker.Droid.ValueConverters;
 using VacationsTracker.Droid.Views;
@@ -48,18 +49,10 @@ namespace VacationsTracker.Droid.Views.Request
         {
             base.Bind(bindingSet);
 
-            //bindingSet.Bind(VacationTypesAdapter)
-            //    .For(v => v.ItemsBinding())
-            //    .To(vm => vm.AllValueableVacationTypes);
-
-            //bindingSet.Bind(VacationType)
-            //    .For(v => v.TextBinding())
-            //    .To(vm => vm.VacationTypeUI);
-
-            //bindingSet.Bind(ViewHolder.ImageViewWidget)
-            //    .For(v => v.DrawableBinding())
-            //    .To(vm => vm.VacationType)
-            //    .WithConversion<VacationTypeDrawableConverter>();
+            bindingSet.Bind(ViewHolder.VacationTypesViewpager)
+                .For(v => v.SetCurrentItemAndPageSelectedBinding())
+                .To(vm => vm.VacationReason)
+                .WithConversion<VacationTypeCurrentItemConverter>();
         }
 
         private Fragment PagesFactory(object viewModelParameters)
