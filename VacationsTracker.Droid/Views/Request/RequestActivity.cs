@@ -1,24 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
+﻿using Android.App;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using FlexiMvvm.Bindings;
 using FlexiMvvm.Collections;
+using FlexiMvvm.ValueConverters;
 using FlexiMvvm.Views;
+using System;
 using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Presentation.ViewModels.MainList;
 using VacationsTracker.Core.Presentation.ViewModels.Request;
 using VacationsTracker.Core.ValueConverters;
-using VacationsTracker.Droid.Extensions;
 using VacationsTracker.Droid.ValueConverters;
-using VacationsTracker.Droid.Views;
 using Fragment = Android.Support.V4.App.Fragment;
 
 namespace VacationsTracker.Droid.Views.Request
@@ -86,6 +77,15 @@ namespace VacationsTracker.Droid.Views.Request
             bindingSet.Bind(ViewHolder.EndYearView)
                 .For(v => v.TextBinding())
                 .To(vm => vm.EndYear);
+
+            bindingSet.Bind(ViewHolder.RequestSaveView)
+              .For(v => v.ClickBinding())
+              .To(vm => vm.SaveCommand);
+
+            bindingSet.Bind(ViewHolder.ProgressBarWidget)
+                .For(v => v.VisibilityBinding())
+                .To(vm => vm.ProgressVisible)
+                .WithConversion<VisibleInvisibleValueConverter>();
         }
 
         private Fragment PagesFactory(object viewModelParameters)

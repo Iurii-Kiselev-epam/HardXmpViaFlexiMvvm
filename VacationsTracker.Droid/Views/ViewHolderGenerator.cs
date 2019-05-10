@@ -133,6 +133,7 @@ namespace VacationsTracker.Droid.Views
 
          private Android.Support.V7.Widget.Toolbar toolbar;
          private TextView requestTextView;
+         private TextView requestSaveView;
          private Android.Support.V4.View.ViewPager vacationTypesViewpager;
          private Android.Support.Design.Widget.TabLayout tabLayout;
          private View firstSplitterView;
@@ -150,6 +151,7 @@ namespace VacationsTracker.Droid.Views
          private RadioButton approvedStatusRadioButton;
          private RadioButton closedStatusRadioButton;
          private View thirdSplitterView;
+         private ProgressBar progressBarWidget;
 
         public RequestActivityViewHolder( Activity activity)
         {
@@ -165,6 +167,10 @@ namespace VacationsTracker.Droid.Views
         
         public TextView RequestTextView =>
             requestTextView ?? (requestTextView = activity.FindViewById<TextView>(Resource.Id.request_text_view));
+
+        
+        public TextView RequestSaveView =>
+            requestSaveView ?? (requestSaveView = activity.FindViewById<TextView>(Resource.Id.request_save_view));
 
         
         public Android.Support.V4.View.ViewPager VacationTypesViewpager =>
@@ -233,6 +239,10 @@ namespace VacationsTracker.Droid.Views
         
         public View ThirdSplitterView =>
             thirdSplitterView ?? (thirdSplitterView = activity.FindViewById<View>(Resource.Id.third_splitter_view));
+
+        
+        public ProgressBar ProgressBarWidget =>
+            progressBarWidget ?? (progressBarWidget = activity.FindViewById<ProgressBar>(Resource.Id.progress_bar_widget));
     }
 
     public partial class RequestFilterCellViewHolder

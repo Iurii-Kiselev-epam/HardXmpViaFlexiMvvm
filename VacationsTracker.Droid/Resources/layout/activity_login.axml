@@ -38,10 +38,10 @@
         android:layout_marginRight="@dimen/inset7x"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ff39c5d6"
+        android:background="@color/colorBright"
         android:text="@string/sign_in_button_text"
-        android:textColor="#ffffffff"
-        android:textSize="12sp" />
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/cell_large_text_size" />
     <ProgressBar
         android:id="@+id/progress_bar_widget"
         android:layout_below="@id/sign_in_button"

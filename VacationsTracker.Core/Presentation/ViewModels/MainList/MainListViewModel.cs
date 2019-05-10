@@ -97,7 +97,10 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
                 // TODO: use ex to log error
                 //ErrorMessage = UserConstants.Errors.UnexpectedErrorMessage;
             }
-            ProgressVisible = false;
+            finally
+            {
+                ProgressVisible = false;
+            }
         }
 
         public Command<VacationRequestViewModel> OpenVacationDetailsCommand =>
@@ -142,7 +145,9 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
         private async Task<IEnumerable<VacationRequestViewModel>> GetRequestsAsync()
         {
             var listResult = await _xmpProxy.GetRequestsAsync(Filter);
-            return listResult.Select(v => new VacationRequestViewModel(v));
+            return listResult
+                .Select(v => new VacationRequestViewModel(v))
+                .OrderByDescending(v => v.Start);
         }
     }
 }

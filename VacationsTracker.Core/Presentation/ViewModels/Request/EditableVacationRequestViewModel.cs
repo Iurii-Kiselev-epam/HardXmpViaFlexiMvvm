@@ -14,6 +14,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Request
     {
         private readonly INavigationService _navigationService;
         private readonly IXmpProxy _xmpProxy;
+        private bool _progressVisible;
 
         /// <summary>
         /// ctor() for details view.
@@ -37,6 +38,13 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Request
                 }));
         }
 
+        public bool ProgressVisible
+        {
+            get => _progressVisible;
+            set => SetValue(ref _progressVisible, value);
+        }
+
+
         public ObservableCollection<VacationTypeParameters> AllValueableVacationTypes { get; }
 
         public ICommand SaveCommand => CommandProvider.GetForAsync(Save);
@@ -47,7 +55,9 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Request
 
             if (parameters.RequestId != Guid.Empty)
             {
-                // TODO: get request from server
+                ProgressVisible = true;
+
+                // get request from server
                 try
                 {
                     var result = await _xmpProxy.VtsVacationGetByIdAsync(parameters.RequestId.ToString());
@@ -68,11 +78,16 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Request
                     // TODO: use ex to log error
                     //ErrorMessage = UserConstants.Errors.UnexpectedErrorMessage;
                 }
+                finally
+                {
+                    ProgressVisible = false;
+                }
             }
         }
 
         private async Task Save()
         {
+            ProgressVisible = true;
             try
             {
                 var vacationRequest = ToVacationRequest();
@@ -96,6 +111,10 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Request
             {
                 // TODO: use ex to log error
                 //ErrorMessage = UserConstants.Errors.UnexpectedErrorMessage;
+            }
+            finally
+            {
+                ProgressVisible = false;
             }
         }
     }

@@ -165,6 +165,9 @@
   <data name="Profile_Name" xml:space="preserve">
     <value>Arkadiy Dobkin</value>
   </data>
+  <data name="Request_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
   <data name="Sign_In_Button_Text" xml:space="preserve">
     <value>SIGN IN</value>
   </data>

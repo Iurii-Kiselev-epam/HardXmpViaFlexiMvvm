@@ -16,6 +16,7 @@
     <string name="open_requests_shortcut">Open</string>
     <string name="password_hint">Password</string>
     <string name="profile_name">Arkadiy Dobkin</string>
+    <string name="request_save">Save</string>
     <string name="sign_in_button_text">SIGN IN</string>
     <string name="unexpected_error_message">Unexpected error during authentification. Please retry later</string>
     <string name="vacation_status_approved">Approved</string>
