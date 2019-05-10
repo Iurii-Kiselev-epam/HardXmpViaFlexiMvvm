@@ -57,6 +57,11 @@ namespace VacationsTracker.Droid.Views.Request
                 .For(v => v.SetCurrentItemAndPageSelectedBinding())
                 .To(vm => vm.VacationReason)
                 .WithConversion<VacationTypeCurrentItemConverter>();
+
+            bindingSet.Bind(ViewHolder.VacationStatusRadioGroup)
+                .For(v => v.CheckedChangeBinding())
+                .To(vm => vm.VacationStatus)
+                .WithConversion<VacationStatusValueConverter>();
         }
 
         private Fragment PagesFactory(object viewModelParameters)

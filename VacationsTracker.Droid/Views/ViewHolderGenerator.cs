@@ -136,6 +136,11 @@ namespace VacationsTracker.Droid.Views
          private Android.Support.V4.View.ViewPager vacationTypesViewpager;
          private Android.Support.Design.Widget.TabLayout tabLayout;
          private View firstSplitterView;
+         private View secondSplitterView;
+         private RadioGroup vacationStatusRadioGroup;
+         private RadioButton approvedStatusRadioButton;
+         private RadioButton closedStatusRadioButton;
+         private View thirdSplitterView;
 
         public RequestActivityViewHolder( Activity activity)
         {
@@ -163,6 +168,26 @@ namespace VacationsTracker.Droid.Views
         
         public View FirstSplitterView =>
             firstSplitterView ?? (firstSplitterView = activity.FindViewById<View>(Resource.Id.first_splitter_view));
+
+        
+        public View SecondSplitterView =>
+            secondSplitterView ?? (secondSplitterView = activity.FindViewById<View>(Resource.Id.second_splitter_view));
+
+        
+        public RadioGroup VacationStatusRadioGroup =>
+            vacationStatusRadioGroup ?? (vacationStatusRadioGroup = activity.FindViewById<RadioGroup>(Resource.Id.vacation_status_radio_group));
+
+        
+        public RadioButton ApprovedStatusRadioButton =>
+            approvedStatusRadioButton ?? (approvedStatusRadioButton = activity.FindViewById<RadioButton>(Resource.Id.approved_status_radio_button));
+
+        
+        public RadioButton ClosedStatusRadioButton =>
+            closedStatusRadioButton ?? (closedStatusRadioButton = activity.FindViewById<RadioButton>(Resource.Id.closed_status_radio_button));
+
+        
+        public View ThirdSplitterView =>
+            thirdSplitterView ?? (thirdSplitterView = activity.FindViewById<View>(Resource.Id.third_splitter_view));
     }
 
     public partial class RequestFilterCellViewHolder
