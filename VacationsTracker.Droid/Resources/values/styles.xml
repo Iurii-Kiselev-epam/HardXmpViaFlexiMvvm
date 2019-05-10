@@ -57,6 +57,10 @@
         <item name="android:textColor">@color/colorBright</item>
     </style>
 
+    <style name="GreenDateTheme" parent="CellDateTheme">
+        <item name="android:textColor">@color/dateGreen</item>
+    </style>
+
     <style name="CellTextTheme" parent="BaseCellTextTheme">
         <item name="android:textSize">@dimen/cell_text_size</item>
         <item name="android:textColor">@color/primaryDark</item>

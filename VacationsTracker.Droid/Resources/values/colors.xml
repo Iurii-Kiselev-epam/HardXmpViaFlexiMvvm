@@ -9,4 +9,5 @@
     <color name="colorMsgBkgnd">#fff8f8f8</color>
     <color name="grayText">#bfbec1</color>
     <color name="primaryDark">#4B4A67</color>
+    <color name="dateGreen">#98c838</color>
 </resources>

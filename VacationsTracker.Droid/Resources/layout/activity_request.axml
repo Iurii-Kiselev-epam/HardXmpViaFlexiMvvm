@@ -53,43 +53,53 @@
             android:id="@+id/start_date_layout"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/inset3x"
             android:layout_weight="1">
             <TextView
                 android:id="@+id/start_day_view"
                 android:text="20"
-                style="@style/CellDateTheme" />
+                style="@style/CellDateTheme"
+                android:textSize="@dimen/day_size"/>
             <TextView
                 android:id="@+id/start_month_view"
                 android:layout_toRightOf="@id/start_day_view"
-                android:text="Mar"
-                style="@style/CellDateTheme" />
+                android:text="MAR"
+                style="@style/CellDateTheme"
+                android:textSize="@dimen/month_size"/>
             <TextView
                 android:id="@+id/start_year_view"
                 android:layout_toRightOf="@id/start_day_view"
                 android:layout_below="@id/start_month_view"
+                android:layout_marginLeft="@dimen/inset1x"
                 android:text="2019"
-                style="@style/CellDateTheme" />
+                style="@style/CellDateTheme"
+                android:textSize="@dimen/year_size"/>
         </RelativeLayout>
         <RelativeLayout
             android:id="@+id/end_date_layout"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/inset4x"
             android:layout_weight="1">
             <TextView
                 android:id="@+id/end_day_view"
                 android:text="30"
-                style="@style/CellDateTheme" />
+                style="@style/GreenDateTheme"
+                android:textSize="@dimen/day_size" />
             <TextView
                 android:id="@+id/end_month_view"
                 android:layout_toRightOf="@id/end_day_view"
-                android:text="Mar"
-                style="@style/CellDateTheme" />
+                android:text="MAR"
+                style="@style/GreenDateTheme"
+                android:textSize="@dimen/month_size" />
             <TextView
                 android:id="@+id/end_year_view"
                 android:layout_toRightOf="@id/end_day_view"
                 android:layout_below="@id/end_month_view"
+                android:layout_marginLeft="@dimen/inset1x"
                 android:text="2019"
-                style="@style/CellDateTheme" />
+                style="@style/GreenDateTheme"
+            android:textSize="@dimen/year_size"/>
         </RelativeLayout>
     </LinearLayout>
     <View
