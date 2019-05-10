@@ -14,6 +14,7 @@ using FlexiMvvm.Collections;
 using FlexiMvvm.Views;
 using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Presentation.ViewModels.MainList;
+using VacationsTracker.Core.Presentation.ViewModels.Request;
 using VacationsTracker.Core.ValueConverters;
 using VacationsTracker.Droid.Extensions;
 using VacationsTracker.Droid.ValueConverters;
@@ -25,7 +26,7 @@ namespace VacationsTracker.Droid.Views.Request
     [Activity(
         Theme = "@style/MainListTheme",
         Label = "RequestActivity")]
-    public class RequestActivity : BindableAppCompatActivity<VacationRequestViewModel, VacationRequestParameters>
+    public class RequestActivity : BindableAppCompatActivity<EditableVacationRequestViewModel, VacationRequestParameters>
     {
         private RequestActivityViewHolder ViewHolder { get; set; }
         private FragmentPagerObservableAdapter VacationTypesAdapter { get; set; }
@@ -48,7 +49,7 @@ namespace VacationsTracker.Droid.Views.Request
             ViewHolder.FirstSplitterView.Click += View_Click;
         }
 
-        public override void Bind(BindingSet<VacationRequestViewModel> bindingSet)
+        public override void Bind(BindingSet<EditableVacationRequestViewModel> bindingSet)
         {
             base.Bind(bindingSet);
 

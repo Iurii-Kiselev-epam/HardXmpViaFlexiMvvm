@@ -1,21 +1,14 @@
-﻿using FlexiMvvm.Collections;
-using FlexiMvvm.ViewModels;
+﻿using FlexiMvvm.ViewModels;
 using System;
 using System.Globalization;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using VacationsTracker.Core.Communication;
 using VacationsTracker.Core.Domain;
-using VacationsTracker.Core.Navigation;
 
 namespace VacationsTracker.Core.Presentation.ViewModels.MainList
 {
     public class VacationRequestViewModel : ViewModel<VacationRequestParameters>
     {
-        private readonly INavigationService _navigationService;
-        private readonly IXmpProxy _xmpProxy;
-
         private Guid _id;
         private DateTime _start;
         private DateTime _end;
@@ -23,29 +16,10 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
         private VacationStatus _vacationStatus;
         private string _createdBy;
         private DateTime _created;
-        private ObservableCollection<VacationTypeParameters> _valuableParameters;
 
-        /// <summary>
-        /// ctor() for details view.
-        /// </summary>
-        /// <param name="navigationService">navigation service</param>
-        /// <param name="xmpProxy">xmp service proxy</param>
-        public VacationRequestViewModel(
-            INavigationService navigationService,
-            IXmpProxy xmpProxy)
+        public VacationRequestViewModel()
         {
-            _navigationService = navigationService ?? throw new ArgumentNullException(nameof(navigationService));
-            _xmpProxy = xmpProxy ?? throw new ArgumentNullException(nameof(xmpProxy));
-
             SetDefault();
-
-            _valuableParameters = new ObservableCollection<VacationTypeParameters>();
-            _valuableParameters.AddRange(VacationTypeExtensions
-                .GetAllValueableTypes()
-                .Select(vt => new VacationTypeParameters
-                {
-                    VacationReason = vt
-                }));
         }
 
         /// <summary>
@@ -54,11 +28,6 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
         /// <param name="vacationRequest">vacation request</param>
         public VacationRequestViewModel(VacationRequest vacationRequest) =>
             GetDataFrom(vacationRequest);
-
-        public ObservableCollection<VacationTypeParameters> AllValueableVacationTypes
-        {
-            get => _valuableParameters;
-        }
 
         public Guid Id
         {
@@ -153,36 +122,6 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
         public static implicit operator VacationRequestViewModel(VacationRequest vacRqst) =>
             new VacationRequestViewModel(vacRqst);
 
-        public ICommand SaveCommand => CommandProvider.GetForAsync(Save);
-
-        private async Task Save()
-        {
-            try
-            {
-                var vacationRequest = ToVacationRequest();
-                await _xmpProxy.VtsVacationUpsertAsync(vacationRequest);
-
-                // TODO: if operation suceeded
-                // navigate to main list
-                // ...
-            }
-            catch (AuthenticationException authExc)
-            {
-                // TODO: use authExc to log error
-                //ErrorMessage = UserConstants.Errors.AuthErrorMessage;
-            }
-            catch (CommunicationException cmnExc)
-            {
-                // TODO: use cmnExc to log error
-                //ErrorMessage = UserConstants.Errors.CommunicationErrorMessage;
-            }
-            catch (Exception ex)
-            {
-                // TODO: use ex to log error
-                //ErrorMessage = UserConstants.Errors.UnexpectedErrorMessage;
-            }
-        }
-
         public override async Task InitializeAsync(VacationRequestParameters parameters)
         {
             await base.InitializeAsync(parameters);
@@ -190,30 +129,6 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
             if (parameters.RequestId == Guid.Empty)
             {
                 SetDefault(createNewGuid: true);
-            }
-            else
-            {
-                // TODO: get request from server
-                try
-                {
-                    var result = await _xmpProxy.VtsVacationGetByIdAsync(parameters.RequestId.ToString());
-                    GetDataFrom(result.Result);
-                }
-                catch (AuthenticationException authExc)
-                {
-                    // TODO: use authExc to log error
-                    //ErrorMessage = UserConstants.Errors.AuthErrorMessage;
-                }
-                catch (CommunicationException cmnExc)
-                {
-                    // TODO: use cmnExc to log error
-                    //ErrorMessage = UserConstants.Errors.CommunicationErrorMessage;
-                }
-                catch (Exception ex)
-                {
-                    // TODO: use ex to log error
-                    //ErrorMessage = UserConstants.Errors.UnexpectedErrorMessage;
-                }
             }
         }
 

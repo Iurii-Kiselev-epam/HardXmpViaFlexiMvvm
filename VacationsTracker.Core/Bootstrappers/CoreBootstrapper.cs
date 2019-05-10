@@ -11,6 +11,7 @@ using VacationsTracker.Core.Presentation.ViewModels;
 using VacationsTracker.Core.Presentation.ViewModels.Login;
 using VacationsTracker.Core.Presentation.ViewModels.MainList;
 using VacationsTracker.Core.Presentation.ViewModels.Profile;
+using VacationsTracker.Core.Presentation.ViewModels.Request;
 using Connectivity = VacationsTracker.Core.Infrastructure.Connectivity.Connectivity;
 
 namespace VacationsTracker.Core.Bootstrappers
@@ -64,7 +65,7 @@ namespace VacationsTracker.Core.Bootstrappers
                     simpleIoc.Get<IXmpProxy>(),
                     simpleIoc.Get<IOperationFactory>()));
             simpleIoc.Register(() =>
-                new VacationRequestViewModel(
+                new EditableVacationRequestViewModel(
                     simpleIoc.Get<INavigationService>(),
                     simpleIoc.Get<IXmpProxy>()));
             simpleIoc.Register(() =>

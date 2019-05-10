@@ -17,7 +17,8 @@
             android:id="@+id/request_text_view"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/inset2x"
-            android:layout_gravity="center"
+            android:layout_gravity="left"
+            android:layout_marginLeft="@dimen/inset8x"
             android:text="Request" />
     </android.support.v7.widget.Toolbar>
     <android.support.v4.view.ViewPager
@@ -37,6 +38,45 @@
     <View
         android:id="@+id/first_splitter_view"
         android:layout_below="@id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorBright" />
+    <View
+        android:id="@+id/second_splitter_view"
+        android:layout_below="@id/first_splitter_view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorBright" />
+    <RadioGroup
+        android:id="@+id/vacation_status_radio_group"
+        android:layout_below="@id/second_splitter_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/inset1x"
+        android:paddingLeft="@dimen/inset4x"
+        android:paddingRight="@dimen/inset4x"
+        android:paddingTop="@dimen/inset1x">
+        <RadioButton
+            android:id="@+id/approved_status_radio_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            app:buttonTint="@color/colorBright"
+            android:textColor="@color/primaryDark"
+            android:text="Approved"/>
+        <RadioButton
+            android:id="@+id/closed_status_radio_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            app:buttonTint="@color/colorBright"
+            android:textColor="@color/primaryDark"
+            android:text="Closed" />
+    </RadioGroup>
+    <View
+        android:id="@+id/third_splitter_view"
+        android:layout_below="@id/vacation_status_radio_group"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/colorBright" />
