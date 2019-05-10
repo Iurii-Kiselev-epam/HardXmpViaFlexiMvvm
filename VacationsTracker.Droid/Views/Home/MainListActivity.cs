@@ -20,6 +20,8 @@ namespace VacationsTracker.Droid.Views.Home
         private MainListActivityViewHolder ViewHolder { get; set; }
         private MainListRecyclerAdapter RequestsAdapter { get; set; }
 
+        private bool _wasBounded;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -83,6 +85,8 @@ namespace VacationsTracker.Droid.Views.Home
             {
                 ViewHolder.BottomNavigation.SelectedItemId = Resource.Id.navigation_list_menu_item;
             }
+
+            ViewModel.UpdateCommand.Execute(null);
         }
 
         protected override void OnSaveInstanceState(Bundle outState)

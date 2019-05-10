@@ -20,6 +20,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
         private readonly IOperationFactory _operationFactory;
         private bool _progressVisible;
         private RequestFilters _filter;
+        private bool _updating;
 
         public MainListViewModel(
             INavigationService navigationService,
@@ -69,17 +70,34 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
             get;
         }
 
-        public override async Task InitializeAsync(RequestFilterParameters parameters)
+        public override void Initialize(RequestFilterParameters parameters)
         {
-            await base.InitializeAsync(parameters);
-
+            base.Initialize(parameters);
             Filter = parameters.Filter;
+        }
+
+        public Command<VacationRequestViewModel> OpenVacationDetailsCommand =>
+            CommandProvider.Get<VacationRequestViewModel>(OpenVacationDetails);
+
+        public ICommand NewRequestCommand => CommandProvider.Get(OnNewRequest);
+
+        public ICommand OpenProfileCommand => CommandProvider.Get(OpenProfile);
+
+        public ICommand UpdateCommand => CommandProvider.GetForAsync(UpdateAsync, () => !_updating);
+
+        private async Task UpdateAsync()
+        {
+            if (_updating)
+            {
+                return;
+            }
 
             try
             {
-                var vacations = await GetRequestsAsync();
+                _updating = true;
 
                 VacationRequests.Clear();
+                var vacations = await GetRequestsAsync();
                 VacationRequests.AddRange(vacations);
             }
             catch (AuthenticationException authExc)
@@ -100,15 +118,9 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
             finally
             {
                 ProgressVisible = false;
+                _updating = false;
             }
         }
-
-        public Command<VacationRequestViewModel> OpenVacationDetailsCommand =>
-            CommandProvider.Get<VacationRequestViewModel>(OpenVacationDetails);
-
-        public ICommand NewRequestCommand => CommandProvider.Get(OnNewRequest);
-
-        public ICommand OpenProfileCommand => CommandProvider.Get(OpenProfile);
 
         private void OpenVacationDetails(VacationRequestViewModel itemViewModel)
         {
