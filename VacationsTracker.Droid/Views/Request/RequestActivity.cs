@@ -59,7 +59,7 @@ namespace VacationsTracker.Droid.Views.Request
                 .WithConversion<VacationTypeCurrentItemConverter>();
 
             bindingSet.Bind(ViewHolder.VacationStatusRadioGroup)
-                .For(v => v.CheckedChangeBinding())
+                .For(v => v.CheckAndCheckedChangeBinding())
                 .To(vm => vm.VacationStatus)
                 .WithConversion<VacationStatusValueConverter>();
         }
