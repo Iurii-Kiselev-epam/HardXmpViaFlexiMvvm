@@ -38,8 +38,20 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
         public DateTime Start
         {
             get => _start;
-            set => SetValue(ref _start, value);
+            set
+            {
+                SetValue(ref _start, value);
+                RaisePropertyChanged(nameof(StartDay));
+                RaisePropertyChanged(nameof(ShortStartMonth));
+                RaisePropertyChanged(nameof(StartYear));
+                RaisePropertyChanged(nameof(DurationRange));
+                RaisePropertyChanged(nameof(ShortStart));
+            }
         }
+
+        public string StartYear => $"{Start.Year}";
+
+        public string StartDay => $"{Start.Day}";
 
         public string ShortStartMonth => GetAbbreviatedEnUsMonthName(Start);
 
@@ -48,8 +60,20 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
         public DateTime End
         {
             get => _end;
-            set => SetValue(ref _end, value);
+            set
+            {
+                SetValue(ref _end, value);
+                RaisePropertyChanged(nameof(EndDay));
+                RaisePropertyChanged(nameof(ShortEndMonth));
+                RaisePropertyChanged(nameof(EndYear));
+                RaisePropertyChanged(nameof(DurationRange));
+                RaisePropertyChanged(nameof(ShortEnd));
+            }
         }
+
+        public string EndYear => $"{End.Year}";
+
+        public string EndDay => $"{End.Day}";
 
         public string ShortEndMonth => GetAbbreviatedEnUsMonthName(End);
 

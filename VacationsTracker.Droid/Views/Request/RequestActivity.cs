@@ -45,8 +45,8 @@ namespace VacationsTracker.Droid.Views.Request
             ViewHolder.VacationTypesViewpager.Adapter = VacationTypesAdapter;
             ViewHolder.TabLayout.SetupWithViewPager(ViewHolder.VacationTypesViewpager);
 
-            // temporary code for testing
-            ViewHolder.FirstSplitterView.Click += View_Click;
+            ViewHolder.StartDateLayout.Click += StartDateLayout_Click;
+            ViewHolder.EndDateLayout.Click += EndDateLayout_Click;
         }
 
         public override void Bind(BindingSet<EditableVacationRequestViewModel> bindingSet)
@@ -62,6 +62,30 @@ namespace VacationsTracker.Droid.Views.Request
                 .For(v => v.CheckAndCheckedChangeBinding())
                 .To(vm => vm.VacationStatus)
                 .WithConversion<VacationStatusValueConverter>();
+
+            bindingSet.Bind(ViewHolder.StartDayView)
+                .For(v => v.TextBinding())
+                .To(vm => vm.StartDay);
+
+            bindingSet.Bind(ViewHolder.StartMonthView)
+                .For(v => v.TextBinding())
+                .To(vm => vm.ShortStartMonth);
+
+            bindingSet.Bind(ViewHolder.StartYearView)
+                .For(v => v.TextBinding())
+                .To(vm => vm.StartYear);
+
+            bindingSet.Bind(ViewHolder.EndDayView)
+                .For(v => v.TextBinding())
+                .To(vm => vm.EndDay);
+
+            bindingSet.Bind(ViewHolder.EndMonthView)
+                .For(v => v.TextBinding())
+                .To(vm => vm.ShortEndMonth);
+
+            bindingSet.Bind(ViewHolder.EndYearView)
+                .For(v => v.TextBinding())
+                .To(vm => vm.EndYear);
         }
 
         private Fragment PagesFactory(object viewModelParameters)
@@ -84,10 +108,17 @@ namespace VacationsTracker.Droid.Views.Request
             return fragment;
         }
 
-        private void View_Click(object sender, EventArgs e)
+        private void StartDateLayout_Click(object sender, EventArgs e)
         {
             var datePickerFragment = DatePickerFragment.NewInstance(
-                ViewModel.Start, ViewModel.Start.AddMonths(1), date => ViewModel.Start = date);
+                ViewModel.Start, ViewModel.Start.AddYears(1), date => ViewModel.Start = date);
+            datePickerFragment.Show(SupportFragmentManager, nameof(DatePickerFragment));
+        }
+
+        private void EndDateLayout_Click(object sender, EventArgs e)
+        {
+            var datePickerFragment = DatePickerFragment.NewInstance(
+                ViewModel.End, ViewModel.End.AddYears(1), date => ViewModel.End = date);
             datePickerFragment.Show(SupportFragmentManager, nameof(DatePickerFragment));
         }
     }

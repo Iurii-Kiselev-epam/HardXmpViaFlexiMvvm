@@ -1,8 +1,6 @@
 ﻿using FlexiMvvm.Collections;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using VacationsTracker.Core.Communication;
@@ -100,6 +98,5 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Request
                 //ErrorMessage = UserConstants.Errors.UnexpectedErrorMessage;
             }
         }
-
     }
 }

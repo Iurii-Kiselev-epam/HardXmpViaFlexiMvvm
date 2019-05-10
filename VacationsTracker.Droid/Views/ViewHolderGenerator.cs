@@ -136,6 +136,15 @@ namespace VacationsTracker.Droid.Views
          private Android.Support.V4.View.ViewPager vacationTypesViewpager;
          private Android.Support.Design.Widget.TabLayout tabLayout;
          private View firstSplitterView;
+         private LinearLayout datesLinearLayout;
+         private RelativeLayout startDateLayout;
+         private TextView startDayView;
+         private TextView startMonthView;
+         private TextView startYearView;
+         private RelativeLayout endDateLayout;
+         private TextView endDayView;
+         private TextView endMonthView;
+         private TextView endYearView;
          private View secondSplitterView;
          private RadioGroup vacationStatusRadioGroup;
          private RadioButton approvedStatusRadioButton;
@@ -168,6 +177,42 @@ namespace VacationsTracker.Droid.Views
         
         public View FirstSplitterView =>
             firstSplitterView ?? (firstSplitterView = activity.FindViewById<View>(Resource.Id.first_splitter_view));
+
+        
+        public LinearLayout DatesLinearLayout =>
+            datesLinearLayout ?? (datesLinearLayout = activity.FindViewById<LinearLayout>(Resource.Id.dates_linear_layout));
+
+        
+        public RelativeLayout StartDateLayout =>
+            startDateLayout ?? (startDateLayout = activity.FindViewById<RelativeLayout>(Resource.Id.start_date_layout));
+
+        
+        public TextView StartDayView =>
+            startDayView ?? (startDayView = activity.FindViewById<TextView>(Resource.Id.start_day_view));
+
+        
+        public TextView StartMonthView =>
+            startMonthView ?? (startMonthView = activity.FindViewById<TextView>(Resource.Id.start_month_view));
+
+        
+        public TextView StartYearView =>
+            startYearView ?? (startYearView = activity.FindViewById<TextView>(Resource.Id.start_year_view));
+
+        
+        public RelativeLayout EndDateLayout =>
+            endDateLayout ?? (endDateLayout = activity.FindViewById<RelativeLayout>(Resource.Id.end_date_layout));
+
+        
+        public TextView EndDayView =>
+            endDayView ?? (endDayView = activity.FindViewById<TextView>(Resource.Id.end_day_view));
+
+        
+        public TextView EndMonthView =>
+            endMonthView ?? (endMonthView = activity.FindViewById<TextView>(Resource.Id.end_month_view));
+
+        
+        public TextView EndYearView =>
+            endYearView ?? (endYearView = activity.FindViewById<TextView>(Resource.Id.end_year_view));
 
         
         public View SecondSplitterView =>

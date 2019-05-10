@@ -41,9 +41,60 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/colorBright" />
+    <LinearLayout
+        android:id="@+id/dates_linear_layout"
+        android:layout_below="@id/first_splitter_view"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:padding="@dimen/inset1x">
+        <RelativeLayout
+            android:id="@+id/start_date_layout"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/start_day_view"
+                android:text="20"
+                style="@style/CellDateTheme" />
+            <TextView
+                android:id="@+id/start_month_view"
+                android:layout_toRightOf="@id/start_day_view"
+                android:text="Mar"
+                style="@style/CellDateTheme" />
+            <TextView
+                android:id="@+id/start_year_view"
+                android:layout_toRightOf="@id/start_day_view"
+                android:layout_below="@id/start_month_view"
+                android:text="2019"
+                style="@style/CellDateTheme" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/end_date_layout"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/end_day_view"
+                android:text="30"
+                style="@style/CellDateTheme" />
+            <TextView
+                android:id="@+id/end_month_view"
+                android:layout_toRightOf="@id/end_day_view"
+                android:text="Mar"
+                style="@style/CellDateTheme" />
+            <TextView
+                android:id="@+id/end_year_view"
+                android:layout_toRightOf="@id/end_day_view"
+                android:layout_below="@id/end_month_view"
+                android:text="2019"
+                style="@style/CellDateTheme" />
+        </RelativeLayout>
+    </LinearLayout>
     <View
         android:id="@+id/second_splitter_view"
-        android:layout_below="@id/first_splitter_view"
+        android:layout_below="@id/dates_linear_layout"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/colorBright" />
