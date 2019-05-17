@@ -63,8 +63,16 @@
   <ItemGroup>
     <Compile Include="Bootstrappers\IosBootstrapper.cs" />
     <Compile Include="Infrastructure\Dialogs\DialogService.cs" />
+    <Compile Include="Infrastructure\Extensions\ImageViewExtensions.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Theme\AppTheme.cs" />
+    <Compile Include="Theme\AppThemeColors.cs" />
+    <Compile Include="Theme\AppThemeDimens.cs" />
+    <Compile Include="Theme\AppThemeFonts.cs" />
+    <Compile Include="Theme\ControlStyleExtensions.cs" />
+    <Compile Include="Views\Home\MainListView.cs" />
+    <Compile Include="Views\Home\MainListViewControlller.cs" />
     <Compile Include="Views\Login\LoginView.cs" />
     <Compile Include="Views\Login\LoginViewController.cs" />
     <Compile Include="Views\RootNavigationController.cs" />
@@ -102,6 +110,7 @@
     </Reference>
     <Reference Include="OpenTK-1.0" />
     <Reference Include="System" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.Essentials, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -150,6 +159,18 @@
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LoginBackground.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LoginBackground.imageset\Login_bg.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\SplashLogo.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\SplashLogo.imageset\Splash_bg.jpg">
       <Visible>false</Visible>
     </ImageAsset>
   </ItemGroup>

@@ -33,8 +33,11 @@ namespace VacationsTracker.Core.Communication
         {
             //await _logger.Verbose(() => "Authenticating...");
 
-            await _httpClient.Authenticate(login, passw, _appSettings.VtsIdentityServiceUrl);
-            
+            //await _httpClient.Authenticate(login, passw, _appSettings.VtsIdentityServiceUrl);
+            //await XmpProxyAuthenticator.AuthenticateAsync(_httpClient, login, passw, _appSettings.VtsIdentityServiceUrl);
+            var xmpProxyAuth = new XmpProxyAuthenticator();
+            await xmpProxyAuth.AuthenticateAsync(_httpClient, login, passw, _appSettings.VtsIdentityServiceUrl);
+
             //await _logger.Verbose(() => "Authenticated");
         }
 

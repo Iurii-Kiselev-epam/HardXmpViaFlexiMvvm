@@ -8,7 +8,8 @@ namespace VacationsTracker.Core.Communication
     /// <summary>
     /// Provides HttpClient extention method for XMP VTS Authentication
     /// </summary>
-    public static class XmpProxyAuthenticator
+    //public static class XmpProxyAuthenticator
+    public class XmpProxyAuthenticator
     {
         private const string InvalidCredentialsErrorKey = "invalid_grant";
         private const string InvalidCredentialsErrorDesc = "invalid_username_or_password";
@@ -16,7 +17,9 @@ namespace VacationsTracker.Core.Communication
         /// <summary>
         /// Authenticates the user and adds Bearer token to the http client
         /// </summary>
-        public static async Task Authenticate(this HttpClient httpClient,
+        //public static async Task AuthenticateAsync(this HttpClient httpClient,
+        //    string login, string passw, string vtsIdentityUrl)
+        public async Task AuthenticateAsync(HttpClient httpClient,
             string login, string passw, string vtsIdentityUrl)
         {
             if (httpClient == null)

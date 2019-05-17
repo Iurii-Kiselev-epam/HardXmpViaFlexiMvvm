@@ -137,6 +137,9 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
 
             //TODO login view initialization
             // ....
+
+            // temporary
+            //ErrorMessage = "Please, retry your login and password pair. Check current Caps Lock and input language settings";
         }
     }
 }

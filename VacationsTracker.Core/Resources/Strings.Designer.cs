@@ -22,7 +22,7 @@ namespace VacationsTracker.Core.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Strings {
+    public class Strings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace VacationsTracker.Core.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("VacationsTracker.Core.Resources.Strings", typeof(Strings).Assembly);
@@ -51,7 +51,7 @@ namespace VacationsTracker.Core.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace VacationsTracker.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
-        internal static string Action_Settings {
+        public static string Action_Settings {
             get {
                 return ResourceManager.GetString("Action_Settings", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace VacationsTracker.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to All Requests.
         /// </summary>
-        internal static string All_Requests {
+        public static string All_Requests {
             get {
                 return ResourceManager.GetString("All_Requests", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace VacationsTracker.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to All.
         /// </summary>
-        internal static string All_Requests_Shortcut {
+        public static string All_Requests_Shortcut {
             get {
                 return ResourceManager.GetString("All_Requests_Shortcut", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace VacationsTracker.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to VacationsTracker.Android.
         /// </summary>
-        internal static string Android_App_Name {
+        public static string Android_App_Name {
             get {
                 return ResourceManager.GetString("Android_App_Name", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace VacationsTracker.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Login and password pair looks not correct. Please, retry them. Check current Caps Lock and input language settings.
         /// </summary>
-        internal static string Auth_Error_Message {
+        public static string Auth_Error_Message {
             get {
                 return ResourceManager.GetString("Auth_Error_Message", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace VacationsTracker.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Closed Requests.
         /// </summary>
-        internal static string Closed_Requests {
+        public static string Closed_Requests {
             get {
                 return ResourceManager.GetString("Closed_Requests", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace VacationsTracker.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Closed.
         /// </summary>
-        internal static string Closed_Requests_Shortcut {
+        public static string Closed_Requests_Shortcut {
             get {
                 return ResourceManager.GetString("Closed_Requests_Shortcut", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace VacationsTracker.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Communication error. Please retry later.
         /// </summary>
-        internal static string Communication_Error_Message {
+        public static string Communication_Error_Message {
             get {
                 return ResourceManager.GetString("Communication_Error_Message", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace VacationsTracker.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Requests.
         /// </summary>
-        internal static string Home_Tab_List {
+        public static string Home_Tab_List {
             get {
                 return ResourceManager.GetString("Home_Tab_List", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace VacationsTracker.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Profile.
         /// </summary>
-        internal static string Home_Tab_Profile {
+        public static string Home_Tab_Profile {
             get {
                 return ResourceManager.GetString("Home_Tab_Profile", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace VacationsTracker.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Login and password pair is invalid.
         /// </summary>
-        internal static string Invalid_Error_Message {
+        public static string Invalid_Error_Message {
             get {
                 return ResourceManager.GetString("Invalid_Error_Message", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace VacationsTracker.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
-        internal static string Login_Hint {
+        public static string Login_Hint {
             get {
                 return ResourceManager.GetString("Login_Hint", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace VacationsTracker.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Open Requests.
         /// </summary>
-        internal static string Open_Requests {
+        public static string Open_Requests {
             get {
                 return ResourceManager.GetString("Open_Requests", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace VacationsTracker.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Open.
         /// </summary>
-        internal static string Open_Requests_Shortcut {
+        public static string Open_Requests_Shortcut {
             get {
                 return ResourceManager.GetString("Open_Requests_Shortcut", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace VacationsTracker.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
-        internal static string Password_Hint {
+        public static string Password_Hint {
             get {
                 return ResourceManager.GetString("Password_Hint", resourceCulture);
             }
@@ -198,7 +198,7 @@ namespace VacationsTracker.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Arkadiy Dobkin.
         /// </summary>
-        internal static string Profile_Name {
+        public static string Profile_Name {
             get {
                 return ResourceManager.GetString("Profile_Name", resourceCulture);
             }
@@ -207,7 +207,7 @@ namespace VacationsTracker.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
-        internal static string Request_Save {
+        public static string Request_Save {
             get {
                 return ResourceManager.GetString("Request_Save", resourceCulture);
             }
@@ -216,7 +216,7 @@ namespace VacationsTracker.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to SIGN IN.
         /// </summary>
-        internal static string Sign_In_Button_Text {
+        public static string Sign_In_Button_Text {
             get {
                 return ResourceManager.GetString("Sign_In_Button_Text", resourceCulture);
             }
@@ -225,7 +225,7 @@ namespace VacationsTracker.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Unexpected error during authentification. Please retry later.
         /// </summary>
-        internal static string Unexpected_Error_Message {
+        public static string Unexpected_Error_Message {
             get {
                 return ResourceManager.GetString("Unexpected_Error_Message", resourceCulture);
             }
@@ -234,7 +234,7 @@ namespace VacationsTracker.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Approved.
         /// </summary>
-        internal static string VacationStatus_Approved {
+        public static string VacationStatus_Approved {
             get {
                 return ResourceManager.GetString("VacationStatus_Approved", resourceCulture);
             }
@@ -243,7 +243,7 @@ namespace VacationsTracker.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Closed.
         /// </summary>
-        internal static string VacationStatus_Closed {
+        public static string VacationStatus_Closed {
             get {
                 return ResourceManager.GetString("VacationStatus_Closed", resourceCulture);
             }
@@ -252,7 +252,7 @@ namespace VacationsTracker.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Draft.
         /// </summary>
-        internal static string VacationStatus_Draft {
+        public static string VacationStatus_Draft {
             get {
                 return ResourceManager.GetString("VacationStatus_Draft", resourceCulture);
             }
@@ -261,7 +261,7 @@ namespace VacationsTracker.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to InProgress.
         /// </summary>
-        internal static string VacationStatus_InProgress {
+        public static string VacationStatus_InProgress {
             get {
                 return ResourceManager.GetString("VacationStatus_InProgress", resourceCulture);
             }
@@ -270,7 +270,7 @@ namespace VacationsTracker.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Submitted.
         /// </summary>
-        internal static string VacationStatus_Submitted {
+        public static string VacationStatus_Submitted {
             get {
                 return ResourceManager.GetString("VacationStatus_Submitted", resourceCulture);
             }
@@ -279,7 +279,7 @@ namespace VacationsTracker.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Exceptional Leave.
         /// </summary>
-        internal static string VacationType_Exceptional {
+        public static string VacationType_Exceptional {
             get {
                 return ResourceManager.GetString("VacationType_Exceptional", resourceCulture);
             }
@@ -288,7 +288,7 @@ namespace VacationsTracker.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Leave without Pay.
         /// </summary>
-        internal static string VacationType_LeaveWithoutPay {
+        public static string VacationType_LeaveWithoutPay {
             get {
                 return ResourceManager.GetString("VacationType_LeaveWithoutPay", resourceCulture);
             }
@@ -297,7 +297,7 @@ namespace VacationsTracker.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Overtime.
         /// </summary>
-        internal static string VacationType_Overtime {
+        public static string VacationType_Overtime {
             get {
                 return ResourceManager.GetString("VacationType_Overtime", resourceCulture);
             }
@@ -306,7 +306,7 @@ namespace VacationsTracker.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Regular.
         /// </summary>
-        internal static string VacationType_Regular {
+        public static string VacationType_Regular {
             get {
                 return ResourceManager.GetString("VacationType_Regular", resourceCulture);
             }
@@ -315,7 +315,7 @@ namespace VacationsTracker.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Sick days.
         /// </summary>
-        internal static string VacationType_Sick {
+        public static string VacationType_Sick {
             get {
                 return ResourceManager.GetString("VacationType_Sick", resourceCulture);
             }
@@ -324,7 +324,7 @@ namespace VacationsTracker.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Undefined.
         /// </summary>
-        internal static string VacationType_Undefined {
+        public static string VacationType_Undefined {
             get {
                 return ResourceManager.GetString("VacationType_Undefined", resourceCulture);
             }
