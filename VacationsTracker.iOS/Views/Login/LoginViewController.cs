@@ -4,6 +4,7 @@ using FlexiMvvm.ValueConverters;
 using FlexiMvvm.Views;
 using UIKit;
 using VacationsTracker.Core.Presentation.ViewModels.Login;
+using VacationsTracker.iOS.Infrastructure.Bindings;
 
 namespace VacationsTracker.iOS.Views.Login
 {
@@ -44,6 +45,11 @@ namespace VacationsTracker.iOS.Views.Login
             bindingSet.Bind(View.SignInButton)
                 .For(v => v.HiddenBinding())
                 .To(vm => vm.SignInVisible)
+                .WithConversion<InvertValueConverter>();
+
+            bindingSet.Bind(View.ActivityIndicatorView)
+                .For(v => v.ActivityBinding())
+                .To(vm => vm.ProgressVisible)
                 .WithConversion<InvertValueConverter>();
         }
 

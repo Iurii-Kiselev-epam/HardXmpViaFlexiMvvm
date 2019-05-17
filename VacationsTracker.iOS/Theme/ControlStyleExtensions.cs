@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cirrious.FluentLayouts.Touch;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,10 @@ namespace VacationsTracker.iOS.Theme
     {
         public static UILabel SetErrorTextStyle(this UILabel label, string text = null)
         {
+            if (label == null)
+            {
+                throw new ArgumentNullException(nameof(label));
+            }
             label.Font = AppTheme.Current.Fonts.Message;
             label.TextColor = AppTheme.Current.Colors.DarkRed;
             label.BackgroundColor = AppTheme.Current.Colors.MsgBkgnd;
@@ -22,6 +27,10 @@ namespace VacationsTracker.iOS.Theme
 
         public static UITextField SetTextFieldStyle(this UITextField textField, string placeHolder = null)
         {
+            if (textField == null)
+            {
+                throw new ArgumentNullException(nameof(textField));
+            }
             textField.Font = AppTheme.Current.Fonts.Input1;
             textField.BackgroundColor = AppTheme.Current.Colors.White;
             textField.Placeholder = placeHolder;
@@ -31,6 +40,10 @@ namespace VacationsTracker.iOS.Theme
 
         public static UIButton SetButtonStyle(this UIButton button, string title = null)
         {
+            if (button == null)
+            {
+                throw new ArgumentNullException(nameof(button));
+            }
             button.Font = AppTheme.Current.Fonts.CellLarge;
             button.SetTitle(title, UIControlState.Normal);
             button.SetTitleColor(AppTheme.Current.Colors.White, UIControlState.Normal);
@@ -38,8 +51,21 @@ namespace VacationsTracker.iOS.Theme
             button.Layer.MasksToBounds = true;
             //button.AddConstraints(button.Height().EqualTo(AppTheme.Current.Dimens.ButtonDefaultHeight));
             button.BackgroundColor = AppTheme.Current.Colors.Bright;
-
             return button;
+        }
+
+        public static UIActivityIndicatorView SetActivityIndicatorStyle(this UIActivityIndicatorView activityIndicator)
+        {
+            if (activityIndicator == null)
+            {
+                throw new ArgumentNullException(nameof(activityIndicator));
+            }
+
+            activityIndicator.Color = AppTheme.Current.Colors.Bright;
+            activityIndicator.AddConstraints(activityIndicator.Height().EqualTo(AppTheme.Current.Dimens.Inset4x));
+            activityIndicator.AddConstraints(activityIndicator.Width().EqualTo(AppTheme.Current.Dimens.Inset4x));
+
+            return activityIndicator;
         }
     }
 }

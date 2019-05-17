@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -33,10 +32,7 @@ namespace VacationsTracker.Core.Communication
         {
             //await _logger.Verbose(() => "Authenticating...");
 
-            //await _httpClient.Authenticate(login, passw, _appSettings.VtsIdentityServiceUrl);
-            //await XmpProxyAuthenticator.AuthenticateAsync(_httpClient, login, passw, _appSettings.VtsIdentityServiceUrl);
-            var xmpProxyAuth = new XmpProxyAuthenticator();
-            await xmpProxyAuth.AuthenticateAsync(_httpClient, login, passw, _appSettings.VtsIdentityServiceUrl);
+            await _httpClient.AuthenticateAsync(login, passw, _appSettings.VtsIdentityServiceUrl);
 
             //await _logger.Verbose(() => "Authenticated");
         }

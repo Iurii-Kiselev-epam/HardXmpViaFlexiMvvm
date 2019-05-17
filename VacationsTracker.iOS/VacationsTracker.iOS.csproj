@@ -62,6 +62,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Bootstrappers\IosBootstrapper.cs" />
+    <Compile Include="Infrastructure\Bindings\UIActivityIndicatorViewBindings.cs" />
     <Compile Include="Infrastructure\Dialogs\DialogService.cs" />
     <Compile Include="Infrastructure\Extensions\ImageViewExtensions.cs" />
     <Compile Include="Main.cs" />

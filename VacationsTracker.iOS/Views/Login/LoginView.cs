@@ -19,6 +19,8 @@ namespace VacationsTracker.iOS.Views.Login
 
         public UIButton SignInButton { get; private set; }
 
+        public UIActivityIndicatorView ActivityIndicatorView { get; private set; }
+
         protected override void SetupSubviews()
         {
             base.SetupSubviews();
@@ -35,6 +37,8 @@ namespace VacationsTracker.iOS.Views.Login
             PasswordTextField.ReturnKeyType = UIReturnKeyType.Done;
 
             SignInButton = new UIButton(UIButtonType.System).SetButtonStyle(Strings.Sign_In_Button_Text);
+
+            ActivityIndicatorView = new UIActivityIndicatorView().SetActivityIndicatorStyle();
         }
 
         protected override void SetupLayout()
@@ -46,7 +50,8 @@ namespace VacationsTracker.iOS.Views.Login
                 .AddLayoutSubview(ErrorTextLabel)
                 .AddLayoutSubview(LoginTextField)
                 .AddLayoutSubview(PasswordTextField)
-                .AddLayoutSubview(SignInButton);
+                .AddLayoutSubview(SignInButton)
+                .AddLayoutSubview(ActivityIndicatorView);
 
             this.SendSubviewToBack(BackgroundImageView);
         }
@@ -86,6 +91,10 @@ namespace VacationsTracker.iOS.Views.Login
                 SignInButton.WithSameCenterX(this),
                 SignInButton.AtLeftOf(this, AppTheme.Current.Dimens.Inset7x),
                 SignInButton.AtRightOf(this, AppTheme.Current.Dimens.Inset7x));
+
+            this.AddConstraints(
+                ActivityIndicatorView.Below(SignInButton, AppTheme.Current.Dimens.Inset2x),
+                ActivityIndicatorView.WithSameCenterX(this));
         }
     }
 }
