@@ -1,4 +1,5 @@
 ﻿using Cirrious.FluentLayouts.Touch;
+using CoreGraphics;
 using FlexiMvvm.Views;
 using UIKit;
 using VacationsTracker.Core.Resources;
@@ -9,23 +10,43 @@ namespace VacationsTracker.iOS.Views.Home
 {
     public class MainListView : LayoutView
     {
+        public UICollectionView VacationsView { get; private set; }
+
         protected override void SetupSubviews()
         {
             base.SetupSubviews();
+
+            BackgroundColor = AppTheme.Current.Colors.MsgBkgnd;
+
+            var collectionLayout = new UICollectionViewFlowLayout
+            {
+                ScrollDirection = UICollectionViewScrollDirection.Vertical,
+                MinimumLineSpacing = AppTheme.Current.Dimens.LineSpacing,
+                MinimumInteritemSpacing = AppTheme.Current.Dimens.LineSpacing,
+                SectionInset = UIEdgeInsets.Zero,
+                ItemSize = new CGSize((float)UIScreen.MainScreen.Bounds.Size.Width,
+                    (float)AppTheme.Current.Dimens.MediumCellDefaultSize)
+            };
+
+            VacationsView = new UICollectionView(CGRect.Empty, collectionLayout)
+            {
+                BackgroundColor = AppTheme.Current.Colors.MsgBkgnd
+            };
+            VacationsView.RegisterClassForCell(typeof(VacationRequestViewCell), VacationRequestViewCell.CellId);
+            //VacationsView.RegisterClassForSupplementaryView(
+            //    typeof(LoadNextPageFooterViewCell),
+            //    UICollectionElementKindSection.Footer,
+            //    LoadNextPageFooterViewCell.CellId);
+            VacationsView.ShowsVerticalScrollIndicator = true;
+            VacationsView.AllowsSelection = true;
         }
 
         protected override void SetupLayout()
         {
             base.SetupLayout();
 
-            //this
-            //    .AddLayoutSubview(BackgroundImageView)
-            //    .AddLayoutSubview(ErrorTextLabel)
-            //    .AddLayoutSubview(LoginTextField)
-            //    .AddLayoutSubview(PasswordTextField)
-            //    .AddLayoutSubview(SignInButton);
-
-            //this.SendSubviewToBack(BackgroundImageView);
+            this
+                .AddLayoutSubview(VacationsView);
         }
 
         protected override void SetupLayoutConstraints()
@@ -34,35 +55,11 @@ namespace VacationsTracker.iOS.Views.Home
 
             this.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
 
-            //this.AddConstraints(
-            //    BackgroundImageView.WithSameHeight(this),
-            //    BackgroundImageView.WithSameWidth(this),
-            //    BackgroundImageView.AtLeftOf(this),
-            //    BackgroundImageView.AtTopOf(this));
-
-            //this.AddConstraints(
-            //    ErrorTextLabel.WithSameCenterX(this),
-            //    ErrorTextLabel.AtTopOf(this, AppTheme.Current.Dimens.Inset8x),
-            //    ErrorTextLabel.AtLeftOf(this, AppTheme.Current.Dimens.Inset4x),
-            //    ErrorTextLabel.AtRightOf(this, AppTheme.Current.Dimens.Inset4x));
-
-            //this.AddConstraints(
-            //    LoginTextField.Below(ErrorTextLabel, AppTheme.Current.Dimens.Inset2x),
-            //    LoginTextField.WithSameCenterX(this),
-            //    LoginTextField.AtLeftOf(this, AppTheme.Current.Dimens.Inset4x),
-            //    LoginTextField.AtRightOf(this, AppTheme.Current.Dimens.Inset4x));
-
-            //this.AddConstraints(
-            //    PasswordTextField.Below(LoginTextField, AppTheme.Current.Dimens.Inset2x),
-            //    PasswordTextField.WithSameCenterX(this),
-            //    PasswordTextField.AtLeftOf(this, AppTheme.Current.Dimens.Inset4x),
-            //    PasswordTextField.AtRightOf(this, AppTheme.Current.Dimens.Inset4x));
-
-            //this.AddConstraints(
-            //    SignInButton.Below(PasswordTextField, AppTheme.Current.Dimens.Inset2x),
-            //    SignInButton.WithSameCenterX(this),
-            //    SignInButton.AtLeftOf(this, AppTheme.Current.Dimens.Inset7x),
-            //    SignInButton.AtRightOf(this, AppTheme.Current.Dimens.Inset7x));
+            this.AddConstraints(
+                VacationsView.AtLeftOf(this),
+                VacationsView.AtTopOf(this),
+                VacationsView.WithSameHeight(this),
+                VacationsView.WithSameWidth(this));
         }
     }
 }

@@ -12,8 +12,9 @@
         public int Inset9x { get; } = 72;
 
         public int TextPadding { get; } = 4;
-        public int MediumCellDefaultHeight { get; } = 48;
+        public int MediumCellDefaultSize { get; } = 48;
         public int MediumAvatarHeight { get; } = 160;
         public int PagerDefaultHeight { get; } = 84;
+        public int LineSpacing { get; } = 2;
     }
 }

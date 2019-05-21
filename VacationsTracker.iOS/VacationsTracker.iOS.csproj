@@ -63,8 +63,10 @@
   <ItemGroup>
     <Compile Include="Bootstrappers\IosBootstrapper.cs" />
     <Compile Include="Infrastructure\Bindings\UIActivityIndicatorViewBindings.cs" />
+    <Compile Include="Infrastructure\Bindings\UIImageViewBindings.cs" />
     <Compile Include="Infrastructure\Dialogs\DialogService.cs" />
     <Compile Include="Infrastructure\Extensions\ImageViewExtensions.cs" />
+    <Compile Include="Infrastructure\ValueConverters\VacationTypeImageIdConverter.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Theme\AppTheme.cs" />
@@ -74,6 +76,8 @@
     <Compile Include="Theme\ControlStyleExtensions.cs" />
     <Compile Include="Views\Home\MainListView.cs" />
     <Compile Include="Views\Home\MainListViewControlller.cs" />
+    <Compile Include="Views\Home\VacationRequestView.cs" />
+    <Compile Include="Views\Home\VacationRequestViewCell.cs" />
     <Compile Include="Views\Login\LoginView.cs" />
     <Compile Include="Views\Login\LoginViewController.cs" />
     <Compile Include="Views\RootNavigationController.cs" />
@@ -167,6 +171,36 @@
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Icon_Request_Blue.imageset\Icon_Request_Blue.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Icon_Request_Dark.imageset\Icon_Request_Dark.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Icon_Request_Gray.imageset\Icon_Request_Gray.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Icon_Request_Green.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Icon_Request_Green.imageset\Icon_Request_Green.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Icon_Request_Plum.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Icon_Request_Plum.imageset\Icon_Request_Plum.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Icon_Request_Dark.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Icon_Request_Blue.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Icon_Request_Gray.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\LoginBackground.imageset\Contents.json">

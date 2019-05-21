@@ -18,14 +18,9 @@ namespace VacationsTracker.iOS.Infrastructure.Bindings
                 (view, hidden) =>
                 {
                     if (hidden)
-                    {
-                        if (view.IsAnimating)
-                            view.StopAnimating();
-                    }
-                    else if(!view.IsAnimating)
-                    {
+                        view.StopAnimating();
+                    else
                         view.StartAnimating();
-                    }
                     view.Hidden = hidden;
                 },
                 () => "Hidden");

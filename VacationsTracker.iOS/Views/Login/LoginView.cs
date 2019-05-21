@@ -25,8 +25,7 @@ namespace VacationsTracker.iOS.Views.Login
         {
             base.SetupSubviews();
 
-            BackgroundImageView = new UIImageView();
-            BackgroundImageView.SetBundleImage("LoginBackground");
+            BackgroundImageView = new UIImageView().SetBundleImage("LoginBackground");
 
             ErrorTextLabel = new UILabel().SetErrorTextStyle();
 
