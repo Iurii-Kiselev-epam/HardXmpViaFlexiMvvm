@@ -1,9 +1,11 @@
 ﻿using FlexiMvvm;
 using FlexiMvvm.Bindings;
 using FlexiMvvm.Collections;
+using FlexiMvvm.ValueConverters;
 using FlexiMvvm.Views;
 using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Presentation.ViewModels.MainList;
+using VacationsTracker.iOS.Infrastructure.Bindings;
 
 namespace VacationsTracker.iOS.Views.Home
 {
@@ -49,9 +51,19 @@ namespace VacationsTracker.iOS.Views.Home
         {
             base.Bind(bindingSet);
 
+            bindingSet.Bind(View.ActivityIndicatorView)
+                .For(v => v.ActivityBinding())
+                .To(vm => vm.ProgressVisible)
+                .WithConversion<InvertValueConverter>();
+
             bindingSet.Bind(VacationsSource)
                 .For(v => v.ItemsBinding())
                 .To(vm => vm.VacationRequests);
+
+            bindingSet.Bind(View.VacationsView)
+                .For(v => v.HiddenBinding())
+                .To(vm => vm.IsUIVisible)
+                .WithConversion<InvertValueConverter>();
         }
     }
 }

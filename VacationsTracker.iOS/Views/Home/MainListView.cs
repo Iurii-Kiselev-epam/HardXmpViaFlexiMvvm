@@ -7,6 +7,8 @@ namespace VacationsTracker.iOS.Views.Home
 {
     public class MainListView : LayoutView
     {
+        public UIActivityIndicatorView ActivityIndicatorView { get; private set; }
+
         public UITableView VacationsView { get; private set; }
 
         protected override void SetupSubviews()
@@ -14,6 +16,8 @@ namespace VacationsTracker.iOS.Views.Home
             base.SetupSubviews();
 
             BackgroundColor = AppTheme.Current.Colors.MsgBkgnd;
+
+            ActivityIndicatorView = new UIActivityIndicatorView().SetActivityIndicatorStyle();
 
             VacationsView = new UITableView
             {
@@ -31,6 +35,7 @@ namespace VacationsTracker.iOS.Views.Home
             base.SetupLayout();
 
             this
+                .AddLayoutSubview(ActivityIndicatorView)
                 .AddLayoutSubview(VacationsView);
         }
 
@@ -41,10 +46,10 @@ namespace VacationsTracker.iOS.Views.Home
             this.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
 
             this.AddConstraints(
-                VacationsView.AtLeftOf(this),
-                VacationsView.AtTopOf(this),
-                VacationsView.WithSameHeight(this),
-                VacationsView.WithSameWidth(this));
+                ActivityIndicatorView.FullSizeOf(this));
+
+            this.AddConstraints(
+                VacationsView.FullSizeOf(this));
         }
     }
 }
