@@ -8,7 +8,6 @@ namespace VacationsTracker.iOS.Theme
         public UIColor Primary { get; } = FromHex("#2c3e50");
         public UIColor PrimaryDark { get; } = FromHex("#4B4A67");
         public UIColor Accent { get; } = FromHex("#3498db");
-        public UIColor White { get; } = FromHex("#ffffff");
         public UIColor Bright { get; } = FromHex("#39c5d6");
         public UIColor DarkRed { get; } = FromHex("#a55171");
         public UIColor MsgBkgnd { get; } = FromHex("#f8f8f8");

@@ -24,7 +24,7 @@ namespace VacationsTracker.iOS.Views.Home
                 0, AppTheme.Current.Dimens.Inset1x,
                 0, AppTheme.Current.Dimens.Inset1x);
 
-            BackgroundColor = AppTheme.Current.Colors.White;
+            BackgroundColor = UIColor.White;
 
             ImageCellView = new UIImageView();
             DurationRange = new UILabel().SetLargeCellTextStyle();

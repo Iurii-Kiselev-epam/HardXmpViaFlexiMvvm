@@ -3,9 +3,11 @@ using FlexiMvvm.Bindings;
 using FlexiMvvm.Collections;
 using FlexiMvvm.ValueConverters;
 using FlexiMvvm.Views;
+using UIKit;
 using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Presentation.ViewModels.MainList;
 using VacationsTracker.iOS.Infrastructure.Bindings;
+using VacationsTracker.iOS.Theme;
 
 namespace VacationsTracker.iOS.Views.Home
 {
@@ -17,6 +19,9 @@ namespace VacationsTracker.iOS.Views.Home
         }
 
         public TableViewObservablePlainSource VacationsSource { get; private set; }
+
+        public UIBarButtonItem ProfileBarButton { get; private set; } 
+        public UIBarButtonItem PlusBarButton { get; private set; } 
 
         public new MainListView View
         {
@@ -33,6 +38,19 @@ namespace VacationsTracker.iOS.Views.Home
 
             Title = string.Empty;
             NavigationController.NotNull().SetNavigationBarHidden(false, false);
+
+            NavigationItem.NotNull().Title = ViewModel.UIFilter;
+
+            ProfileBarButton = new UIBarButtonItem("\u2764", UIBarButtonItemStyle.Plain, null);
+            NavigationItem.LeftBarButtonItem = ProfileBarButton;
+
+            PlusBarButton = new UIBarButtonItem("+", UIBarButtonItemStyle.Plain, null);
+            PlusBarButton.SetTitleTextAttributes(new UITextAttributes
+            {
+                TextColor = UIColor.White,
+                Font = AppTheme.Current.Fonts.Title
+            }, UIControlState.Normal);
+            NavigationItem.RightBarButtonItem = PlusBarButton;
 
             ViewModel.UpdateCommand.Execute(null);
         }
@@ -66,6 +84,14 @@ namespace VacationsTracker.iOS.Views.Home
                 .For(v => v.HiddenBinding())
                 .To(vm => vm.IsUIVisible)
                 .WithConversion<InvertValueConverter>();
+
+            bindingSet.Bind(ProfileBarButton)
+                .For(v => v.NotNull().ClickedBinding())
+                .To(vm => vm.OpenProfileCommand);
+
+            bindingSet.Bind(PlusBarButton)
+                .For(v => v.NotNull().ClickedBinding())
+                .To(vm => vm.NewRequestCommand);
         }
     }
 }

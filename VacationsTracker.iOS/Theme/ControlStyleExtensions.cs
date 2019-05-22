@@ -28,7 +28,7 @@ namespace VacationsTracker.iOS.Theme
             }
             label.Font = AppTheme.Current.Fonts.CellLarge;
             label.TextColor = AppTheme.Current.Colors.Bright;
-            label.BackgroundColor = AppTheme.Current.Colors.White;
+            label.BackgroundColor = UIColor.White;
             label.Lines = 1;
             label.Text = text;
             return label;
@@ -42,7 +42,7 @@ namespace VacationsTracker.iOS.Theme
             }
             label.Font = AppTheme.Current.Fonts.Cell;
             label.TextColor = AppTheme.Current.Colors.PrimaryDark;
-            label.BackgroundColor = AppTheme.Current.Colors.White;
+            label.BackgroundColor = UIColor.White;
             label.Lines = 1;
             label.Text = text;
             return label;
@@ -55,7 +55,7 @@ namespace VacationsTracker.iOS.Theme
                 throw new ArgumentNullException(nameof(textField));
             }
             textField.Font = AppTheme.Current.Fonts.Input1;
-            textField.BackgroundColor = AppTheme.Current.Colors.White;
+            textField.BackgroundColor = UIColor.White;
             textField.Placeholder = placeHolder;
             textField.TintColor = AppTheme.Current.Colors.TextHint;
             return textField;
@@ -69,7 +69,7 @@ namespace VacationsTracker.iOS.Theme
             }
             button.Font = AppTheme.Current.Fonts.CellLarge;
             button.SetTitle(title, UIControlState.Normal);
-            button.SetTitleColor(AppTheme.Current.Colors.White, UIControlState.Normal);
+            button.SetTitleColor(UIColor.White, UIControlState.Normal);
             button.Layer.CornerRadius = 10;
             button.Layer.MasksToBounds = true;
             //button.AddConstraints(button.Height().EqualTo(AppTheme.Current.Dimens.ButtonDefaultHeight));
