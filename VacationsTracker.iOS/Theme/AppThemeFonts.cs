@@ -6,6 +6,7 @@ namespace VacationsTracker.iOS.Theme
     {
         const string PreferredFont = "Verdana";
 
+        public UIFont Title { get; } = UIFont.FromName(PreferredFont, 23);
         public UIFont Input1 { get; } = UIFont.FromName(PreferredFont, 16);
         public UIFont Cell { get; } = UIFont.FromName(PreferredFont, 11);
         public UIFont CellLarge { get; } = UIFont.FromName(PreferredFont, 13);

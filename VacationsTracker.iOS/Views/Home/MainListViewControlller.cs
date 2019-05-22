@@ -32,7 +32,7 @@ namespace VacationsTracker.iOS.Views.Home
             base.ViewWillAppear(animated);
 
             Title = string.Empty;
-            NavigationController.NavigationBarHidden = true;
+            NavigationController.NotNull().SetNavigationBarHidden(false, false);
 
             ViewModel.UpdateCommand.Execute(null);
         }
@@ -40,6 +40,8 @@ namespace VacationsTracker.iOS.Views.Home
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
+
+            NavigationItem.SetHidesBackButton(true, false);
 
             VacationsSource = new TableViewObservablePlainSource(
                 View.VacationsView,
