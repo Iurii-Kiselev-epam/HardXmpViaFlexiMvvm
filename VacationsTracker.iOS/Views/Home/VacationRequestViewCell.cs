@@ -2,13 +2,14 @@
 using FlexiMvvm.Bindings;
 using FlexiMvvm.Collections;
 using System;
+using UIKit;
 using VacationsTracker.Core.Presentation.ViewModels.MainList;
 using VacationsTracker.iOS.Infrastructure.Bindings;
 using VacationsTracker.iOS.Infrastructure.ValueConverters;
 
 namespace VacationsTracker.iOS.Views.Home
 {
-    public class VacationRequestViewCell : CollectionViewBindableItemCell<object, VacationRequestViewModel>
+    public class VacationRequestViewCell : TableViewBindableItemCell<object, VacationRequestViewModel>
     {
         protected internal VacationRequestViewCell(IntPtr handle)
             : base(handle)
@@ -26,6 +27,8 @@ namespace VacationsTracker.iOS.Views.Home
             ContentView.AddSubview(View);
             ContentView.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
             ContentView.AddConstraints(View.FullSizeOf(ContentView));
+
+            Accessory = UITableViewCellAccessory.DisclosureIndicator;
         }
 
         public override void Bind(BindingSet<VacationRequestViewModel> bindingSet)

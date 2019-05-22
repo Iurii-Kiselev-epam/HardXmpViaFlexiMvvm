@@ -1,4 +1,6 @@
-﻿namespace VacationsTracker.iOS.Theme
+﻿using System;
+
+namespace VacationsTracker.iOS.Theme
 {
     public class AppThemeDimens
     {
@@ -16,5 +18,7 @@
         public int MediumAvatarHeight { get; } = 160;
         public int PagerDefaultHeight { get; } = 84;
         public int LineSpacing { get; } = 2;
+
+        public nfloat TableViewRowDefaultHeight { get; } = 64;
     }
 }

@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FlexiMvvm;
+﻿using FlexiMvvm;
 using FlexiMvvm.Bindings;
 using FlexiMvvm.Collections;
-using FlexiMvvm.ValueConverters;
 using FlexiMvvm.Views;
-using Foundation;
-using UIKit;
 using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Presentation.ViewModels.MainList;
 
@@ -19,10 +12,9 @@ namespace VacationsTracker.iOS.Views.Home
         public MainListViewControlller(RequestFilterParameters parameters)
             : base(parameters)
         {
-
         }
 
-        public CollectionViewObservablePlainSource VacationsSource { get; private set; }
+        public TableViewObservablePlainSource VacationsSource { get; private set; }
 
         public new MainListView View
         {
@@ -47,18 +39,10 @@ namespace VacationsTracker.iOS.Views.Home
         {
             base.ViewDidLoad();
 
-            VacationsSource = new CollectionViewObservablePlainSource(
+            VacationsSource = new TableViewObservablePlainSource(
                 View.VacationsView,
-                vm => VacationRequestViewCell.CellId)
-            {
-                ItemsContext = ViewModel
-            };
-
-            View.VacationsView.DataSource = VacationsSource;
-
-            //View.ResultsCollection.Delegate = new CustomFeedDelegateFlowLayout(
-            //    ResultItemViewCell.Ratio,
-            //    AppTheme.Current.Dimens.CollectionViewFooterDefaultHeight);
+                vm => VacationRequestViewCell.CellId);
+            View.VacationsView.Source = VacationsSource;
         }
 
         public override void Bind(BindingSet<MainListViewModel> bindingSet)

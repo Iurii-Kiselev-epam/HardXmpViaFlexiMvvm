@@ -1,16 +1,13 @@
 ﻿using Cirrious.FluentLayouts.Touch;
-using CoreGraphics;
 using FlexiMvvm.Views;
 using UIKit;
-using VacationsTracker.Core.Resources;
-using VacationsTracker.iOS.Infrastructure.Extensions;
 using VacationsTracker.iOS.Theme;
 
 namespace VacationsTracker.iOS.Views.Home
 {
     public class MainListView : LayoutView
     {
-        public UICollectionView VacationsView { get; private set; }
+        public UITableView VacationsView { get; private set; }
 
         protected override void SetupSubviews()
         {
@@ -18,27 +15,15 @@ namespace VacationsTracker.iOS.Views.Home
 
             BackgroundColor = AppTheme.Current.Colors.MsgBkgnd;
 
-            var collectionLayout = new UICollectionViewFlowLayout
+            VacationsView = new UITableView
             {
-                ScrollDirection = UICollectionViewScrollDirection.Vertical,
-                MinimumLineSpacing = AppTheme.Current.Dimens.LineSpacing,
-                MinimumInteritemSpacing = AppTheme.Current.Dimens.LineSpacing,
-                SectionInset = UIEdgeInsets.Zero,
-                ItemSize = new CGSize((float)UIScreen.MainScreen.Bounds.Size.Width,
-                    (float)AppTheme.Current.Dimens.MediumCellDefaultSize)
+                BackgroundColor = AppTheme.Current.Colors.MsgBkgnd,
+                TableFooterView = new UIView(),
+                EstimatedRowHeight = VacationRequestView.Height,
+                KeyboardDismissMode = UIScrollViewKeyboardDismissMode.OnDrag
             };
-
-            VacationsView = new UICollectionView(CGRect.Empty, collectionLayout)
-            {
-                BackgroundColor = AppTheme.Current.Colors.MsgBkgnd
-            };
-            VacationsView.RegisterClassForCell(typeof(VacationRequestViewCell), VacationRequestViewCell.CellId);
-            //VacationsView.RegisterClassForSupplementaryView(
-            //    typeof(LoadNextPageFooterViewCell),
-            //    UICollectionElementKindSection.Footer,
-            //    LoadNextPageFooterViewCell.CellId);
-            VacationsView.ShowsVerticalScrollIndicator = true;
-            VacationsView.AllowsSelection = true;
+            VacationsView.RegisterClassForCellReuse(typeof(VacationRequestViewCell),
+                VacationRequestViewCell.CellId);
         }
 
         protected override void SetupLayout()

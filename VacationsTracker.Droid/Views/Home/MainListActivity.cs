@@ -20,8 +20,6 @@ namespace VacationsTracker.Droid.Views.Home
         private MainListActivityViewHolder ViewHolder { get; set; }
         private MainListRecyclerAdapter RequestsAdapter { get; set; }
 
-        private bool _wasBounded;
-
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);

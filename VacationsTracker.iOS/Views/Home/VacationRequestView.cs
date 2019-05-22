@@ -1,5 +1,7 @@
 ﻿using Cirrious.FluentLayouts.Touch;
+using FlexiMvvm;
 using FlexiMvvm.Views;
+using System;
 using UIKit;
 using VacationsTracker.iOS.Theme;
 
@@ -7,6 +9,8 @@ namespace VacationsTracker.iOS.Views.Home
 {
     public class VacationRequestView : LayoutView
     {
+        public static nfloat Height { get; } = AppTheme.Current.Dimens.TableViewRowDefaultHeight;
+
         public UIImageView ImageCellView { get; private set; }
         public UILabel DurationRange { get; private set; }
         public UILabel VacationType { get; private set; }
@@ -15,6 +19,10 @@ namespace VacationsTracker.iOS.Views.Home
         protected override void SetupSubviews()
         {
             base.SetupSubviews();
+
+            LayoutMargins = new UIEdgeInsets(
+                0, AppTheme.Current.Dimens.Inset1x,
+                0, AppTheme.Current.Dimens.Inset1x);
 
             BackgroundColor = AppTheme.Current.Colors.White;
 
@@ -41,8 +49,11 @@ namespace VacationsTracker.iOS.Views.Home
             this.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
 
             this.AddConstraints(
-                ImageCellView.AtLeftOf(this),
-                ImageCellView.AtTopOf(this),
+                this.Height().NotNull().EqualTo(Height));
+
+            this.AddConstraints(
+                ImageCellView.AtLeftOf(this, AppTheme.Current.Dimens.Inset1x),
+                ImageCellView.AtTopOf(this, AppTheme.Current.Dimens.Inset1x),
                 ImageCellView.AtBottomOf(this),
                 ImageCellView.Width().EqualTo(AppTheme.Current.Dimens.MediumCellDefaultSize),
                 ImageCellView.Height().EqualTo(AppTheme.Current.Dimens.MediumCellDefaultSize));
