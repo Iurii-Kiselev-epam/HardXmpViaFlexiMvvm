@@ -82,6 +82,8 @@
     <Compile Include="Views\Login\LoginViewController.cs" />
     <Compile Include="Views\Profile\ProfileView.cs" />
     <Compile Include="Views\Profile\ProfileViewController.cs" />
+    <Compile Include="Views\Profile\RequestFilterView.cs" />
+    <Compile Include="Views\Profile\RequestFilterViewCell.cs" />
     <Compile Include="Views\Request\RequestView.cs" />
     <Compile Include="Views\Request\RequestViewController.cs" />
     <Compile Include="Views\RootNavigationController.cs" />
