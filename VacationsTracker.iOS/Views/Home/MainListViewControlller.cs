@@ -39,6 +39,19 @@ namespace VacationsTracker.iOS.Views.Home
         public override void LoadView() =>
             View = new MainListView();
 
+        public override void ViewDidLoad()
+        {
+            base.ViewDidLoad();
+
+            NavigationController.NotNull().NavigationBarHidden = false;
+            Title = ViewModel.UIFilter;
+
+            VacationsSource = new TableViewObservablePlainSource(
+                View.VacationsView,
+                vm => VacationRequestViewCell.CellId);
+            View.VacationsView.Source = VacationsSource;
+        }
+
         public override void ViewWillAppear(bool animated)
         {
             base.ViewWillAppear(animated);
@@ -47,19 +60,6 @@ namespace VacationsTracker.iOS.Views.Home
             NavigationItem.RightBarButtonItem = PlusBarButton;
 
             ViewModel.UpdateCommand.Execute(null);
-        }
-
-        public override void ViewDidLoad()
-        {
-            base.ViewDidLoad();
-
-            Title = ViewModel.UIFilter;
-            NavigationController.NotNull().NavigationBarHidden = false;
-
-            VacationsSource = new TableViewObservablePlainSource(
-                View.VacationsView,
-                vm => VacationRequestViewCell.CellId);
-            View.VacationsView.Source = VacationsSource;
         }
 
         public override void Bind(BindingSet<MainListViewModel> bindingSet)

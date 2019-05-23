@@ -214,6 +214,15 @@ namespace VacationsTracker.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Request.
+        /// </summary>
+        public static string Request_Title {
+            get {
+                return ResourceManager.GetString("Request_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SIGN IN.
         /// </summary>
         public static string Sign_In_Button_Text {

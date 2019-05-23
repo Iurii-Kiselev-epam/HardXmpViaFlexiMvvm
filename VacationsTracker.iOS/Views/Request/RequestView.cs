@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cirrious.FluentLayouts.Touch;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,8 @@ namespace VacationsTracker.iOS.Views.Request
         protected override void SetupLayoutConstraints()
         {
             base.SetupLayoutConstraints();
+            this.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
+
         }
     }
 }

@@ -9,6 +9,7 @@ using Foundation;
 using UIKit;
 using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Presentation.ViewModels.Request;
+using VacationsTracker.Core.Resources;
 
 namespace VacationsTracker.iOS.Views.Request
 {
@@ -61,14 +62,17 @@ namespace VacationsTracker.iOS.Views.Request
             //    .WithConversion<InvertValueConverter>();
         }
 
+        public override void ViewDidLoad()
+        {
+            base.ViewDidLoad();
+
+            NavigationController.NotNull().NavigationBarHidden = false;
+            Title = Strings.Request_Title;
+        }
+
         public override void ViewWillAppear(bool animated)
         {
             base.ViewWillAppear(animated);
-
-            Title = string.Empty;
-            NavigationController.NavigationBarHidden = false;
-
-            
         }
 
         public override void ViewWillDisappear(bool animated)

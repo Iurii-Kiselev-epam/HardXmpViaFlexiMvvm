@@ -62,10 +62,7 @@ namespace VacationsTracker.iOS.Views.Login
             this.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
 
             this.AddConstraints(
-                BackgroundImageView.WithSameHeight(this),
-                BackgroundImageView.WithSameWidth(this),
-                BackgroundImageView.AtLeftOf(this),
-                BackgroundImageView.AtTopOf(this));
+                BackgroundImageView.FullSizeOf(this));
 
             this.AddConstraints(
                 ErrorTextLabel.WithSameCenterX(this),

@@ -62,14 +62,17 @@ namespace VacationsTracker.iOS.Views.Profile
             //    .WithConversion<InvertValueConverter>();
         }
 
+        public override void ViewDidLoad()
+        {
+            base.ViewDidLoad();
+
+            NavigationController.NotNull().NavigationBarHidden = false;
+            Title = ViewModel.UIFilter;
+        }
+
         public override void ViewWillAppear(bool animated)
         {
             base.ViewWillAppear(animated);
-
-            Title = string.Empty;
-            NavigationController.NavigationBarHidden = false;
-
-            NavigationItem.NotNull().Title = ViewModel.UIFilter;
         }
 
         public override void ViewWillDisappear(bool animated)

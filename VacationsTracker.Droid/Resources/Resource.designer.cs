@@ -3679,50 +3679,53 @@ namespace VacationsTracker.Droid
 			// aapt resource value: 0x7f0a0037
 			public const int request_save = 2131361847;
 			
+			// aapt resource value: 0x7f0a0038
+			public const int request_title = 2131361848;
+			
 			// aapt resource value: 0x7f0a0011
 			public const int search_menu_title = 2131361809;
 			
-			// aapt resource value: 0x7f0a0038
-			public const int sign_in_button_text = 2131361848;
+			// aapt resource value: 0x7f0a0039
+			public const int sign_in_button_text = 2131361849;
 			
 			// aapt resource value: 0x7f0a0026
 			public const int status_bar_notification_info_overflow = 2131361830;
 			
-			// aapt resource value: 0x7f0a0039
-			public const int unexpected_error_message = 2131361849;
-			
 			// aapt resource value: 0x7f0a003a
-			public const int vacation_status_approved = 2131361850;
+			public const int unexpected_error_message = 2131361850;
 			
 			// aapt resource value: 0x7f0a003b
-			public const int vacation_status_closed = 2131361851;
+			public const int vacation_status_approved = 2131361851;
 			
 			// aapt resource value: 0x7f0a003c
-			public const int vacation_status_draft = 2131361852;
+			public const int vacation_status_closed = 2131361852;
 			
 			// aapt resource value: 0x7f0a003d
-			public const int vacation_status_in_progress = 2131361853;
+			public const int vacation_status_draft = 2131361853;
 			
 			// aapt resource value: 0x7f0a003e
-			public const int vacation_status_submitted = 2131361854;
+			public const int vacation_status_in_progress = 2131361854;
 			
 			// aapt resource value: 0x7f0a003f
-			public const int vacation_type_exceptional = 2131361855;
+			public const int vacation_status_submitted = 2131361855;
 			
 			// aapt resource value: 0x7f0a0040
-			public const int vacation_type_leave_without_pay = 2131361856;
+			public const int vacation_type_exceptional = 2131361856;
 			
 			// aapt resource value: 0x7f0a0041
-			public const int vacation_type_overtime = 2131361857;
+			public const int vacation_type_leave_without_pay = 2131361857;
 			
 			// aapt resource value: 0x7f0a0042
-			public const int vacation_type_regular = 2131361858;
+			public const int vacation_type_overtime = 2131361858;
 			
 			// aapt resource value: 0x7f0a0043
-			public const int vacation_type_sick = 2131361859;
+			public const int vacation_type_regular = 2131361859;
 			
 			// aapt resource value: 0x7f0a0044
-			public const int vacation_type_undefined = 2131361860;
+			public const int vacation_type_sick = 2131361860;
+			
+			// aapt resource value: 0x7f0a0045
+			public const int vacation_type_undefined = 2131361861;
 			
 			static String()
 			{

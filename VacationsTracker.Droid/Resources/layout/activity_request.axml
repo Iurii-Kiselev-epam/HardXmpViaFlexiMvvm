@@ -19,7 +19,7 @@
             android:layout_height="@dimen/inset2x"
             android:layout_gravity="left"
             android:layout_marginLeft="@dimen/inset8x"
-            android:text="Request" />
+            android:text="@string/request_title" />
         <TextView
             android:id="@+id/request_save_view"
             android:layout_width="wrap_content"
