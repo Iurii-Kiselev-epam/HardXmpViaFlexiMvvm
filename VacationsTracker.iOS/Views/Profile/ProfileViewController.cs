@@ -33,6 +33,10 @@ namespace VacationsTracker.iOS.Views.Profile
             bindingSet.Bind(FiltersSource)
                 .For(v => v.ItemsBinding())
                 .To(vm => vm.Filters);
+
+            bindingSet.Bind(FiltersSource)
+                .For(v => v.NotNull().RowSelectedBinding())
+                .To(vm => vm.OpenFilterCommand);
         }
 
         public override void ViewDidLoad()
@@ -40,12 +44,18 @@ namespace VacationsTracker.iOS.Views.Profile
             base.ViewDidLoad();
 
             NavigationController.NotNull().NavigationBarHidden = false;
-            Title = ViewModel.UIFilter;
 
             FiltersSource = new TableViewObservablePlainSource(
                 View.FiltersView,
                 vm => RequestFilterViewCell.CellId);
             View.FiltersView.Source = FiltersSource;
+        }
+
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+
+            Title = ViewModel.UIFilter;
         }
 
         public override void ViewWillDisappear(bool animated)

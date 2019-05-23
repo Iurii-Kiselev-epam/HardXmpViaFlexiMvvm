@@ -4,6 +4,8 @@ using FlexiMvvm.Collections;
 using System;
 using UIKit;
 using VacationsTracker.Core.Presentation.ViewModels.Profile;
+using VacationsTracker.iOS.Infrastructure.Bindings;
+using VacationsTracker.iOS.Infrastructure.ValueConverters;
 
 namespace VacationsTracker.iOS.Views.Profile
 {
@@ -26,7 +28,7 @@ namespace VacationsTracker.iOS.Views.Profile
             ContentView.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
             ContentView.AddConstraints(View.FullSizeOf(ContentView));
 
-            Accessory = UITableViewCellAccessory.None;
+            Accessory = UITableViewCellAccessory.Checkmark;
         }
 
         public override void Bind(BindingSet<RequestFilterViewModel> bindingSet)
@@ -36,6 +38,11 @@ namespace VacationsTracker.iOS.Views.Profile
             bindingSet.Bind(View.RequestUiFilterLabel)
                 .For(v => v.TextBinding())
                 .To(vm => vm.UiFilter);
+
+            bindingSet.Bind(this)
+                .For(v => v.AccessoryBinding())
+                .To(vm => vm.IsSelected)
+                .WithConversion<CheckmarkAccessoryValueConverter>();
         }
     }
 }

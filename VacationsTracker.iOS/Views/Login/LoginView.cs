@@ -52,7 +52,7 @@ namespace VacationsTracker.iOS.Views.Login
                 .AddLayoutSubview(SignInButton)
                 .AddLayoutSubview(ActivityIndicatorView);
 
-            this.SendSubviewToBack(BackgroundImageView);
+            SendSubviewToBack(BackgroundImageView);
         }
 
         protected override void SetupLayoutConstraints()

@@ -9,6 +9,8 @@ namespace VacationsTracker.iOS.Views.Profile
 {
     public class ProfileView : LayoutView
     {
+        private UIView BackgroundBoxView { get; set; }
+
         private UIImageView AvatarImageView { get; set; }
 
         private UILabel ProfileNameLabel { get; set; }
@@ -19,7 +21,12 @@ namespace VacationsTracker.iOS.Views.Profile
         {
             base.SetupSubviews();
 
-            BackgroundColor = UIColor.White;
+            BackgroundColor = AppTheme.Current.Colors.MsgBkgnd; // UIColor.White;
+
+            BackgroundBoxView = new UIView
+            {
+                BackgroundColor = UIColor.White
+            };
 
             AvatarImageView = new UIImageView().SetBundleImage("Avatar");
             AvatarImageView.ContentMode = UIViewContentMode.ScaleAspectFit;
@@ -41,9 +48,12 @@ namespace VacationsTracker.iOS.Views.Profile
         {
             base.SetupLayout();
             this
+                .AddLayoutSubview(BackgroundBoxView)
                 .AddLayoutSubview(AvatarImageView)
                 .AddLayoutSubview(ProfileNameLabel)
                 .AddLayoutSubview(FiltersView);
+
+            SendSubviewToBack(BackgroundBoxView);
         }
 
         protected override void SetupLayoutConstraints()
@@ -58,12 +68,19 @@ namespace VacationsTracker.iOS.Views.Profile
                 AvatarImageView.Height().EqualTo(AppTheme.Current.Dimens.MediumAvatarHeight));
 
             this.AddConstraints(
-                ProfileNameLabel.Below(AvatarImageView, AppTheme.Current.Dimens.Inset2x),
-                ProfileNameLabel.WithSameCenterX(this));
+                ProfileNameLabel.Below(AvatarImageView), // , AppTheme.Current.Dimens.Inset2x
+                ProfileNameLabel.WithSameCenterX(this),
+                ProfileNameLabel.Height().EqualTo(AppTheme.Current.Dimens.Inset6x));
 
             this.AddConstraints(
-                FiltersView.Below(ProfileNameLabel, AppTheme.Current.Dimens.Inset2x),
-                FiltersView.WithSameWidth(this));
+                BackgroundBoxView.AtTopOf(this),
+                BackgroundBoxView.WithSameWidth(this),
+                BackgroundBoxView.ToBottomMargin(ProfileNameLabel));
+
+            this.AddConstraints(
+                FiltersView.Below(BackgroundBoxView, AppTheme.Current.Dimens.LineSpacing),
+                FiltersView.WithSameWidth(this),
+                FiltersView.Height().EqualTo(AppTheme.Current.Dimens.MediumAvatarHeight));
         }
     }
 }

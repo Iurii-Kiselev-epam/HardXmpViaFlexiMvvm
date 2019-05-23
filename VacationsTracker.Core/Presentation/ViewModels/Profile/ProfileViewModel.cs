@@ -49,7 +49,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Profile
             Filter = parameters.Filter;
 
             Filters.Clear();
-            Filters.AddRange(RequestFilterViewModel.GetAllFilters());
+            Filters.AddRange(RequestFilterViewModel.GetAllFilters(Filter));
         }
 
         private void OpenFilter(RequestFilterViewModel itemViewModel)

@@ -44,7 +44,6 @@ namespace VacationsTracker.iOS.Views.Home
             base.ViewDidLoad();
 
             NavigationController.NotNull().NavigationBarHidden = false;
-            Title = ViewModel.UIFilter;
 
             VacationsSource = new TableViewObservablePlainSource(
                 View.VacationsView,
@@ -56,6 +55,7 @@ namespace VacationsTracker.iOS.Views.Home
         {
             base.ViewWillAppear(animated);
 
+            Title = ViewModel.UIFilter;
             NavigationItem.LeftBarButtonItem = ProfileBarButton;
             NavigationItem.RightBarButtonItem = PlusBarButton;
 
