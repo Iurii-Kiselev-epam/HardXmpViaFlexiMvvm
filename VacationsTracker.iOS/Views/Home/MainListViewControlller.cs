@@ -16,6 +16,13 @@ namespace VacationsTracker.iOS.Views.Home
         public MainListViewControlller(RequestFilterParameters parameters)
             : base(parameters)
         {
+            ProfileBarButton = new UIBarButtonItem("\u2764", UIBarButtonItemStyle.Plain, null);
+            PlusBarButton = new UIBarButtonItem("+", UIBarButtonItemStyle.Plain, null);
+            PlusBarButton.SetTitleTextAttributes(new UITextAttributes
+            {
+                TextColor = UIColor.White,
+                Font = AppTheme.Current.Fonts.TitleBold
+            }, UIControlState.Normal);
         }
 
         public TableViewObservablePlainSource VacationsSource { get; private set; }
@@ -36,20 +43,7 @@ namespace VacationsTracker.iOS.Views.Home
         {
             base.ViewWillAppear(animated);
 
-            Title = string.Empty;
-            NavigationController.NotNull().SetNavigationBarHidden(false, false);
-
-            NavigationItem.NotNull().Title = ViewModel.UIFilter;
-
-            ProfileBarButton = new UIBarButtonItem("\u2764", UIBarButtonItemStyle.Plain, null);
             NavigationItem.LeftBarButtonItem = ProfileBarButton;
-
-            PlusBarButton = new UIBarButtonItem("+", UIBarButtonItemStyle.Plain, null);
-            PlusBarButton.SetTitleTextAttributes(new UITextAttributes
-            {
-                TextColor = UIColor.White,
-                Font = AppTheme.Current.Fonts.Title
-            }, UIControlState.Normal);
             NavigationItem.RightBarButtonItem = PlusBarButton;
 
             ViewModel.UpdateCommand.Execute(null);
@@ -59,7 +53,8 @@ namespace VacationsTracker.iOS.Views.Home
         {
             base.ViewDidLoad();
 
-            NavigationItem.SetHidesBackButton(true, false);
+            Title = ViewModel.UIFilter;
+            NavigationController.NotNull().NavigationBarHidden = false;
 
             VacationsSource = new TableViewObservablePlainSource(
                 View.VacationsView,
@@ -86,11 +81,11 @@ namespace VacationsTracker.iOS.Views.Home
                 .WithConversion<InvertValueConverter>();
 
             bindingSet.Bind(ProfileBarButton)
-                .For(v => v.NotNull().ClickedBinding())
+                .For(v => v.ClickedBinding())
                 .To(vm => vm.OpenProfileCommand);
 
             bindingSet.Bind(PlusBarButton)
-                .For(v => v.NotNull().ClickedBinding())
+                .For(v => v.ClickedBinding())
                 .To(vm => vm.NewRequestCommand);
         }
     }
