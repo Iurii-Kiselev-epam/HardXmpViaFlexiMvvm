@@ -5,7 +5,7 @@ using System.Globalization;
 using System.Linq;
 using VacationsTracker.Core.Communication;
 
-namespace VacationsTracker.Core.ValueConverters
+namespace VacationsTracker.Core.Domain
 {
     public class VacationTypeCurrentItemConverter : ValueConverter<VacationType, int>
     {

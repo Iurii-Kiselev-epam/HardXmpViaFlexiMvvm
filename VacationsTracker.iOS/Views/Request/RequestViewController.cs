@@ -9,6 +9,7 @@ using VacationsTracker.Core.Presentation.ViewModels.MainList;
 using VacationsTracker.Core.Presentation.ViewModels.Request;
 using VacationsTracker.Core.Resources;
 using VacationsTracker.iOS.Infrastructure.Extensions;
+using VacationsTracker.iOS.Infrastructure.ValueConverters;
 using VacationsTracker.iOS.Theme;
 
 namespace VacationsTracker.iOS.Views.Request
@@ -52,10 +53,18 @@ namespace VacationsTracker.iOS.Views.Request
             bindingSet.Bind(VacationTypesSource)
                 .For(v => v.ItemsBinding())
                 .To(vm => vm.AllValueableVacationTypes);
+            bindingSet.Bind(VacationTypesSource)
+                .For(v => v.CurrentItemIndexAndCurrentItemIndexChangedBinding())
+                .To(vm => vm.VacationReason)
+                .WithConversion<VacationTypeCurrentItemConverter>();
 
             bindingSet.Bind(View.PageControl)
                 .For(v => v.PagesBinding())
                 .To(vm => vm.VacationTypesCount);
+            bindingSet.Bind(View.PageControl)
+                .For(v => v.CurrentPageAndValueChangedBinding())
+                .To(vm => vm.VacationReason)
+                .WithConversion<VacationTypeCurrentItemNintConverter>();
         }
 
         public override void ViewDidLoad()

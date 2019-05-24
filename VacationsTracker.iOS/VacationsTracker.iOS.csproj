@@ -69,6 +69,7 @@
     <Compile Include="Infrastructure\Extensions\ImageViewExtensions.cs" />
     <Compile Include="Infrastructure\Extensions\WeakSubscriptionExtensions.cs" />
     <Compile Include="Infrastructure\ValueConverters\CheckmarkAccessoryValueConverter.cs" />
+    <Compile Include="Infrastructure\ValueConverters\VacationTypeCurrentItemNintConverter.cs" />
     <Compile Include="Infrastructure\ValueConverters\VacationTypeImageIdConverter.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />

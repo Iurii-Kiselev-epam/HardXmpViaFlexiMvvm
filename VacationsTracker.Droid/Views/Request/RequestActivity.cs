@@ -8,7 +8,6 @@ using System;
 using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Presentation.ViewModels.MainList;
 using VacationsTracker.Core.Presentation.ViewModels.Request;
-using VacationsTracker.Core.ValueConverters;
 using VacationsTracker.Droid.ValueConverters;
 using Fragment = Android.Support.V4.App.Fragment;
 

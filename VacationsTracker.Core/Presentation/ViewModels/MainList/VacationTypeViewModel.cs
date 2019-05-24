@@ -19,7 +19,11 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
         public VacationType VacationReason
         {
             get => _vacationType;
-            set => SetValue(ref _vacationType, value);
+            set
+            {
+                SetValue(ref _vacationType, value);
+                RaisePropertyChanged(nameof(VacationTypeUI));
+            }
         }
 
         public string VacationTypeUI

@@ -10,7 +10,7 @@ using VacationsTracker.iOS.Theme;
 
 namespace VacationsTracker.iOS.Views.Request
 {
-    public class RequestView : LayoutView
+    public class RequestView : ScrollableLayoutView
     {
         public UIView VacationTypesPagerView { get; private set; }
 
@@ -21,6 +21,7 @@ namespace VacationsTracker.iOS.Views.Request
             base.SetupSubviews();
 
             BackgroundColor = UIColor.White;
+            ContentView.BackgroundColor = UIColor.White;
 
             VacationTypesPagerView = new UIView
             {
@@ -34,7 +35,7 @@ namespace VacationsTracker.iOS.Views.Request
         {
             base.SetupLayout();
 
-            this
+            ContentView
                 .AddLayoutSubview(VacationTypesPagerView)
                 .AddLayoutSubview(PageControl);
         }
@@ -43,17 +44,18 @@ namespace VacationsTracker.iOS.Views.Request
         {
             base.SetupLayoutConstraints();
             this.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
+            ContentView.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
 
-            this.AddConstraints(
-                VacationTypesPagerView.AtTopOf(this),
-                VacationTypesPagerView.AtLeftOf(this),
-                VacationTypesPagerView.AtRightOf(this),
+            ContentView.AddConstraints(
+                VacationTypesPagerView.AtTopOf(ContentView),
+                VacationTypesPagerView.AtLeftOf(ContentView),
+                VacationTypesPagerView.AtRightOf(ContentView),
                 VacationTypesPagerView.Height().EqualTo(AppTheme.Current.Dimens.PagerDefaultHeight));
 
-            this.AddConstraints(
-                PageControl.WithSameCenterX(this),
-                PageControl.AtLeftOf(this),
-                PageControl.AtRightOf(this),
+            ContentView.AddConstraints(
+                PageControl.WithSameCenterX(ContentView),
+                PageControl.AtLeftOf(ContentView),
+                PageControl.AtRightOf(ContentView),
                 PageControl.Below(VacationTypesPagerView));
         }
     }
