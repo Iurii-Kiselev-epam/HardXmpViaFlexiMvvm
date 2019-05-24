@@ -4,6 +4,9 @@ using UIKit;
 
 namespace VacationsTracker.iOS.Infrastructure.Bindings
 {
+    /// <summary>
+    /// Copied from BFLA.
+    /// </summary>
     internal static class TableViewBindableItemCellBindings
     {
         public static TargetItemBinding<UITableViewCell, UITableViewCellAccessory> AccessoryBinding(

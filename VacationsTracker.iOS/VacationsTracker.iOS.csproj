@@ -67,6 +67,7 @@
     <Compile Include="Infrastructure\Bindings\UIImageViewBindings.cs" />
     <Compile Include="Infrastructure\Dialogs\DialogService.cs" />
     <Compile Include="Infrastructure\Extensions\ImageViewExtensions.cs" />
+    <Compile Include="Infrastructure\Extensions\WeakSubscriptionExtensions.cs" />
     <Compile Include="Infrastructure\ValueConverters\CheckmarkAccessoryValueConverter.cs" />
     <Compile Include="Infrastructure\ValueConverters\VacationTypeImageIdConverter.cs" />
     <Compile Include="Main.cs" />
@@ -88,6 +89,8 @@
     <Compile Include="Views\Profile\RequestFilterViewCell.cs" />
     <Compile Include="Views\Request\RequestView.cs" />
     <Compile Include="Views\Request\RequestViewController.cs" />
+    <Compile Include="Views\Request\VacationTypeView.cs" />
+    <Compile Include="Views\Request\VacationTypeViewController.cs" />
     <Compile Include="Views\RootNavigationController.cs" />
     <None Include="app.config" />
     <None Include="Info.plist" />

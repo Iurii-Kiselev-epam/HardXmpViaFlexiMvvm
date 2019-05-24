@@ -16,7 +16,7 @@ namespace VacationsTracker.iOS.Theme
         public int TextPadding { get; } = 4;
         public int MediumCellDefaultSize { get; } = 48;
         public int MediumAvatarHeight { get; } = 160;
-        public int PagerDefaultHeight { get; } = 84;
+        public int PagerDefaultHeight { get; } = 96;
         public int LineSpacing { get; } = 2;
 
         public nfloat TableViewRowDefaultHeight { get; } = 64;

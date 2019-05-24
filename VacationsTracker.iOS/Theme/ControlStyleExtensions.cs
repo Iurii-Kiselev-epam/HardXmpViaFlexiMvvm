@@ -48,6 +48,20 @@ namespace VacationsTracker.iOS.Theme
             return label;
         }
 
+        public static UILabel SePagerTextStyle(this UILabel label, string text = null)
+        {
+            if (label == null)
+            {
+                throw new ArgumentNullException(nameof(label));
+            }
+            label.Font = AppTheme.Current.Fonts.Input1;
+            label.TextColor = AppTheme.Current.Colors.PrimaryDark;
+            label.BackgroundColor = UIColor.White;
+            label.Lines = 1;
+            label.Text = text;
+            return label;
+        }
+
         public static UITextField SetTextFieldStyle(this UITextField textField, string placeHolder = null)
         {
             if (textField == null)
@@ -89,6 +103,46 @@ namespace VacationsTracker.iOS.Theme
             activityIndicator.AddConstraints(activityIndicator.Width().EqualTo(AppTheme.Current.Dimens.Inset4x));
 
             return activityIndicator;
+        }
+
+        public static UIBarButtonItem SetBarButtonItemStyle(this UIBarButtonItem barButtonItem)
+        {
+            if (barButtonItem == null)
+            {
+                throw new ArgumentNullException(nameof(barButtonItem));
+            }
+            barButtonItem.SetTitleTextAttributes(new UITextAttributes
+            {
+                TextColor = UIColor.White,
+                Font = AppTheme.Current.Fonts.Title
+            }, UIControlState.Normal);
+            return barButtonItem;
+        }
+
+        public static UIBarButtonItem SetBoldBarButtonItemStyle(this UIBarButtonItem barButtonItem)
+        {
+            if (barButtonItem == null)
+            {
+                throw new ArgumentNullException(nameof(barButtonItem));
+            }
+            barButtonItem.SetTitleTextAttributes(new UITextAttributes
+            {
+                TextColor = UIColor.White,
+                Font = AppTheme.Current.Fonts.TitleBold
+            }, UIControlState.Normal);
+            return barButtonItem;
+        }
+
+        public static UIPageControl SetPageControlStyle(this UIPageControl pageControl)
+        {
+            pageControl.TintColor = AppTheme.Current.Colors.GrayText; // UIColor.DarkGray;
+            pageControl.PageIndicatorTintColor = AppTheme.Current.Colors.GrayText; // UIColor.DarkGray;
+            pageControl.CurrentPageIndicatorTintColor = AppTheme.Current.Colors.Bright;
+            pageControl.CurrentPage = 0;
+            pageControl.HidesForSinglePage = true;
+            pageControl.BackgroundColor = UIColor.Clear;
+
+            return pageControl;
         }
     }
 }

@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FlexiMvvm;
+﻿using FlexiMvvm;
 using FlexiMvvm.Bindings;
+using FlexiMvvm.Collections;
 using FlexiMvvm.Views;
-using Foundation;
+using System;
 using UIKit;
 using VacationsTracker.Core.Domain;
+using VacationsTracker.Core.Presentation.ViewModels.MainList;
 using VacationsTracker.Core.Presentation.ViewModels.Request;
 using VacationsTracker.Core.Resources;
+using VacationsTracker.iOS.Infrastructure.Extensions;
+using VacationsTracker.iOS.Theme;
 
 namespace VacationsTracker.iOS.Views.Request
 {
@@ -18,7 +18,20 @@ namespace VacationsTracker.iOS.Views.Request
         public RequestViewController(VacationRequestParameters parameters)
             : base(parameters)
         {
+            SaveBarButton = new UIBarButtonItem(Strings.Request_Save,
+                UIBarButtonItemStyle.Plain, null).SetBarButtonItemStyle();
+
+            VacationTypesPager = new UIPageViewController(
+                UIPageViewControllerTransitionStyle.Scroll,
+                UIPageViewControllerNavigationOrientation.Horizontal);
         }
+
+        private UIPageViewController VacationTypesPager { get; }
+
+        private PageViewControllerObservableDataSource VacationTypesSource { get; set; }
+
+        public UIBarButtonItem SaveBarButton { get; }
+
         public new RequestView View
         {
             get => (RequestView)base.View.NotNull();
@@ -32,47 +45,41 @@ namespace VacationsTracker.iOS.Views.Request
         {
             base.Bind(bindingSet);
 
-            //bindingSet.Bind(View.ErrorTextLabel)
-            //    .For(v => v.TextBinding())
-            //    .To(vm => vm.ErrorMessage);
-            //bindingSet.Bind(View.ErrorTextLabel)
-            //    .For(v => v.HiddenBinding())
-            //    .To(vm => vm.ErrorMessageVisible)
-            //    .WithConversion<InvertValueConverter>();
+            bindingSet.Bind(SaveBarButton)
+                .For(v => v.ClickedBinding())
+                .To(vm => vm.SaveCommand);
 
-            //bindingSet.Bind(View.LoginTextField)
-            //    .For(v => v.TextAndEditingDidEndBinding())
-            //    .To(vm => vm.Login);
+            bindingSet.Bind(VacationTypesSource)
+                .For(v => v.ItemsBinding())
+                .To(vm => vm.AllValueableVacationTypes);
 
-            //bindingSet.Bind(View.PasswordTextField)
-            //    .For(v => v.TextAndEditingDidEndBinding())
-            //    .To(vm => vm.Password);
-
-            //bindingSet.Bind(View.SignInButton)
-            //      .For(v => v.TouchUpInsideBinding())
-            //      .To(vm => vm.SignInCommand);
-            //bindingSet.Bind(View.SignInButton)
-            //    .For(v => v.HiddenBinding())
-            //    .To(vm => vm.SignInVisible)
-            //    .WithConversion<InvertValueConverter>();
-
-            //bindingSet.Bind(View.ActivityIndicatorView)
-            //    .For(v => v.ActivityBinding())
-            //    .To(vm => vm.ProgressVisible)
-            //    .WithConversion<InvertValueConverter>();
+            bindingSet.Bind(View.PageControl)
+                .For(v => v.PagesBinding())
+                .To(vm => vm.VacationTypesCount);
         }
 
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-
             NavigationController.NotNull().NavigationBarHidden = false;
-            Title = Strings.Request_Title;
+
+            VacationTypesSource = new PageViewControllerObservableDataSource(VacationTypesPager, PagesFactory);
+            VacationTypesSource.CurrentItemIndexChangedWeakSubscribe(OnPageChanged);
+
+            // https://stackoverflow.com/questions/13347813/uipagecontrol-not-visible-when-combined-with-uiscrollview
+            VacationTypesPager.View.BackgroundColor = UIColor.White;
+            VacationTypesPager.DataSource = VacationTypesSource;
+
+            this.AddChildViewControllerAndView(VacationTypesPager, View.VacationTypesPagerView);
         }
 
         public override void ViewWillAppear(bool animated)
         {
             base.ViewWillAppear(animated);
+
+            Title = Strings.Request_Title;
+
+            NavigationItem.RightBarButtonItem = SaveBarButton;
         }
 
         public override void ViewWillDisappear(bool animated)
@@ -83,5 +90,19 @@ namespace VacationsTracker.iOS.Views.Request
 
         private void HideKeyboard() =>
             UIApplication.SharedApplication.KeyWindow.EndEditing(true);
+
+
+        private UIViewController PagesFactory(object parameters)
+        {
+            if (parameters is VacationTypeParameters vtParameters)
+                return new VacationTypeViewController(vtParameters);
+            throw new ArgumentException(nameof(parameters));
+        }
+
+        private void OnPageChanged(object sender, IndexChangedEventArgs e)
+        {
+            View.PageControl.CurrentPage = e.Index;
+        }
+
     }
 }

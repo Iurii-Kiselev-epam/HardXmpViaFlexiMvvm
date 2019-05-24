@@ -36,6 +36,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Request
                 {
                     VacationReason = vt
                 }));
+            VacationTypesCount = AllValueableVacationTypes.Count;
         }
 
         public bool ProgressVisible
@@ -46,6 +47,8 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Request
 
 
         public ObservableCollection<VacationTypeParameters> AllValueableVacationTypes { get; }
+
+        public int VacationTypesCount { get; }
 
         public ICommand SaveCommand => CommandProvider.GetForAsync(Save);
 

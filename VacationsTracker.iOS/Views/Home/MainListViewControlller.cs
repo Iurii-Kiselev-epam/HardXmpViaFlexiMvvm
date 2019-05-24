@@ -17,18 +17,14 @@ namespace VacationsTracker.iOS.Views.Home
             : base(parameters)
         {
             ProfileBarButton = new UIBarButtonItem("\u2764", UIBarButtonItemStyle.Plain, null);
-            PlusBarButton = new UIBarButtonItem("+", UIBarButtonItemStyle.Plain, null);
-            PlusBarButton.SetTitleTextAttributes(new UITextAttributes
-            {
-                TextColor = UIColor.White,
-                Font = AppTheme.Current.Fonts.TitleBold
-            }, UIControlState.Normal);
+            PlusBarButton = new UIBarButtonItem("+",
+                UIBarButtonItemStyle.Plain, null).SetBoldBarButtonItemStyle();
         }
 
         public TableViewObservablePlainSource VacationsSource { get; private set; }
 
-        public UIBarButtonItem ProfileBarButton { get; private set; } 
-        public UIBarButtonItem PlusBarButton { get; private set; } 
+        public UIBarButtonItem ProfileBarButton { get; } 
+        public UIBarButtonItem PlusBarButton { get; } 
 
         public new MainListView View
         {
