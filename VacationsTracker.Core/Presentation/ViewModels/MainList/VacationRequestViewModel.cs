@@ -1,5 +1,6 @@
 ﻿using FlexiMvvm.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Threading.Tasks;
 using VacationsTracker.Core.Communication;
@@ -114,6 +115,12 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
         {
             get => _created;
             set => SetValue(ref _created, value);
+        }
+
+        public IEnumerable<DateTime> GetVacationRange()
+        {
+            yield return Start;
+            yield return End;
         }
 
         public void GetDataFrom(VacationRequest vacationRequest)
