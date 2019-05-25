@@ -135,14 +135,37 @@ namespace VacationsTracker.iOS.Theme
 
         public static UIPageControl SetPageControlStyle(this UIPageControl pageControl)
         {
-            pageControl.TintColor = AppTheme.Current.Colors.GrayText; // UIColor.DarkGray;
-            pageControl.PageIndicatorTintColor = AppTheme.Current.Colors.GrayText; // UIColor.DarkGray;
+            pageControl.TintColor = AppTheme.Current.Colors.GrayText;
+            pageControl.PageIndicatorTintColor = AppTheme.Current.Colors.GrayText;
             pageControl.CurrentPageIndicatorTintColor = AppTheme.Current.Colors.Bright;
             pageControl.CurrentPage = 0;
             pageControl.HidesForSinglePage = true;
             pageControl.BackgroundColor = UIColor.Clear;
 
             return pageControl;
+        }
+
+        public static UISegmentedControl SetSegmentedControlStyle(this UISegmentedControl segmentedControl)
+        {
+            segmentedControl.TintColor = AppTheme.Current.Colors.DateGreen;
+            segmentedControl.BackgroundColor = UIColor.Clear;
+            segmentedControl.ControlStyle = UISegmentedControlStyle.Bordered;
+            segmentedControl.Layer.BorderColor = AppTheme.Current.Colors.DateGreen.CGColor;
+            segmentedControl.Layer.CornerRadius = AppTheme.Current.Dimens.TextPadding;
+
+            segmentedControl.SetTitleTextAttributes(new UITextAttributes
+            {
+                Font = AppTheme.Current.Fonts.CellLarge,
+                TextColor = UIColor.White
+
+            }, UIControlState.Selected);
+            segmentedControl.SetTitleTextAttributes(new UITextAttributes
+            {
+                Font = AppTheme.Current.Fonts.CellLarge,
+                TextColor = UIColor.DarkGray
+            }, UIControlState.Normal);
+
+            return segmentedControl;
         }
     }
 }

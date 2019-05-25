@@ -7,6 +7,7 @@ using FlexiMvvm.Views;
 using Foundation;
 using UIKit;
 using VacationsTracker.iOS.Theme;
+using VacationsTracker.Core.Resources;
 
 namespace VacationsTracker.iOS.Views.Request
 {
@@ -15,6 +16,8 @@ namespace VacationsTracker.iOS.Views.Request
         public UIView VacationTypesPagerView { get; private set; }
 
         public UIPageControl PageControl { get; private set; }
+
+        public UISegmentedControl VacationStatusSelector { get; private set; }
 
         protected override void SetupSubviews()
         {
@@ -29,6 +32,10 @@ namespace VacationsTracker.iOS.Views.Request
             };
 
             PageControl = new UIPageControl().SetPageControlStyle();
+
+            VacationStatusSelector = new UISegmentedControl(
+                Strings.VacationStatus_Approved,
+                Strings.VacationStatus_Closed).SetSegmentedControlStyle();
         }
 
         protected override void SetupLayout()
@@ -37,7 +44,8 @@ namespace VacationsTracker.iOS.Views.Request
 
             ContentView
                 .AddLayoutSubview(VacationTypesPagerView)
-                .AddLayoutSubview(PageControl);
+                .AddLayoutSubview(PageControl)
+                .AddLayoutSubview(VacationStatusSelector);
         }
 
         protected override void SetupLayoutConstraints()
@@ -57,6 +65,11 @@ namespace VacationsTracker.iOS.Views.Request
                 PageControl.AtLeftOf(ContentView),
                 PageControl.AtRightOf(ContentView),
                 PageControl.Below(VacationTypesPagerView));
+
+            ContentView.AddConstraints(
+                VacationStatusSelector.WithSameCenterX(ContentView),
+                VacationStatusSelector.Below(PageControl, AppTheme.Current.Dimens.Inset2x),
+                VacationStatusSelector.Height().EqualTo(AppTheme.Current.Dimens.MediumCellDefaultSize));
         }
     }
 }

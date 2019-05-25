@@ -65,6 +65,11 @@ namespace VacationsTracker.iOS.Views.Request
                 .For(v => v.CurrentPageAndValueChangedBinding())
                 .To(vm => vm.VacationReason)
                 .WithConversion<VacationTypeCurrentItemNintConverter>();
+
+            bindingSet.Bind(View.VacationStatusSelector)
+                .For(v => v.SelectedSegmentAndValueChangedBinding())
+                .To(vm => vm.VacationStatus)
+                .WithConversion<VacationStatusValueConverter>();
         }
 
         public override void ViewDidLoad()
@@ -112,6 +117,5 @@ namespace VacationsTracker.iOS.Views.Request
         {
             View.PageControl.CurrentPage = e.Index;
         }
-
     }
 }

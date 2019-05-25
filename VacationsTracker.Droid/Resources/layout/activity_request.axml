@@ -132,7 +132,7 @@
             android:layout_weight="0.5"
             app:buttonTint="@color/colorBright"
             android:textColor="@color/primaryDark"
-            android:text="Approved"/>
+            android:text="@string/vacation_status_approved"/>
         <RadioButton
             android:id="@+id/closed_status_radio_button"
             android:layout_width="wrap_content"
@@ -140,7 +140,7 @@
             android:layout_weight="0.5"
             app:buttonTint="@color/colorBright"
             android:textColor="@color/primaryDark"
-            android:text="Closed" />
+            android:text="@string/vacation_status_closed" />
     </RadioGroup>
     <View
         android:id="@+id/third_splitter_view"
