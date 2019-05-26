@@ -15,6 +15,8 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Request
         private readonly INavigationService _navigationService;
         private readonly IXmpProxy _xmpProxy;
         private bool _progressVisible;
+        private bool _pickerVisible;
+        private bool _isEndEditMode;
 
         /// <summary>
         /// ctor() for details view.
@@ -39,18 +41,56 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Request
             VacationTypesCount = AllValueableVacationTypes.Count;
         }
 
+        /// <summary>
+        /// Date picker bounded to end date (or to start date);
+        /// </summary>
+        public bool IsEndEditMode
+        {
+            get => _isEndEditMode;
+            set
+            {
+                SetValue(ref _isEndEditMode, value);
+                RaisePropertyChanged(nameof(PickerValue));
+            }
+        }
+
         public bool ProgressVisible
         {
             get => _progressVisible;
             set => SetValue(ref _progressVisible, value);
         }
 
+        public bool PickerVisible
+        {
+            get => _pickerVisible;
+            set => SetValue(ref _pickerVisible, value);
+        }
+
+        public DateTime PickerValue
+        {
+            get => IsEndEditMode ? End : Start;
+            set
+            {
+                if (IsEndEditMode)
+                {
+                    End = value;
+                }
+                else
+                {
+                    Start = value;
+                }
+                RaisePropertyChanged(nameof(PickerValue));
+            }
+        }
 
         public ObservableCollection<VacationTypeParameters> AllValueableVacationTypes { get; }
 
         public int VacationTypesCount { get; }
 
         public ICommand SaveCommand => CommandProvider.GetForAsync(Save);
+
+        public ICommand StartPickerCommand => CommandProvider.Get(StartPicker);
+        public ICommand EndPickerCommand => CommandProvider.Get(EndPicker);
 
         public override async Task InitializeAsync(VacationRequestParameters parameters)
         {
@@ -119,6 +159,20 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Request
             {
                 ProgressVisible = false;
             }
+        }
+
+        private void StartPicker()
+        {
+            PickerVisible = true;
+            IsEndEditMode = false;
+            PickerValue = Start;
+        }
+
+        private void EndPicker()
+        {
+            PickerVisible = true;
+            IsEndEditMode = true;
+            PickerValue = End;
         }
     }
 }

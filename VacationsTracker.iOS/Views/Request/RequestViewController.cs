@@ -1,6 +1,7 @@
 ﻿using FlexiMvvm;
 using FlexiMvvm.Bindings;
 using FlexiMvvm.Collections;
+using FlexiMvvm.ValueConverters;
 using FlexiMvvm.Views;
 using System;
 using UIKit;
@@ -66,10 +67,48 @@ namespace VacationsTracker.iOS.Views.Request
                 .To(vm => vm.VacationReason)
                 .WithConversion<VacationTypeCurrentItemNintConverter>();
 
+            bindingSet.Bind(View.StartDayLabel)
+                .For(v => v.TextBinding())
+                .To(vm => vm.StartDay);
+            bindingSet.Bind(View.StartMonthLabel)
+                .For(v => v.TextBinding())
+                .To(vm => vm.ShortStartMonth);
+            bindingSet.Bind(View.StartYearLabel)
+                .For(v => v.TextBinding())
+                .To(vm => vm.StartYear);
+
+            bindingSet.Bind(View.EndDayLabel)
+                .For(v => v.TextBinding())
+                .To(vm => vm.EndDay);
+            bindingSet.Bind(View.EndMonthLabel)
+                .For(v => v.TextBinding())
+                .To(vm => vm.ShortEndMonth);
+            bindingSet.Bind(View.EndYearLabel)
+                .For(v => v.TextBinding())
+                .To(vm => vm.EndYear);
+
             bindingSet.Bind(View.VacationStatusSelector)
                 .For(v => v.SelectedSegmentAndValueChangedBinding())
                 .To(vm => vm.VacationStatus)
                 .WithConversion<VacationStatusValueConverter>();
+
+            bindingSet.Bind(View.DatePicker)
+                .For(v => v.HiddenBinding())
+                .To(vm => vm.PickerVisible)
+                .WithConversion<InvertValueConverter>();
+
+            bindingSet.Bind(View.StartControl)
+                  .For(v => v.TouchUpInsideBinding())
+                  .To(vm => vm.StartPickerCommand);
+
+            bindingSet.Bind(View.EndControl)
+                  .For(v => v.TouchUpInsideBinding())
+                  .To(vm => vm.EndPickerCommand);
+
+            bindingSet.Bind(View.DatePicker)
+                .For(v => v.DateAndValueChangedBinding())
+                .To(vm => vm.PickerValue)
+                .WithConversion<DatePickerDateValueConverter>();
         }
 
         public override void ViewDidLoad()

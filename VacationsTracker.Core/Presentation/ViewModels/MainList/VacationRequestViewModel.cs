@@ -54,7 +54,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
 
         public string StartDay => $"{Start.Day}";
 
-        public string ShortStartMonth => GetAbbreviatedEnUsMonthName(Start);
+        public string ShortStartMonth => Start.GetAbbreviatedEnUsMonthName();
 
         public string ShortStart => $"{ShortStartMonth} {Start.Day}";
 
@@ -76,7 +76,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
 
         public string EndDay => $"{End.Day}";
 
-        public string ShortEndMonth => GetAbbreviatedEnUsMonthName(End);
+        public string ShortEndMonth => End.GetAbbreviatedEnUsMonthName();
 
         public string ShortEnd => $"{ShortEndMonth} {End.Day}";
 
@@ -115,12 +115,6 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
         {
             get => _created;
             set => SetValue(ref _created, value);
-        }
-
-        public IEnumerable<DateTime> GetVacationRange()
-        {
-            yield return Start;
-            yield return End;
         }
 
         public void GetDataFrom(VacationRequest vacationRequest)
@@ -165,13 +159,6 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
             {
                 SetDefault(createNewGuid: true);
             }
-        }
-
-        public static string GetAbbreviatedEnUsMonthName(DateTime dateTime)
-        {
-            var culture = CultureInfo.GetCultureInfo("en-US");
-            var dateTimeInfo = DateTimeFormatInfo.GetInstance(culture);
-            return dateTimeInfo.GetAbbreviatedMonthName(dateTime.Month).ToUpper();
         }
 
         private void SetDefault(bool createNewGuid = false)

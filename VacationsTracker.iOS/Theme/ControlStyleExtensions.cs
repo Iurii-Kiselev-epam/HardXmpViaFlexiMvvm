@@ -86,7 +86,6 @@ namespace VacationsTracker.iOS.Theme
             button.SetTitleColor(UIColor.White, UIControlState.Normal);
             button.Layer.CornerRadius = 10;
             button.Layer.MasksToBounds = true;
-            //button.AddConstraints(button.Height().EqualTo(AppTheme.Current.Dimens.ButtonDefaultHeight));
             button.BackgroundColor = AppTheme.Current.Colors.Bright;
             return button;
         }
@@ -103,6 +102,13 @@ namespace VacationsTracker.iOS.Theme
             activityIndicator.AddConstraints(activityIndicator.Width().EqualTo(AppTheme.Current.Dimens.Inset4x));
 
             return activityIndicator;
+        }
+
+        public static UIView SetSplitterStyle(this UIView splitter)
+        {
+            splitter.BackgroundColor = AppTheme.Current.Colors.Bright;
+            splitter.AddConstraints(splitter.Height().EqualTo(AppTheme.Current.Dimens.LineSpacing));
+            return splitter;
         }
 
         public static UIBarButtonItem SetBarButtonItemStyle(this UIBarButtonItem barButtonItem)
@@ -161,11 +167,61 @@ namespace VacationsTracker.iOS.Theme
             }, UIControlState.Selected);
             segmentedControl.SetTitleTextAttributes(new UITextAttributes
             {
-                Font = AppTheme.Current.Fonts.CellLarge,
+                Font = AppTheme.Current.Fonts.Cell,
                 TextColor = UIColor.DarkGray
             }, UIControlState.Normal);
 
             return segmentedControl;
+        }
+
+        public static UIDatePicker SetDatePickerStyle(this UIDatePicker datePicker)
+        {
+            datePicker.TintColor = AppTheme.Current.Colors.Bright;
+            datePicker.BackgroundColor = UIColor.Clear;
+            datePicker.Mode = UIDatePickerMode.Date;
+            return datePicker;
+        }
+
+        private static UIColor GetDateColor(bool isEnd) =>
+            isEnd ? AppTheme.Current.Colors.DateGreen : AppTheme.Current.Colors.Bright;
+
+        public static UILabel SetDayTextStyle(this UILabel label, bool isEnd = false)
+        {
+            if (label == null)
+            {
+                throw new ArgumentNullException(nameof(label));
+            }
+            label.Font = AppTheme.Current.Fonts.Day;
+            label.TextColor = GetDateColor(isEnd);
+            label.BackgroundColor = UIColor.Clear;
+            label.Lines = 1;
+            return label;
+        }
+
+        public static UILabel SetMonthTextStyle(this UILabel label, bool isEnd = false)
+        {
+            if (label == null)
+            {
+                throw new ArgumentNullException(nameof(label));
+            }
+            label.Font = AppTheme.Current.Fonts.Month;
+            label.TextColor = GetDateColor(isEnd);
+            label.BackgroundColor = UIColor.Clear;
+            label.Lines = 1;
+            return label;
+        }
+
+        public static UILabel SetYearTextStyle(this UILabel label, bool isEnd = false)
+        {
+            if (label == null)
+            {
+                throw new ArgumentNullException(nameof(label));
+            }
+            label.Font = AppTheme.Current.Fonts.Year;
+            label.TextColor = GetDateColor(isEnd);
+            label.BackgroundColor = UIColor.Clear;
+            label.Lines = 1;
+            return label;
         }
     }
 }
