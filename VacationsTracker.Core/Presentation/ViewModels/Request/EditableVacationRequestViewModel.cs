@@ -17,6 +17,8 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Request
         private bool _progressVisible;
         private bool _pickerVisible;
         private bool _isEndEditMode;
+        private DateTime _minValue;
+        private DateTime _maxValue;
 
         /// <summary>
         /// ctor() for details view.
@@ -39,6 +41,18 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Request
                     VacationReason = vt
                 }));
             VacationTypesCount = AllValueableVacationTypes.Count;
+        }
+
+        public DateTime MinValue
+        {
+            get => _minValue;
+            set => SetValue(ref _minValue, value);
+        }
+
+        public DateTime MaxValue
+        {
+            get => _maxValue;
+            set => SetValue(ref _maxValue, value);
         }
 
         /// <summary>
@@ -74,10 +88,18 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Request
                 if (IsEndEditMode)
                 {
                     End = value;
+                    if (Start > End)
+                    {
+                        Start = End;
+                    }
                 }
                 else
                 {
                     Start = value;
+                    if (End < Start)
+                    {
+                        End = Start;
+                    }
                 }
                 RaisePropertyChanged(nameof(PickerValue));
             }
@@ -165,14 +187,20 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Request
         {
             PickerVisible = true;
             IsEndEditMode = false;
+
             PickerValue = Start;
+            MinValue = PickerValue.AddYears(-1);
+            MaxValue = PickerValue.AddYears(1);
         }
 
         private void EndPicker()
         {
             PickerVisible = true;
             IsEndEditMode = true;
+
             PickerValue = End;
+            MinValue = Start;
+            MaxValue = PickerValue.AddYears(1);
         }
     }
 }

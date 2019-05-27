@@ -109,6 +109,14 @@ namespace VacationsTracker.iOS.Views.Request
                 .For(v => v.DateAndValueChangedBinding())
                 .To(vm => vm.PickerValue)
                 .WithConversion<DatePickerDateValueConverter>();
+            bindingSet.Bind(View.DatePicker)
+                .For(v => v.MinimumDateBinding())
+                .To(vm => vm.MinValue)
+                .WithConversion<DatePickerDateValueConverter>();
+            bindingSet.Bind(View.DatePicker)
+                .For(v => v.MaximumDateBinding())
+                .To(vm => vm.MaxValue)
+                .WithConversion<DatePickerDateValueConverter>();
         }
 
         public override void ViewDidLoad()
