@@ -93,7 +93,6 @@
     <Compile Include="Views\Profile\RequestFilterViewCell.cs" />
     <Compile Include="Views\Request\RequestView.cs" />
     <Compile Include="Views\Request\RequestViewController.cs" />
-    <Compile Include="Views\Request\VacationDateView.cs" />
     <Compile Include="Views\Request\VacationTypeView.cs" />
     <Compile Include="Views\Request\VacationTypeViewController.cs" />
     <Compile Include="Views\RootNavigationController.cs" />
