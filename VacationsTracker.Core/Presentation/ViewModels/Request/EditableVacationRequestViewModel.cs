@@ -185,22 +185,24 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Request
 
         private void StartPicker()
         {
-            PickerVisible = true;
+            PickerVisible = false;
             IsEndEditMode = false;
 
             PickerValue = Start;
             MinValue = PickerValue.AddYears(-1);
             MaxValue = PickerValue.AddYears(1);
+            PickerVisible = true;
         }
 
         private void EndPicker()
         {
-            PickerVisible = true;
+            PickerVisible = false;
             IsEndEditMode = true;
 
             PickerValue = End;
             MinValue = Start;
             MaxValue = PickerValue.AddYears(1);
+            PickerVisible = true;
         }
     }
 }
