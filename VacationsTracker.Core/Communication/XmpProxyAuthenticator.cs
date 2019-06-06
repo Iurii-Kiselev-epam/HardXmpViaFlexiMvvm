@@ -16,7 +16,7 @@ namespace VacationsTracker.Core.Communication
         /// <summary>
         /// Authenticates the user and adds Bearer token to the http client
         /// </summary>
-        public static async Task Authenticate(this HttpClient httpClient,
+        public static async Task AuthenticateAsync(this HttpClient httpClient,
             string login, string passw, string vtsIdentityUrl)
         {
             if (httpClient == null)

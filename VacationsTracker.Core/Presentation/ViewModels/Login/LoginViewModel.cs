@@ -1,4 +1,5 @@
 ﻿using FlexiMvvm.Commands;
+using FlexiMvvm.Operations;
 using FlexiMvvm.ViewModels;
 using System;
 using System.Threading.Tasks;
@@ -6,6 +7,7 @@ using System.Windows.Input;
 using VacationsTracker.Core.Communication;
 using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Navigation;
+using VacationsTracker.Core.Resources;
 
 namespace VacationsTracker.Core.Presentation.ViewModels.Login
 {
@@ -13,6 +15,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
     {
         private readonly INavigationService _navigationService;
         private readonly IXmpProxy _xmpProxy;
+        private readonly IOperationFactory _operationFactory;
         private string _login;
         private string _loginError;
         private string _password;
@@ -23,15 +26,17 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
 
         public LoginViewModel(
             INavigationService navigationService,
-            IXmpProxy xmpProxy)
+            IXmpProxy xmpProxy,
+            IOperationFactory operationFactory)
         {
             _navigationService = navigationService ?? throw new ArgumentNullException(nameof(navigationService));
             _xmpProxy = xmpProxy ?? throw new ArgumentNullException(nameof(xmpProxy));
+            _operationFactory = operationFactory ?? throw new ArgumentNullException(nameof(operationFactory));
             SignInVisible = true;
 
 #if DEBUG
-            Login = UserConstants.Default.Login;
-            Password = UserConstants.Default.Password;
+            Login = UserSecrets.Default.Login;
+            Password = UserSecrets.Default.Password;
             ErrorMessageVisible = false;
 #endif
         }
@@ -93,42 +98,37 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
 
         public ICommand SignInCommand => CommandProvider.GetForAsync(SignIn);
 
-        private async Task SignIn()
+        private Task SignIn()
         {
             if (string.IsNullOrWhiteSpace(Login)
                 || string.IsNullOrWhiteSpace(Password))
             {
                 // TODO: include fluent validation
-                ErrorMessage = UserConstants.Errors.InvalidErrorMessage;
-                await Task.CompletedTask;
-                return;
+                ErrorMessage = Strings.Invalid_Error_Message;
+                return Task.CompletedTask;
             }
 
-            try
-            {
-                SignInVisible = false;
+            SignInVisible = false;
 
-                await _xmpProxy.Authenticate(Login, Password);
-                _navigationService.NavigateToMainList(this);
-            }
-            catch(AuthenticationException authExc)
-            {
-                // TODO: use authExc to log error
-                ErrorMessage = UserConstants.Errors.AuthErrorMessage;
-                SignInVisible = true;
-            }
-            catch (CommunicationException cmnExc)
-            {
-                // TODO: use cmnExc to log error
-                ErrorMessage = UserConstants.Errors.CommunicationErrorMessage;
-                SignInVisible = true;
-            }
-            catch (Exception ex)
-            {
-                // TODO: use ex to log error
-                ErrorMessage = UserConstants.Errors.UnexpectedErrorMessage;
-                SignInVisible = true;
-            }
+            return _operationFactory.Create(this)
+                .WithExpressionAsync(_ => _xmpProxy.AuthenticateAsync(Login, Password))
+                .OnSuccess(_ => _navigationService.NavigateToMainList(this))
+                .OnError<AuthenticationException>(_ =>
+                {
+                    ErrorMessage = Strings.Auth_Error_Message;
+                    SignInVisible = true;
+                })
+                .OnError<CommunicationException>(_ =>
+                {
+                    ErrorMessage = Strings.Communication_Error_Message;
+                    SignInVisible = true;
+                })
+                .OnError<Exception>(_ =>
+                {
+                    ErrorMessage = Strings.Unexpected_Error_Message;
+                    SignInVisible = true;
+                })
+                .ExecuteAsync();
         }
 
         public override void Initialize()
@@ -136,6 +136,10 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
             base.Initialize();
 
             //TODO login view initialization
+            // ....
+
+            // temporary
+            //ErrorMessage = "Please, retry your login and password pair. Check current Caps Lock and input language settings";
         }
     }
 }

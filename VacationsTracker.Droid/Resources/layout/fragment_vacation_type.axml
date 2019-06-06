@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+    <ImageView
+        android:id="@+id/image_view_widget"
+        android:layout_width="@dimen/medium_cell_default_height"
+        android:layout_height="@dimen/medium_cell_default_height"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:scaleType="centerCrop" />
+    <TextView
+        android:id="@+id/vacation_type_text_view"
+        android:layout_below="@id/image_view_widget"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/inset4x"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:text="Regular"
+        style="@style/EditTextTheme" />
+</RelativeLayout>

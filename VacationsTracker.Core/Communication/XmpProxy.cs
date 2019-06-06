@@ -1,6 +1,8 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Infrastructure;
 
 namespace VacationsTracker.Core.Communication
@@ -26,13 +28,28 @@ namespace VacationsTracker.Core.Communication
             //_logger = log.GetLogger(nameof(XmpProxy));
         }
 
-        public async Task Authenticate(string login, string passw)
+        public async Task AuthenticateAsync(string login, string passw)
         {
             //await _logger.Verbose(() => "Authenticating...");
 
-            await _httpClient.Authenticate(login, passw, _appSettings.VtsIdentityServiceUrl);
-            
+            await _httpClient.AuthenticateAsync(login, passw, _appSettings.VtsIdentityServiceUrl);
+
             //await _logger.Verbose(() => "Authenticated");
+        }
+
+        public async Task<IEnumerable<VacationRequest>> GetRequestsAsync(RequestFilters filters = RequestFilters.All)
+        {
+            var listResult = await VtsVacationGetListAsync();
+            var vacations = listResult.Result;
+            switch(filters)
+            {
+                case RequestFilters.Closed:
+                    return vacations.Where(v => v.VacationStatus == VacationStatus.Closed);
+                case RequestFilters.Open:
+                    return vacations.Where(v => v.VacationStatus != VacationStatus.Closed);
+                default:
+                    return vacations;
+            }
         }
 
         public void Dispose()

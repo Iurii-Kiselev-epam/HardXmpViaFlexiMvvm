@@ -62,11 +62,41 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Bootstrappers\IosBootstrapper.cs" />
+    <Compile Include="Infrastructure\Bindings\TableViewBindableItemCellBindings.cs" />
+    <Compile Include="Infrastructure\Bindings\UIActivityIndicatorViewBindings.cs" />
+    <Compile Include="Infrastructure\Bindings\UIImageViewBindings.cs" />
+    <Compile Include="Infrastructure\Dialogs\DialogService.cs" />
+    <Compile Include="Infrastructure\Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Infrastructure\Extensions\ImageViewExtensions.cs" />
+    <Compile Include="Infrastructure\Extensions\WeakSubscriptionExtensions.cs" />
+    <Compile Include="Infrastructure\ValueConverters\CheckmarkAccessoryValueConverter.cs" />
+    <Compile Include="Infrastructure\ValueConverters\DatePickerDateValueConverter.cs" />
+    <Compile Include="Infrastructure\ValueConverters\VacationStatusValueConverter.cs" />
+    <Compile Include="Infrastructure\ValueConverters\VacationTypeCurrentItemNintConverter.cs" />
+    <Compile Include="Infrastructure\ValueConverters\VacationTypeImageIdConverter.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Theme\AppTheme.cs" />
+    <Compile Include="Theme\AppThemeColors.cs" />
+    <Compile Include="Theme\AppThemeDimens.cs" />
+    <Compile Include="Theme\AppThemeFonts.cs" />
+    <Compile Include="Theme\ControlStyleExtensions.cs" />
+    <Compile Include="Views\Home\MainListView.cs" />
+    <Compile Include="Views\Home\MainListViewControlller.cs" />
+    <Compile Include="Views\Home\VacationRequestView.cs" />
+    <Compile Include="Views\Home\VacationRequestViewCell.cs" />
     <Compile Include="Views\Login\LoginView.cs" />
     <Compile Include="Views\Login\LoginViewController.cs" />
+    <Compile Include="Views\Profile\ProfileView.cs" />
+    <Compile Include="Views\Profile\ProfileViewController.cs" />
+    <Compile Include="Views\Profile\RequestFilterView.cs" />
+    <Compile Include="Views\Profile\RequestFilterViewCell.cs" />
+    <Compile Include="Views\Request\RequestView.cs" />
+    <Compile Include="Views\Request\RequestViewController.cs" />
+    <Compile Include="Views\Request\VacationTypeView.cs" />
+    <Compile Include="Views\Request\VacationTypeViewController.cs" />
     <Compile Include="Views\RootNavigationController.cs" />
+    <None Include="app.config" />
     <None Include="Info.plist" />
     <Compile Include="Navigation\NavigationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,8 +126,18 @@
     <Reference Include="FlexiMvvm.Lifecycle, Version=0.10.6.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FlexiMvvm.Lifecycle.PreRelease.0.10.6-prerelease\lib\xamarinios10\FlexiMvvm.Lifecycle.dll</HintPath>
     </Reference>
+    <Reference Include="IdentityModel, Version=3.10.10.0, Culture=neutral, PublicKeyToken=e7877f4675df049f, processorArchitecture=MSIL">
+      <HintPath>..\packages\IdentityModel.3.10.10\lib\netstandard2.0\IdentityModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="OpenTK-1.0" />
     <Reference Include="System" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.5.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.Essentials, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -148,9 +188,56 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Avatar.imageset\Avatar_Ark.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Icon_Request_Blue.imageset\Icon_Request_Blue.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Icon_Request_Dark.imageset\Icon_Request_Dark.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Icon_Request_Gray.imageset\Icon_Request_Gray.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Icon_Request_Green.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Icon_Request_Green.imageset\Icon_Request_Green.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Icon_Request_Plum.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Icon_Request_Plum.imageset\Icon_Request_Plum.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Icon_Request_Dark.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Icon_Request_Blue.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Icon_Request_Gray.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Avatar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LoginBackground.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LoginBackground.imageset\Login_bg.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\SplashLogo.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\SplashLogo.imageset\Splash_bg.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Infrastructure\" />
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>

@@ -22,7 +22,7 @@ namespace VacationsTracker.Core.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Strings {
+    public class Strings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace VacationsTracker.Core.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("VacationsTracker.Core.Resources.Strings", typeof(Strings).Assembly);
@@ -51,7 +51,7 @@ namespace VacationsTracker.Core.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,9 +61,234 @@ namespace VacationsTracker.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string Action_Settings {
+            get {
+                return ResourceManager.GetString("Action_Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All Requests.
+        /// </summary>
+        public static string All_Requests {
+            get {
+                return ResourceManager.GetString("All_Requests", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All.
+        /// </summary>
+        public static string All_Requests_Shortcut {
+            get {
+                return ResourceManager.GetString("All_Requests_Shortcut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VacationsTracker.Android.
+        /// </summary>
+        public static string Android_App_Name {
+            get {
+                return ResourceManager.GetString("Android_App_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login and password pair looks not correct. Please, retry them. Check current Caps Lock and input language settings.
+        /// </summary>
+        public static string Auth_Error_Message {
+            get {
+                return ResourceManager.GetString("Auth_Error_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Closed Requests.
+        /// </summary>
+        public static string Closed_Requests {
+            get {
+                return ResourceManager.GetString("Closed_Requests", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Closed.
+        /// </summary>
+        public static string Closed_Requests_Shortcut {
+            get {
+                return ResourceManager.GetString("Closed_Requests_Shortcut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Communication error. Please retry later.
+        /// </summary>
+        public static string Communication_Error_Message {
+            get {
+                return ResourceManager.GetString("Communication_Error_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Requests.
+        /// </summary>
+        public static string Home_Tab_List {
+            get {
+                return ResourceManager.GetString("Home_Tab_List", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Profile.
+        /// </summary>
+        public static string Home_Tab_Profile {
+            get {
+                return ResourceManager.GetString("Home_Tab_Profile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login and password pair is invalid.
+        /// </summary>
+        public static string Invalid_Error_Message {
+            get {
+                return ResourceManager.GetString("Invalid_Error_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        public static string Login_Hint {
+            get {
+                return ResourceManager.GetString("Login_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open Requests.
+        /// </summary>
+        public static string Open_Requests {
+            get {
+                return ResourceManager.GetString("Open_Requests", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open.
+        /// </summary>
+        public static string Open_Requests_Shortcut {
+            get {
+                return ResourceManager.GetString("Open_Requests_Shortcut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string Password_Hint {
+            get {
+                return ResourceManager.GetString("Password_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Arkadiy Dobkin.
+        /// </summary>
+        public static string Profile_Name {
+            get {
+                return ResourceManager.GetString("Profile_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string Request_Save {
+            get {
+                return ResourceManager.GetString("Request_Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Request.
+        /// </summary>
+        public static string Request_Title {
+            get {
+                return ResourceManager.GetString("Request_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SIGN IN.
+        /// </summary>
+        public static string Sign_In_Button_Text {
+            get {
+                return ResourceManager.GetString("Sign_In_Button_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unexpected error during authentification. Please retry later.
+        /// </summary>
+        public static string Unexpected_Error_Message {
+            get {
+                return ResourceManager.GetString("Unexpected_Error_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Approved.
+        /// </summary>
+        public static string VacationStatus_Approved {
+            get {
+                return ResourceManager.GetString("VacationStatus_Approved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Closed.
+        /// </summary>
+        public static string VacationStatus_Closed {
+            get {
+                return ResourceManager.GetString("VacationStatus_Closed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Draft.
+        /// </summary>
+        public static string VacationStatus_Draft {
+            get {
+                return ResourceManager.GetString("VacationStatus_Draft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to InProgress.
+        /// </summary>
+        public static string VacationStatus_InProgress {
+            get {
+                return ResourceManager.GetString("VacationStatus_InProgress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submitted.
+        /// </summary>
+        public static string VacationStatus_Submitted {
+            get {
+                return ResourceManager.GetString("VacationStatus_Submitted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exceptional Leave.
         /// </summary>
-        internal static string VacationType_Exceptional {
+        public static string VacationType_Exceptional {
             get {
                 return ResourceManager.GetString("VacationType_Exceptional", resourceCulture);
             }
@@ -72,18 +297,45 @@ namespace VacationsTracker.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Leave without Pay.
         /// </summary>
-        internal static string VacationType_LeaveWithoutPay {
+        public static string VacationType_LeaveWithoutPay {
             get {
                 return ResourceManager.GetString("VacationType_LeaveWithoutPay", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Overtime.
+        /// </summary>
+        public static string VacationType_Overtime {
+            get {
+                return ResourceManager.GetString("VacationType_Overtime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Regular.
+        /// </summary>
+        public static string VacationType_Regular {
+            get {
+                return ResourceManager.GetString("VacationType_Regular", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sick days.
         /// </summary>
-        internal static string VacationType_Sick {
+        public static string VacationType_Sick {
             get {
                 return ResourceManager.GetString("VacationType_Sick", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Undefined.
+        /// </summary>
+        public static string VacationType_Undefined {
+            get {
+                return ResourceManager.GetString("VacationType_Undefined", resourceCulture);
             }
         }
     }

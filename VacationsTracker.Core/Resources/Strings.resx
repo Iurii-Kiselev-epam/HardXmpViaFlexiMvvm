@@ -117,13 +117,97 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Action_Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="All_Requests" xml:space="preserve">
+    <value>All Requests</value>
+  </data>
+  <data name="All_Requests_Shortcut" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="Android_App_Name" xml:space="preserve">
+    <value>VacationsTracker.Android</value>
+  </data>
+  <data name="Auth_Error_Message" xml:space="preserve">
+    <value>Login and password pair looks not correct. Please, retry them. Check current Caps Lock and input language settings</value>
+  </data>
+  <data name="Closed_Requests" xml:space="preserve">
+    <value>Closed Requests</value>
+  </data>
+  <data name="Closed_Requests_Shortcut" xml:space="preserve">
+    <value>Closed</value>
+  </data>
+  <data name="Communication_Error_Message" xml:space="preserve">
+    <value>Communication error. Please retry later</value>
+  </data>
+  <data name="Home_Tab_List" xml:space="preserve">
+    <value>Requests</value>
+  </data>
+  <data name="Home_Tab_Profile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="Invalid_Error_Message" xml:space="preserve">
+    <value>Login and password pair is invalid</value>
+  </data>
+  <data name="Login_Hint" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Open_Requests" xml:space="preserve">
+    <value>Open Requests</value>
+  </data>
+  <data name="Open_Requests_Shortcut" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="Password_Hint" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Profile_Name" xml:space="preserve">
+    <value>Arkadiy Dobkin</value>
+  </data>
+  <data name="Request_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Request_Title" xml:space="preserve">
+    <value>Request</value>
+  </data>
+  <data name="Sign_In_Button_Text" xml:space="preserve">
+    <value>SIGN IN</value>
+  </data>
+  <data name="Unexpected_Error_Message" xml:space="preserve">
+    <value>Unexpected error during authentification. Please retry later</value>
+  </data>
+  <data name="VacationStatus_Approved" xml:space="preserve">
+    <value>Approved</value>
+  </data>
+  <data name="VacationStatus_Closed" xml:space="preserve">
+    <value>Closed</value>
+  </data>
+  <data name="VacationStatus_Draft" xml:space="preserve">
+    <value>Draft</value>
+  </data>
+  <data name="VacationStatus_InProgress" xml:space="preserve">
+    <value>InProgress</value>
+  </data>
+  <data name="VacationStatus_Submitted" xml:space="preserve">
+    <value>Submitted</value>
+  </data>
   <data name="VacationType_Exceptional" xml:space="preserve">
     <value>Exceptional Leave</value>
   </data>
   <data name="VacationType_LeaveWithoutPay" xml:space="preserve">
     <value>Leave without Pay</value>
   </data>
+  <data name="VacationType_Overtime" xml:space="preserve">
+    <value>Overtime</value>
+  </data>
+  <data name="VacationType_Regular" xml:space="preserve">
+    <value>Regular</value>
+  </data>
   <data name="VacationType_Sick" xml:space="preserve">
     <value>Sick days</value>
+  </data>
+  <data name="VacationType_Undefined" xml:space="preserve">
+    <value>Undefined</value>
   </data>
 </root>

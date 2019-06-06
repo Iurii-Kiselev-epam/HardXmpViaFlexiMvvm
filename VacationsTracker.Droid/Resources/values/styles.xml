@@ -1,0 +1,82 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowActionBar">true</item>
+    </style>
+
+    <style name="SplashTheme" parent="BaseTheme">
+      <item name="android:windowBackground">@drawable/splash_screen</item>
+    </style>
+
+    <style name="LoginTheme" parent="BaseTheme">
+        <item name="android:windowBackground">@drawable/login_screen</item>
+    </style>
+
+    <style name="MainListTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@color/colorMsgBkgnd</item>
+    </style>
+
+    <style name="BaseTextTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/text_padding</item>
+    </style>
+
+    <style name="BaseCellTextTheme" parent="BaseTextTheme">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="EditTextTheme" parent="BaseTextTheme">
+        <item name="android:textSize">@dimen/input1_text_size</item>
+        <item name="android:padding">@dimen/text_padding</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:background">@color/colorWhite</item>
+        <item name="android:textColorHint">@color/grayText</item>
+    </style>
+
+    <style name="ErrorMsgTheme" parent="BaseTextTheme">
+        <item name="android:textSize">@dimen/msg_text_size</item>
+        <item name="android:background">@color/colorMsgBkgnd</item>
+        <item name="android:textColor">@color/colorDarkRed</item>
+    </style>
+
+    <style name="CellDateTheme" parent="BaseCellTextTheme">
+        <item name="android:textSize">@dimen/cell_large_text_size</item>
+        <item name="android:textColor">@color/colorBright</item>
+    </style>
+
+    <style name="GreenDateTheme" parent="CellDateTheme">
+        <item name="android:textColor">@color/dateGreen</item>
+    </style>
+
+    <style name="CellTextTheme" parent="BaseCellTextTheme">
+        <item name="android:textSize">@dimen/cell_text_size</item>
+        <item name="android:textColor">@color/primaryDark</item>
+    </style>
+
+    <style name="MyDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:datePickerStyle">@style/MyDatePicker</item>
+    </style>
+
+    <style name="MyDatePicker" parent="@android:style/Widget.Material.DatePicker">
+        <item name="android:datePickerMode">calendar</item>
+    </style>
+
+    <style name="CustomDatePickerDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:dialogTheme">@style/MyDialogTheme</item>
+        <item name="android:datePickerStyle">@style/MyDatePicker</item>
+    </style>
+
+</resources>

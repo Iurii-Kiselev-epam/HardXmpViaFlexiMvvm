@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <!--Text sizes-->
+    <dimen name="input1_text_size">16sp</dimen>
+    <dimen name="cell_large_text_size">13sp</dimen>
+    <dimen name="cell_text_size">11sp</dimen>
+    <dimen name="msg_text_size">11sp</dimen>
+    <dimen name="text_padding">4dp</dimen>
+    <dimen name="day_size">36sp</dimen>
+    <dimen name="month_size">18sp</dimen>
+    <dimen name="year_size">12sp</dimen>
+
+    <!--Default Sizes-->
+    <dimen name="inset1x">8dp</dimen>
+    <dimen name="inset2x">16dp</dimen>
+    <dimen name="inset3x">24dp</dimen>
+    <dimen name="inset4x">32dp</dimen>
+    <dimen name="inset5x">40dp</dimen>
+    <dimen name="inset6x">48dp</dimen>
+    <dimen name="inset7x">56dp</dimen>
+    <dimen name="inset8x">64dp</dimen>
+    <dimen name="inset9x">72dp</dimen>
+    <dimen name="medium_cell_default_height">48dp</dimen>
+    <dimen name="medium_avatar_height">160dp</dimen>
+    <dimen name="pager_default_height">84dp</dimen>
+</resources>

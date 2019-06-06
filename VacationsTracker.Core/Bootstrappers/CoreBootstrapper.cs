@@ -1,5 +1,6 @@
 ﻿using FlexiMvvm.Bootstrappers;
 using FlexiMvvm.Ioc;
+using FlexiMvvm.Operations;
 using FlexiMvvm.ViewModels;
 using VacationsTracker.Core.Application.Connectivity;
 using VacationsTracker.Core.Communication;
@@ -9,6 +10,8 @@ using VacationsTracker.Core.Navigation;
 using VacationsTracker.Core.Presentation.ViewModels;
 using VacationsTracker.Core.Presentation.ViewModels.Login;
 using VacationsTracker.Core.Presentation.ViewModels.MainList;
+using VacationsTracker.Core.Presentation.ViewModels.Profile;
+using VacationsTracker.Core.Presentation.ViewModels.Request;
 using Connectivity = VacationsTracker.Core.Infrastructure.Connectivity.Connectivity;
 
 namespace VacationsTracker.Core.Bootstrappers
@@ -29,12 +32,22 @@ namespace VacationsTracker.Core.Bootstrappers
             simpleIoc.Register<IConnectivity>(() =>
                 Connectivity.Instance);
             simpleIoc.Register<IConnectivityService>(() =>
-                new ConnectivityService(simpleIoc.Get<IConnectivity>()), Reuse.Singleton);
+                new ConnectivityService(simpleIoc.Get<IConnectivity>()),
+                Reuse.Singleton);
 
             simpleIoc.Register<IAppSettings>(() =>
                 new AppSettings(), Reuse.Singleton);
             simpleIoc.Register<IXmpProxy>(() =>
-                new XmpProxy(simpleIoc.Get<IAppSettings>()), Reuse.Singleton);
+                new XmpProxy(simpleIoc.Get<IAppSettings>()),
+                Reuse.Singleton);
+
+            simpleIoc.Register<IErrorHandler>(() =>
+                new ErrorHandler(simpleIoc.Get<IDialogService>()),
+                Reuse.Singleton);
+
+            simpleIoc.Register<IOperationFactory>(
+                () => new OperationFactory(simpleIoc, simpleIoc.Get<IErrorHandler>()),
+                Reuse.Singleton);
         }
 
         private void SetupViewModelLocator(ISimpleIoc simpleIoc)
@@ -44,15 +57,20 @@ namespace VacationsTracker.Core.Bootstrappers
             simpleIoc.Register(() =>
                 new LoginViewModel(
                     simpleIoc.Get<INavigationService>(),
-                    simpleIoc.Get<IXmpProxy>()));
+                    simpleIoc.Get<IXmpProxy>(),
+                    simpleIoc.Get<IOperationFactory>()));
             simpleIoc.Register(() =>
                 new MainListViewModel(
                     simpleIoc.Get<INavigationService>(),
-                    simpleIoc.Get<IXmpProxy>()));
+                    simpleIoc.Get<IXmpProxy>(),
+                    simpleIoc.Get<IOperationFactory>()));
             simpleIoc.Register(() =>
-                new VacationRequestViewModel(
+                new EditableVacationRequestViewModel(
                     simpleIoc.Get<INavigationService>(),
                     simpleIoc.Get<IXmpProxy>()));
+            simpleIoc.Register(() =>
+                new ProfileViewModel(simpleIoc.Get<INavigationService>()));
+            simpleIoc.Register(() => new VacationTypeViewModel());
         }
 
         private void SetupViewModelProvider(IDependencyProvider dependencyProvider)

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:alwaysDrawnWithCache="false">
+
+    <TextView
+        android:id="@+id/error_text_view"
+        android:text="Please, retry your login and password pair. Check current Caps Lock and input language settings"
+        android:layout_marginTop="@dimen/inset8x"
+        android:layout_marginLeft="@dimen/inset4x"
+        android:layout_marginRight="@dimen/inset4x"
+        style="@style/ErrorMsgTheme"/>
+    <EditText
+        android:id="@+id/login_edit_text"
+        android:layout_below="@id/error_text_view"
+        android:layout_marginTop="@dimen/inset2x"
+        android:layout_marginLeft="@dimen/inset4x"
+        android:layout_marginRight="@dimen/inset4x"
+        style="@style/EditTextTheme"
+        android:hint="@string/login_hint" />
+    <EditText
+        android:id="@+id/password_edit_text"
+        android:layout_below="@id/login_edit_text"
+        android:layout_marginTop="@dimen/inset2x"
+        android:layout_marginLeft="@dimen/inset4x"
+        android:layout_marginRight="@dimen/inset4x"
+        style="@style/EditTextTheme"
+        android:hint="@string/password_hint"
+        android:password="true" />
+    <Button
+        android:id="@+id/sign_in_button"
+        android:layout_below="@id/password_edit_text"
+        android:padding="4dp"
+        android:layout_marginTop="@dimen/inset2x"
+        android:layout_marginLeft="@dimen/inset7x"
+        android:layout_marginRight="@dimen/inset7x"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBright"
+        android:text="@string/sign_in_button_text"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/cell_large_text_size" />
+    <ProgressBar
+        android:id="@+id/progress_bar_widget"
+        android:layout_below="@id/sign_in_button"
+        android:indeterminate="true"
+        android:indeterminateTintMode="src_atop"
+        android:indeterminateTint="@color/colorBright"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/inset4x" />
+</RelativeLayout>

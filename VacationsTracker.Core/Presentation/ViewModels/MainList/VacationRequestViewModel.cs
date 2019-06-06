@@ -1,20 +1,15 @@
 ﻿using FlexiMvvm.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using VacationsTracker.Core.Communication;
 using VacationsTracker.Core.Domain;
-using VacationsTracker.Core.Navigation;
-using VacationsTracker.Core.Resources;
 
 namespace VacationsTracker.Core.Presentation.ViewModels.MainList
 {
-    public class VacationRequestViewModel : ViewModel
+    public class VacationRequestViewModel : ViewModel<VacationRequestParameters>
     {
-        private readonly INavigationService _navigationService;
-        private readonly IXmpProxy _xmpProxy;
-
         private Guid _id;
         private DateTime _start;
         private DateTime _end;
@@ -23,23 +18,9 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
         private string _createdBy;
         private DateTime _created;
 
-        /// <summary>
-        /// ctor() for details view.
-        /// </summary>
-        /// <param name="navigationService">navigation service</param>
-        /// <param name="xmpProxy">xmp service proxy</param>
-        public VacationRequestViewModel(
-            INavigationService navigationService,
-            IXmpProxy xmpProxy)
+        public VacationRequestViewModel()
         {
-            _navigationService = navigationService ?? throw new ArgumentNullException(nameof(navigationService));
-            _xmpProxy = xmpProxy ?? throw new ArgumentNullException(nameof(xmpProxy));
-
-            Id = Guid.Empty; //Guid.NewGuid();
-            Start = End = Created = DateTime.UtcNow;
-            VacationType = VacationType.Regular;
-            VacationStatus = VacationStatus.Draft;
-            CreatedBy = UserConstants.Default.Login;
+            SetDefault();
         }
 
         /// <summary>
@@ -58,47 +39,62 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
         public DateTime Start
         {
             get => _start;
-            set => SetValue(ref _start, value);
+            set
+            {
+                SetValue(ref _start, value);
+                RaisePropertyChanged(nameof(StartDay));
+                RaisePropertyChanged(nameof(ShortStartMonth));
+                RaisePropertyChanged(nameof(StartYear));
+                RaisePropertyChanged(nameof(DurationRange));
+                RaisePropertyChanged(nameof(ShortStart));
+            }
         }
 
-        public string ShortStartMonth => GetAbbreviatedEnUsMonthName(Start);
+        public string StartYear => $"{Start.Year}";
+
+        public string StartDay => $"{Start.Day}";
+
+        public string ShortStartMonth => Start.GetAbbreviatedEnUsMonthName();
 
         public string ShortStart => $"{ShortStartMonth} {Start.Day}";
 
         public DateTime End
         {
             get => _end;
-            set => SetValue(ref _end, value);
+            set
+            {
+                SetValue(ref _end, value);
+                RaisePropertyChanged(nameof(EndDay));
+                RaisePropertyChanged(nameof(ShortEndMonth));
+                RaisePropertyChanged(nameof(EndYear));
+                RaisePropertyChanged(nameof(DurationRange));
+                RaisePropertyChanged(nameof(ShortEnd));
+            }
         }
 
-        public string ShortEndMonth => GetAbbreviatedEnUsMonthName(End);
+        public string EndYear => $"{End.Year}";
+
+        public string EndDay => $"{End.Day}";
+
+        public string ShortEndMonth => End.GetAbbreviatedEnUsMonthName();
 
         public string ShortEnd => $"{ShortEndMonth} {End.Day}";
 
         public string DurationRange => $"{ShortStart} - {ShortEnd}";
 
-        public VacationType VacationType
+        public VacationType VacationReason
         {
             get => _vacationType;
-            set => SetValue(ref _vacationType, value);
+            set
+            {
+                SetValue(ref _vacationType, value);
+                RaisePropertyChanged(nameof(VacationTypeUI));
+            }
         }
 
         public string VacationTypeUI
         {
-            get
-            {
-                switch (VacationType)
-                {
-                    case VacationType.Sick:
-                        return Strings.VacationType_Sick;
-                    case VacationType.Exceptional:
-                        return Strings.VacationType_Exceptional;
-                    case VacationType.LeaveWithoutPay:
-                        return Strings.VacationType_LeaveWithoutPay;
-                    default:
-                        return VacationType.ToString();
-                }
-            }
+            get => VacationReason.GetVacationTypeUI();
         }
 
         public VacationStatus VacationStatus
@@ -107,7 +103,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
             set => SetValue(ref _vacationStatus, value);
         }
 
-        public string VacationStatusUI => VacationStatus.ToString();
+        public string VacationStatusUI => VacationStatus.GetVacationStatusUI();
 
         public string CreatedBy
         {
@@ -131,7 +127,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
             Id = vacationRequest.Id;
             Start = vacationRequest.Start;
             End = vacationRequest.End;
-            VacationType = vacationRequest.VacationType;
+            VacationReason = vacationRequest.VacationType;
             VacationStatus = vacationRequest.VacationStatus;
             CreatedBy = vacationRequest.CreatedBy;
             Created = vacationRequest.Created;
@@ -143,7 +139,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
                 Id = Id,
                 Start = Start,
                 End = End,
-                VacationType = VacationType,
+                VacationType = VacationReason,
                 VacationStatus = VacationStatus,
                 CreatedBy = CreatedBy,
                 Created = Created
@@ -155,41 +151,23 @@ namespace VacationsTracker.Core.Presentation.ViewModels.MainList
         public static implicit operator VacationRequestViewModel(VacationRequest vacRqst) =>
             new VacationRequestViewModel(vacRqst);
 
-        public ICommand SaveCommand => CommandProvider.GetForAsync(Save);
-
-        private async Task Save()
+        public override async Task InitializeAsync(VacationRequestParameters parameters)
         {
-            try
-            {
-                var vacationRequest = ToVacationRequest();
-                await _xmpProxy.VtsVacationUpsertAsync(vacationRequest);
+            await base.InitializeAsync(parameters);
 
-                // TODO: if operation suceeded
-                // navigate to main list
-                // ...
-            }
-            catch (AuthenticationException authExc)
+            if (parameters.RequestId == Guid.Empty)
             {
-                // TODO: use authExc to log error
-                //ErrorMessage = UserConstants.Errors.AuthErrorMessage;
-            }
-            catch (CommunicationException cmnExc)
-            {
-                // TODO: use cmnExc to log error
-                //ErrorMessage = UserConstants.Errors.CommunicationErrorMessage;
-            }
-            catch (Exception ex)
-            {
-                // TODO: use ex to log error
-                //ErrorMessage = UserConstants.Errors.UnexpectedErrorMessage;
+                SetDefault(createNewGuid: true);
             }
         }
 
-        public static string GetAbbreviatedEnUsMonthName(DateTime dateTime)
+        private void SetDefault(bool createNewGuid = false)
         {
-            var culture = CultureInfo.GetCultureInfo("en-US");
-            var dateTimeInfo = DateTimeFormatInfo.GetInstance(culture);
-            return dateTimeInfo.GetAbbreviatedMonthName(dateTime.Month).ToUpper();
+            Id = createNewGuid ? Guid.NewGuid() : Guid.Empty;
+            Start = End = Created = DateTime.UtcNow;
+            VacationReason = VacationType.Regular;
+            VacationStatus = VacationStatus.Draft;
+            CreatedBy = UserSecrets.Default.Login;
         }
     }
 }
